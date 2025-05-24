@@ -44,3 +44,4 @@ with LoanData as (
 			Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '00 months')
 )
 Select * from LoanData;
+

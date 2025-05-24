@@ -1,10 +1,4 @@
---Used to check the intervals to be selected
-select 	Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '73 months') ,
-		Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '60 months');
-	
---Bad rate Query used to extract from the Accounts DB
---This query can also now be changed to include data from sqlmig schema, to collect infor once.
-
+--Build in relation to Account mapping extract
 --Loan Detail Query, run only for period of max 6 months, due to memory pool exceptions.
 with ACC_Account as materialized (
 	select 	aa.*
@@ -53,9 +47,8 @@ with ACC_Account as materialized (
 				left outer join backoffice.sqlmig."CreditScore" cs 
 					on aam."ApplicationId"  = cs."ApplicationId"
 	where  	--TO_CHAR(aa."OpenDate", 'YYYYMM')  = '202412'
-		aa."OpenDate" between 
-		Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '00 months') and
-		Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '-1 months')
+		      --aa."OpenDate" between '2025-01-01' AND '2025-01-31'
+					aa."OpenDate" between '{STARTDATE}' AND '{ENDDATE}'
 	and    	aa."LoanType" = 'L'
 	and     aa."AccountId" = aam."AccountId"
 	and     aa."CreatedBy" = pc."PersonId" 
@@ -64,41 +57,73 @@ with ACC_Account as materialized (
 	and     aa."LoanStateReasonCode" = lsr."Code"
 	order by TO_CHAR(aa."OpenDate", 'YYYYMM')
 ),
+Application as (
+	Select  ac.*
+		--,	a."ApplicationId"
+		--,	a."AccountId"
+		,   b."BranchName" 
+		,	b2."Description" "Debtors_Bank"
+		,   ppp2."Description"  "Product"
+		,		case when ( q."IsRollOver") then 'Yes' else 'No' end "ROLLd_Loan"
+		,   case when ( a."IsGetOfferOverride") then 'Yes' ELSE 'No' end "CDE_Override"
+	from 	ACC_Account ac 
+					left outer join backoffice.sqlmig."Application" a 
+						on ac."ApplicationId" = a."ApplicationId"
+					left outer join backoffice.sqlmig."Branch" b
+						on	a."BranchId" = b."BranchId" 
+					left outer join backoffice.Sqlmig."BankDetail" bd 
+						on  a."BankDetailId"   = bd."BankDetailId"
+					left outer join backoffice.sqlmig."Bank" b2 
+						on  bd."BankId"  		 = b2."BankId"
+					left outer join backoffice.Sqlmig."Quotation" q 
+						on	a."QuotationId"    = q."QuotationId"
+					left outer join backoffice.public."PRD_Products" ppp2 
+						on	a."ProductId"      = ppp2."ProductId"
+),
 ACC_Schedules as materialized (
 	select 	as1.* 
-	from 	backoffice.public."ACC_Schedules" as1 , ACC_Account aa
+			,   case when ( as1."Duedate" <= date_trunc('DAY',now()) ) then 1 else 0 end "IsDue"
+			,   case when ( coalesce( date_trunc('DAY',as1."PaidDate"),date_trunc('DAY',now())) >  as1."Duedate" ) then 1 else 0 end "IsLate"
+			,		round(as1."Paid_Installment" / as1."Totalinstallment" * 100) "Installment_Paid_Perc"
+	from 	backoffice.public."ACC_Schedules" as1 , Application aa
 	where  	as1."AccountId" = aa."AccountId"
 	--and     aa."LoanStateReasonCode"  in ('H','W','D','I','P')
 	)
 ,
 ACC_Repayment as materialized (
 	select 	as1.* 
-	from 	backoffice.public."ACC_Repayment" as1, ACC_Account aa
+	from 	backoffice.public."ACC_Repayment" as1, Application aa
 	where  	as1."AccountId" = aa."AccountId"
 	--and     aa."LoanStateReasonCode"  in ('H','W','D','I','P')
 	),
 LoanDetail as materialized (
-	select 	aa."AccountId",aa."ApplicationId" , aa."AccountNo" , aa."AccountTypeId", aa."CreateDate" , aa."Consultant"
+	select 	
+				aa."AccountId",aa."ApplicationId" , aa."AccountNo" , aa."AccountTypeId", aa."CreateDate" , aa."Consultant"
 		, 	as1."Installment_SrNo" 
-		,	aa."OpenDate"
+		,		aa."OpenDate"
 		,   TO_CHAR(aa."OpenDate", 'YYYYMM') "ApplicationMonth" 
-		, 	aa."NumOfInstalments"
+		,   aa."NumOfInstalments"
 		,   aa."IdNum"
 		,   extract(year from age(now(), aa."OpenDate" )) * 12  + extract(month from age(now(), aa."OpenDate") ) "AgeInMonths"
 		,   aa."LoanType"
 		, 	aa."CloseDate" , aa."LoanAmount"  , aa."Period" 
-		,	aa."LoanStateReasonCode"
-		,	aa."HandoverAmount" 
+		,	  aa."LoanStateReasonCode"
+		,	  aa."HandoverAmount" 
 		,   aa."HandoverDate" 
 		,   aa."PersonId" , aa."ClientId"
 		,   aa."PaymentFrequency"
 		,   aa."Loan_Term"
 		,   aa."HandedOver" 
 		,   aa."Loan_Size"
-		,	as1."Noofdays" , as1."Installment" , as1."Paid_Installment" , as1."Duedate" , as1."PaidDate" 
+		,		as1."Noofdays" , as1."Installment" , as1."Paid_Installment" , as1."Duedate" , as1."PaidDate"  , as1."Installment_Paid_Perc"
 		,   aa."BureauScore"
 		,   aa."ApplicationScore"
-	from 	ACC_Account aa left outer join  ACC_Schedules as1 
+		,   aa."BranchName" 
+		,		aa."Debtors_Bank" 
+		,   aa."Product"
+		,		aa."ROLLd_Loan"
+		,   aa."CDE_Override"
+	from 	Application aa left outer join  ACC_Schedules as1 
 						on  aa."AccountId" = as1."AccountId"
 	),
 LoanAndPaymentDetail as materialized (
@@ -118,9 +143,9 @@ LoanAndPaymentDetail as materialized (
 ),
 FinalLoanDetail as materialized (
 	select  ld."HandedOver" "HandedOver_Ind"
-		,	case when ( ld."Installment_SrNo" = 1 
-						and	coalesce( date_trunc('DAY',ld."PaidDate"),date_trunc('DAY',now())) >  ld."Duedate" )
-						and ld."Duedate" <= date_trunc('DAY',now()) -- Has the due date passed on the first installment
+		,	case when ( ld."Installment_SrNo" = 1 and ld."Duedate" <= date_trunc('DAY',now())
+								and	coalesce( date_trunc('DAY',ld."PaidDate"),date_trunc('DAY',now())) >  ld."Duedate" )
+						 -- Has the due date passed on the first installment
 			then 1 
 			else 0 
 			end "FirstDueDate_Missed_Ind"
@@ -146,88 +171,80 @@ FinalLoanDetail as materialized (
 			end "InstallmentMissed_First6Months_Ind"
 		,  	ld."PaymentFrequency"
 		,   ld."Loan_Size"
-		,	ld."Loan_Term"
-		,	ld."OpenDate" + interval '3 MONTHS' "3MonthsOldAt"
+		,		ld."Loan_Term"
+		,		ld."OpenDate" + interval '3 MONTHS' "3MonthsOldAt"
 		,   ld."AgeInMonths"
 		,   ld."AccountId",ld."ApplicationId", ld."Installment_SrNo", ld."OpenDate", ld."ApplicationMonth" "OpenMonth", ld."IdNum", ld."Consultant"
 		,   ld."LoanStateReasonCode"
-		,	ld."FirstArrearDate"
+		,		ld."FirstArrearDate"
 		, 	ld."Duedate"
 		, 	ld."PaidDate"
 		,   ld."PaymentModeId", ld."PaymentCode", ld."PaymentDescription"
 		,   ld."NumOfInstalments"
-		,	ld."LoanType"
+		,		ld."LoanType"
 		,   ld."BureauScore"
 		,   ld."ApplicationScore"
+		,		ld."BranchName"
+		,   ld."Debtors_Bank" 
+		,   ld."Product"
+		,	  ld."ROLLd_Loan"
+		,   ld."CDE_Override"
 	from 	LoanAndPaymentDetail ld
 	),
 FinalAccountMetrix as (
-	select 	fld."OpenMonth" 
+	select 	
+			fld."OpenMonth" 
 		,	fld."AccountId"
-		, 	fld."ApplicationId"
-		, 	fld."OpenDate"
-		,   fld."IdNum"
-		,   fld."Consultant" 
-		, 	fld."AgeInMonths"
-		,   fld."NumOfInstalments"
-		,   fld."LoanType" "AccountType"
-		,   fld."PaymentFrequency"
-		,   fld."Loan_Size"
-		,   fld."Loan_Term"
-		,   fld."HandedOver_Ind" "HandedOver"
-		, 	max(fld."FirstDueDate_Missed_Ind")	"FirstDueDate_Missed_Flag"
+		,	fld."ApplicationId"
+		,	fld."OpenDate"
+		,	fld."IdNum"
+		, fld."Consultant" 
+		,	fld."AgeInMonths"
+		, fld."NumOfInstalments"
+		, fld."LoanType" "AccountType"
+		, fld."PaymentFrequency"
+		, fld."Loan_Size"
+		, fld."Loan_Term"
+		, fld."HandedOver_Ind" "HandedOver"
+		,	max(fld."FirstDueDate_Missed_Ind")	"FirstDueDate_Missed_Flag"
 		,	max(fld."FirstInstalment_Default_Ind") "FirstInstalment_Default_Flag"
-		,   case when 
+		, case when 
 				sum( fld."InstallmentMissed_First3Months_Ind" ) >= 1 then 1
 			else 0 
 			end "One_ever_3_Flag"
-	,   	case when 
-				sum( fld."InstallmentMissed_First6Months_Ind" ) >= 2
-			then 1
+		, case when 
+				sum( fld."InstallmentMissed_First6Months_Ind" ) >= 2	then 1
 			else 0 
 			end "Two_ever_6_Flag"
-		,   fld."BureauScore"
-		,   fld."ApplicationScore"
+		, fld."BureauScore"
+		, fld."ApplicationScore"
+		,	fld."BranchName"
+		, fld."Debtors_Bank" 
+		, fld."Product"
+		,	fld."ROLLd_Loan"
+		, fld."CDE_Override"
 	from	FinalLoanDetail fld
-	group by 	fld."OpenMonth" 
+	group by 	
+			fld."OpenMonth" 
 		,	fld."AccountId"
-		, 	fld."ApplicationId"
-		, 	fld."OpenDate"
-		,   fld."IdNum"
-		,   fld."Consultant" 
-		, 	fld."AgeInMonths"
-		,   fld."NumOfInstalments"
-		,   fld."LoanType"
-		,   fld."PaymentFrequency"
-		,   fld."Loan_Size"
-		,   fld."Loan_Term"
+		, fld."ApplicationId"
+		, fld."OpenDate"
+		, fld."IdNum"
+		, fld."Consultant" 
+		, fld."AgeInMonths"
+		, fld."NumOfInstalments"
+		, fld."LoanType"
+		, fld."PaymentFrequency"
+		, fld."Loan_Size"
+		, fld."Loan_Term"
 		,	fld."HandedOver_Ind" 
-		,   fld."BureauScore"
-		,   fld."ApplicationScore"
+		, fld."BureauScore"
+		, fld."ApplicationScore"
+		,	fld."BranchName"
+		, fld."Debtors_Bank" 
+		, fld."Product"
+		,	fld."ROLLd_Loan"
+		, fld."CDE_Override"
 )
 select * from FinalAccountMetrix
 order by 1 , 2 , 3;
-
-
---Replace die last select in the above sql to extract summary data only.
-select 	fm."ApplicationMonth" 
-	,   fm."PaymentFrequency"
-	,   fm."LoanType"
-	,   fm."Loan_Term"
-	,   fm."Loan_Size"
-	,   'Unknown' as "Bureau"
-	, 	count(*) "Total_Takup"
-	,   sum(fm."FirstDueDate_Missed_Flag") as "FirstDueDate_Missed_Count"
-	,   sum(fm."FirstInstalment_Default_Flag") as "FirstInstalment_Default_Count"
-	,	sum(fm."1+ever@3_Flag") as "1+ever@3_Count"
-	,	sum(fm."2+ever@6_Fag") as "2+ever@6_Count"
-from 	FinalAccountMetrix fm , TotalAccounts ta
-where   fm."ApplicationMonth" = ta."ApplicationMonth"
-and		fm."PaymentFrequency" = ta."PaymentFrequency"
-and		fm."Loan_Term"        = ta."Loan_Term"
-group by 	fm."ApplicationMonth"
-		,   fm."PaymentFrequency"
-		,   fm."LoanType"
-		,   fm."Loan_Term"
-		,   fm."Loan_Size"
-order by 1 , 2, 3;

@@ -1,8 +1,8 @@
 --element->>'codex_rule_type' AS codex_rule_fired,
 --element->>'codex_rule_description' AS value
 
-select * from backoffice.public."XDSCustomerDetailsLog";
-
+select * from xds_data_extract xde 
+;
 
 with ACC_Account as materialized (
 	select 	aa.*
@@ -42,15 +42,16 @@ with ACC_Account as materialized (
 		,   case when ( aa."LoanStateReasonCode"  in ('H') ) then 1 else 0 end "HandedOver"
 		,   xds."ApplicationId" 	
 		, 	xds."Type"
-		,   ( ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb )::jsonb "Obj"
+		,   xds."Response"
+		--,   ( ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb )::jsonb "Obj"
 	from   	backoffice.public."ACC_Account" aa, backoffice.public."Application_AccountMapping" aam
 		, 	backoffice.public."PER_Person" pc, backoffice.public."ACC_PeriodFrequency" apf , backoffice.public."ACC_LoanStateReason" lsr
 		,   backoffice.public."PER_Person" ap
 		,   backoffice.public."XDSCustomerDetailsLog" xds
 	where  	--TO_CHAR(aa."OpenDate", 'YYYYMM')  = '202412'
-		aa."OpenDate" between 
-		Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '00 months') and
-		Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '-1 months')
+		aa."OpenDate" between '01-Jan-2025' and '05-Jan-2025'
+		--Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '00 months') and
+		--Date_Trunc('MONTH',CURRENT_DATE - INTERVAL '-1 months')
 	and    	aa."LoanType" = 'L'
 	and     aa."AccountId" = aam."AccountId"
 	and     aa."CreatedBy" = pc."PersonId" 
@@ -58,12 +59,12 @@ with ACC_Account as materialized (
 	and     aa."PeriodFrequencyId"  = apf."PeriodFrequencyId"
 	and     aa."LoanStateReasonCode" = lsr."Code"
 	and     aam."ApplicationId"::varchar(128) = xds."ApplicationId"
-	and     xds."Response" LIKE '%rule_selected_bureau%'
+	--and     xds."Response" LIKE '%rule_selected_bureau%'
 	order by TO_CHAR(aa."OpenDate", 'YYYYMM')
 )
 select 	aa.* 
-	,	aa."Obj"->>'bureau_returned' as "bureauReturned"
-	,	aa."Obj"->>'score' as "Score"	
+	--,	aa."Obj"->>'bureau_returned' as "bureauReturned"
+	--,	aa."Obj"->>'score' as "Score"	
 from	ACC_Account aa;
 
 --select 	xds."ApplicationId" 	
@@ -72,13 +73,27 @@ from	ACC_Account aa;
 --		,   ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb "JsonData"
 --from 	backoffice.public."XDSCustomerDetailsLog" xds
 --where   xds."ApplicationId" in ( select cast ("ApplicationId" as varchar(128)) from ACC_Account);
+
+
+
+
 with JsonObj as materialized (
 	select  xds."ApplicationId" 	
 		, 	xds."Type" 
 		--, 	xds."Response"
 		,   ( ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb )::jsonb "Obj"
 	from 	backoffice.public."XDSCustomerDetailsLog" xds
-	where   xds."ApplicationId" in ( '3547405' )
+	where   xds."ApplicationId" in (
+	'3215177',
+'3246206',
+'3253561',
+'3269958',
+'3290954',
+'3311065',
+'3328598',
+'3328650',
+'3329361',
+'3330169')
 	--where   xds."InsertTime" >= '2024-01-01'::timestamp
 	--and     xds."InsertTime" < '2024-01-31'::timestamp
 	AND 	(	--xds."Response" LIKE '%product_matrix%'
@@ -93,6 +108,118 @@ select 	o."ApplicationId"
 from 	JsonObj o;
 
 
+select * from backoffice.public."XDSCustomerDetailsLog" xds
+where xds."ApplicationId" in ('3215177','3330169')
+and   xds."Response" LIKE '%rule_selected_bureau%';
 
+with Accounts as (
+	select * from "ACC_Account" aa )
+select * from backoffice.public."ACC_Account" aa;
+
+with Application as materialized (
+	select 	aa."AccountId" ,  aam."ApplicationId"::TEXT
+	from   	backoffice.public."ACC_Account" aa  , backoffice.public."Application_AccountMapping" aam
+	where  	aa."OpenDate" between '01-Jan-2025' and '05-Jan-2025'
+	and     aa."AccountId" = aam."AccountId"
+	and    	aa."LoanType" = 'L'
+),
+Response as (
+	Select 	a.* , xds."IdNumber" , xds."Type" 
+		--,	xds."Response"
+		,   CASE
+		    WHEN xds."Response" IS NOT NULL AND xds."Response" ~ '<.+>' THEN
+		        ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb
+		    ELSE NULL
+		  	END AS "Obj"
+	from 	Application a , backoffice.public."XDSCustomerDetailsLog" xds
+	where   a."ApplicationId" = xds."ApplicationId"
+	and     xds."Response" LIKE '%rule_selected_bureau%'
+)
+select 	r."AccountId" , r."ApplicationId", r."IdNumber", r."Type"
+	,	r."Obj"->>'bureau_returned' as "bureauReturned"
+	,	r."Obj"->>'score' as "Score"
+from 	Response r;
+
+
+with Application as materialized (
+        select  aa."AccountId" ,  aam."ApplicationId"::TEXT
+        from    backoffice.public."ACC_Account" aa  , backoffice.public."Application_AccountMapping" aam
+        where   aa."OpenDate" between '01-Jan-2025' and '05-Jan-2025'
+        and     aa."AccountId" = aam."AccountId"
+        and     aa."LoanType" = 'L'
+),
+Response as (
+        Select  a.* , xds."IdNumber" , xds."Type" 
+                --,     xds."Response"
+                ,   CASE
+                    WHEN xds."Response" IS NOT NULL AND xds."Response" ~ '<.+>' THEN
+                        ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb
+                    ELSE NULL
+                        END AS "Obj"
+        from    Application a , backoffice.public."XDSCustomerDetailsLog" xds
+        where   a."ApplicationId" = xds."ApplicationId"
+        and     xds."Response" LIKE '%rule_selected_bureau%'
+)
+select  r."AccountId" , r."ApplicationId", r."IdNumber", r."Type"
+        ,       r."Obj"->>'bureau_returned' as "bureauReturned"
+        ,       r."Obj"->>'score' as "Score"
+from    Response r;
+
+
+
+with Application as materialized (
+    select  aa."AccountId" ,  aam."ApplicationId"::TEXT
+    	,	TO_CHAR(aa."OpenDate", 'YYYYMMDD') "ApplicationDay"
+    from    backoffice.public."ACC_Account" aa  , backoffice.public."Application_AccountMapping" aam
+    where   aa."OpenDate" between '01-Jan-2025' and '07-Jan-2025'
+    and     aa."AccountId" = aam."AccountId"
+    and     aa."LoanType" = 'L'
+),
+Response as (
+    Select  a.* , xds."IdNumber" , xds."Type" 
+            , CASE
+                WHEN xds."Response" IS NOT NULL AND xds."Response" ~ '<.+>' THEN
+                    ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb
+                ELSE NULL
+              END AS "Obj"
+    from    Application a , backoffice.public."XDSCustomerDetailsLog" xds
+    where   a."ApplicationId" = xds."ApplicationId"
+    and     xds."Response" LIKE '%rule_selected_bureau%'
+)
+select  r."ApplicationDay", r."AccountId" , r."ApplicationId", r."IdNumber", r."Type"
+        , r."Obj"->>'bureau_returned' as "bureauReturned"
+        , r."Obj"->>'score' as "Score"
+from    Response r;
+
+
+with Application as materialized (
+    select  aa."AccountId" 
+				,  	aam."ApplicationId"::TEXT
+    from    backoffice.public."ACC_Account" aa  , backoffice.public."Application_AccountMapping" aam
+    where   aa."OpenDate" between '2025-01-01' and '2025-01-07'
+    and     aa."AccountId" = aam."AccountId"
+    and     aa."LoanType" = 'L'
+),
+Response as (
+    Select  a."AccountId" 
+					,	a."ApplicationId"  
+					, xds."IdNumber" 
+					, xds."Type" 
+					, CASE
+							WHEN xds."Response" IS NOT NULL AND xds."Response" ~ '<.+>' THEN
+									((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb
+							ELSE NULL
+						END AS "Obj"
+    from    Application a , backoffice.public."XDSCustomerDetailsLog" xds
+    where   a."ApplicationId" = xds."ApplicationId"
+    and     xds."Response" LIKE '%rule_selected_bureau%'
+)
+select  	r."AccountId" "ACCOUNTID"
+				, r."ApplicationId" "APPLICATIONID" 
+				, r."IdNumber" "IDNUMBER"
+				, r."Type" "TYPE"
+        , r."Obj"->>'bureau_returned' as "BUREAURETURNED" 
+        , r."Obj"->>'score' as "SCORE"
+from    Response r;
 
 
