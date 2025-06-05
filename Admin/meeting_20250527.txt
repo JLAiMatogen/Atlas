@@ -1,0 +1,13 @@
+We need to discuss the Data extracts from Prod ( or Replica ).
+
+  *   Tables
+  *   Frequency and timeslots
+  *   Volumes
+  *   Queries for extracts
+  *   MatogenDB structures and processes
+  *   Data retention in MatogenDB
+  *   Access to MatogenDB from Altair product suite (IP Addresses from Matogen AI)
+
+
+Accounts Closed Status:
+

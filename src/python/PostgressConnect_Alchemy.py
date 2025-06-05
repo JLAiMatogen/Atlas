@@ -1,34 +1,23 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
 
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 import calendar
 import sys
-
-#Setup to connect to Oracle DB
-import os
-import oracledb
 
 # Create connection string
 MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5432/MatogenDB"
 BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.75.6:5432/backoffice"
 print (BackOffice)
 
-# Example credentials
-username = 'atlas'
-password = 'Atlas_123'
-host = 'otrsup.premipoint.co.za'
-port = 1726
-service_name = 'OTRSUP'
-
-ld = '/Applications/instantclient_19_8'
-# Use TNS descriptor (for SID)
-AtlasTNS = f"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db-sa-03.ajenti.co.za)(PORT=1726))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=OTRSUP)))"
-
-
 # Define start and end date (inclusive)
-start_date = datetime(2024, 1, 1)
-end_date = datetime(2025, 5, 31)
+start_date = datetime(2020, 1, 1)
+end_date = datetime(2020, 6, 1)
+
+# Loop through months
+# Define start and end date (inclusive)
+start_date = datetime(2025, 1, 1)
+end_date = datetime(2025, 1, 1)
 
 # Loop through months
 current = start_date
@@ -65,29 +54,22 @@ while current <= end_date:
 
   print(df.head())
 
-  engine2 = create_engine(f'oracle+oracledb://@',
-            thick_mode={"lib_dir": ld},
-            connect_args={
-                "user": username,
-                "password": password,
-                "dsn": AtlasTNS
-            } )
+  engine2 = create_engine(MatogenDB)
 
   # Define the SQL query
-  #deleteQuery = text('DELETE FROM staging."TestWrite" WHERE "OpenMonth" = :month')
-  #print(deleteQuery)
+  deleteQuery = text('DELETE FROM staging."TestWrite" WHERE "OpenMonth" = :month')
+  print(deleteQuery)
   # Use a connection context
-  #with engine2.connect() as connection:
-  #  connection.execute(deleteQuery, {"month": month_str})
-  #  connection.commit()  # Required for data-changing operations
+  with engine2.connect() as connection:
+    connection.execute(deleteQuery, {"month": month_str})
+    connection.commit()  # Required for data-changing operations
 
   # Write DataFrame to a table in the "staging" schema
   try:
-      df.columns = df.columns.str.upper()
       df.to_sql(
-          name='STG_ACCOUNTINFO',            # Replace with actual table name
+          name='TestWrite',            # Replace with actual table name
           con=engine2,
-          schema='atlas',            # 🔄 Specify schema here
+          schema='staging',            # 🔄 Specify schema here
           if_exists='append',          # Options: 'fail', 'replace', 'append'
           index=False
       )

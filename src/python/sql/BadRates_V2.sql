@@ -1,32 +1,10 @@
---Build in relation to Account mapping extract
---Loan Detail Query, run only for period of max 6 months, due to memory pool exceptions.
---Build in relation to Account mapping extract
---Loan Detail Query, run only for period of max 6 months, due to memory pool exceptions.
-
---Tables Utilized
---	backoffice.sqlmig."LoanReason"???
-
-
---Tables Included in Staging process
---	backoffice.public."ACC_Account"
---	backoffice.public."ACC_PeriodFrequency" 
---	backoffice.public."ACC_LoanStateReason" 
--- 	backoffice.sqlmig."Branch"
---  backoffice.public."PaymentModes"
---	backoffice.public."PRD_Products"
-
---	backoffice.public."PER_Person"
-
---	backoffice.public."Application_AccountMapping"
---	backoffice.sqlmig."Application"
---	backoffice.sqlmig."Affordability"
---	backoffice.sqlmig."CreditScore" 
---	backoffice.Sqlmig."BankDetail"
---	backoffice.public."ACC_Schedules"
---	backoffice.public."ACC_Repayment"
---	backoffice.Sqlmig."Quotation" q 
-
-with ACC_Account as materialized (
+with parameters as (
+	select	date_trunc('month', CURRENT_DATE)::date AS "StartDate"
+    	,	  (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date AS "EndDate"
+    	,   (date_trunc('month', CURRENT_DATE) - INTERVAL '7 days')::date AS "SevenDaysPriorStart"
+    	,   (date_trunc('month', CURRENT_DATE) - INTERVAL '1 days')::date AS "SevenDaysPriorEnd"
+),
+ACC_Account as materialized (
 	select 	aa.*
 		,   ap."IdNum"
 		,	aam."ApplicationId"
@@ -64,7 +42,8 @@ with ACC_Account as materialized (
 		,   case when ( aa."LoanStateReasonCode"  in ('H') ) then 1 else 0 end "HandedOver" 
 		, 	a."NLRScore" "BureauScore"
 		,	cs."ApplicationScore"
-	from   	backoffice.public."ACC_Account" aa
+	from   	parameters p
+		,	backoffice.public."ACC_Account" aa
 		, 	backoffice.public."PER_Person" pc, backoffice.public."ACC_PeriodFrequency" apf , backoffice.public."ACC_LoanStateReason" lsr
 		,   backoffice.public."PER_Person" ap
 		,	backoffice.public."Application_AccountMapping" aam
@@ -73,9 +52,15 @@ with ACC_Account as materialized (
 				left outer join backoffice.sqlmig."CreditScore" cs 
 					on aam."ApplicationId"  = cs."ApplicationId"
 	where  	--TO_CHAR(aa."OpenDate", 'YYYYMM')  = '202412'
-		  --aa."OpenDate" between '2025-01-01' AND '2025-01-31'
-			aa."OpenDate" between '{STARTDATE}' AND '{ENDDATE}'
+		  	--aa."OpenDate" between '2025-01-01' AND '2025-01-31'
+			--aa."OpenDate" between '{STARTDATE}' AND '{ENDDATE}'
 			--aa."AccountId"  = 4659929
+			aa."OpenDate" is not null
+	and		(	
+				aa."OpenDate" between p."StartDate"  and p."EndDate" 
+			    or ( aa."StatusChangeDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd" 
+					    or aa."CloseDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd")
+		    )
 	and    	aa."LoanType" = 'L'
 	and     aa."AccountId" = aam."AccountId"
 	and     aa."CreatedBy" = pc."PersonId" 

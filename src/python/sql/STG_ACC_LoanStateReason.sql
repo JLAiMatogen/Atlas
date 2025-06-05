@@ -1,0 +1,1 @@
+Select * from backoffice.public."ACC_LoanStateReason"

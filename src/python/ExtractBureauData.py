@@ -13,7 +13,7 @@ import oracledb
 
 
 def get_week_ranges(year):
-    first_day = date(year, 10, 1)
+    first_day = date(year, 5, 14)
     # Find the first Monday of the year
     start = first_day if first_day.weekday() == 0 else first_day + timedelta(days=(7 - first_day.weekday()))
 
@@ -56,7 +56,7 @@ engine2 = create_engine(f'oracle+oracledb://@',
                 "dsn": AtlasTNS
             } )
 
-for y, w, start_date, end_date in get_week_ranges(2024):
+for y, w, start_date, end_date in get_week_ranges(2025):
     with open('./sql/BureauRespone.sql', 'r') as file:
         sql_template = file.read()
         start_date_str = str(start_date)
