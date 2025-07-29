@@ -23,7 +23,7 @@ echo "Log file will be: ${LOG_FILENAME}"
 
 #Collect reference data
 log_message "Collect reference data"
-#python  ../src/python/Staging_ReferenceTables.py >> "$LOG_FILENAME" 2>&1
+python  ../src/python/Staging_ReferenceTables.py >> "$LOG_FILENAME" 2>&1
 if [ $? -ne 0 ]; then
     echo "Staging_ReferenceTables.py failed. Exiting."
     exit 1
