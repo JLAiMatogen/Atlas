@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Extract directory path and create it if it does not exist
+LOG_DIR=$(dirname "../logs")
+mkdir -p "$LOG_DIR"
+
 # Define the base log filename
 BASE_LOG_NAME="../logs/ExtractHistory"
 
