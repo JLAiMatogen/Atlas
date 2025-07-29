@@ -1,0 +1,76 @@
+2025-07-29 12:15:21 - Collect reference data
+2025-07-29_12:15:23 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-07-29_12:15:25 - Execution time: 1.6155872344970703 seconds
+2025-07-29_12:15:25 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-07-29_12:15:27 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-07-29_12:15:28 - Data written to staging.ACC_LoanStateReason successfully.
+2025-07-29_12:15:28 - Data written to prod.ACC_LoanStateReason successfully.
+2025-07-29_12:15:29 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-07-29_12:15:30 - Execution time: 1.645287036895752 seconds
+2025-07-29_12:15:30 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-07-29_12:15:32 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-07-29_12:15:33 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-07-29_12:15:33 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-07-29_12:15:34 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-07-29_12:15:36 - Execution time: 1.7005140781402588 seconds
+2025-07-29_12:15:36 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-07-29_12:15:38 - Table staging.Branch truncated successfully.
+2025-07-29_12:15:38 - Data written to staging.Branch successfully.
+2025-07-29_12:15:38 - Data written to prod.Branch successfully.
+2025-07-29_12:15:39 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-07-29_12:15:41 - Execution time: 1.604712963104248 seconds
+2025-07-29_12:15:41 -    PaymentModeId PaymentCode  ... DebitOrderModeId UseRefundMode
+0              3     REALPAY  ...              NaN         False
+1              5         POS  ...              NaN         False
+2              7         REG  ...              NaN         False
+3              9         SNA  ...              NaN         False
+4             13      REFUND  ...              NaN         False
+
+[5 rows x 12 columns]
+2025-07-29_12:15:43 - Table staging.PaymentModes truncated successfully.
+2025-07-29_12:15:43 - Data written to staging.PaymentModes successfully.
+2025-07-29_12:15:43 - Data written to prod.PaymentModes successfully.
+Traceback (most recent call last):
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1266, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2061, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2019, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/johan/Workspace/Matogen/Atlas/bin/../src/python/Staging_ReferenceTables.py", line 49, in <module>
+    subprocess.run(
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 552, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1203, in communicate
+    self.wait()
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1279, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2055, in _wait
+    time.sleep(delay)
+KeyboardInterrupt
