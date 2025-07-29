@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
+import math
 
 #Setup to connect to Oracle DB
 import os
@@ -18,7 +19,7 @@ AtlasTNS = f"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db-sa-03.ajenti.co.za)(PO
 
 
 # Create connection string
-MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5432/MatogenDB"
+MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5832/MatogenDB"
 BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.75.6:5432/backoffice"
 print (BackOffice)
 
@@ -43,12 +44,13 @@ except Exception as e:
   print("Error Deleting the data from the target table:", e)
 
 # Query and load into DataFrame from STG_AccountInfo
-with open('./sql/BadRates_V2.sql', 'r') as file:
+with open('./sql/delta/BadRates.sql', 'r') as file:
     query = file.read()
     df = pd.read_sql(query, sourceDB)
 print(df.head())
 
 # Write DataFrame to a table in the "staging" schema
+print("Write data to PostgreSQL")
 try:
     df.to_sql(
         name='STG_AccountInfo',            # Replace with actual table name
@@ -63,6 +65,7 @@ except Exception as e:
 
 
 #currently also write the data to the Oracle staging area
+print("Write data to Oracle")
 oracleDB = create_engine(f'oracle+oracledb://@',
             thick_mode={"lib_dir": ld},
             connect_args={
@@ -74,13 +77,37 @@ oracleDB = create_engine(f'oracle+oracledb://@',
 # Write DataFrame to a table in the "staging" schema
 try:
     df.columns = df.columns.str.upper()
-    df.to_sql(
-        name='STG_ACCOUNTINFO',            # Replace with actual table name
-        con=oracleDB,
-        schema='atlas',            # 🔄 Specify schema here
-        if_exists='append',          # Options: 'fail', 'replace', 'append'
-        index=False
-    )
-    print("Data written to 'Oracle DB staging.STG_ACCOUNTINFO' successfully.")
+
+    # Define the batch size
+    batch_size = 20000
+    # Calculate the number of batches
+    num_batches = math.ceil(len(df) / batch_size)
+
+    for i in range(num_batches):
+        start_idx = i * batch_size
+        end_idx = min((i + 1) * batch_size, len(df))
+        
+        batch_df = df.iloc[start_idx:end_idx]
+        
+        batch_df.to_sql(
+            name='STG_ACCOUNTINFO',  # Replace with actual table name
+            con=oracleDB,
+            schema='atlas',          # Replace with your schema
+            if_exists='append',      # Options: 'fail', 'replace', 'append'
+            index=False
+        )
+        
+        print(f"Batch {i+1}/{num_batches} written successfully.")
+
+
+    print("All data written to Oracle DB staging.STG_ACCOUNTINFO successfully.")
+    #df.to_sql(
+    #    name='STG_ACCOUNTINFO',            # Replace with actual table name
+    #    con=oracleDB,
+    #    schema='atlas',            # 🔄 Specify schema here
+    #    if_exists='append',          # Options: 'fail', 'replace', 'append'
+    #    index=False
+    #)
+    #print("Data written to 'Oracle DB staging.STG_ACCOUNTINFO' successfully.")
 except Exception as e:
     print("Error writing to table:", e)

@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION prod.safe_json_parse(input_text TEXT)
+RETURNS JSON AS $$
+BEGIN
+  RETURN input_text::JSON;
+EXCEPTION
+  WHEN others THEN
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;

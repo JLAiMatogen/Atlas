@@ -1,0 +1,31 @@
+--This query returns all Accounts opened between two dates
+select 	distinct 
+        c."ClientId" 
+      , c."UserId" 
+      , c."PersonId" 
+      , c."Title" 
+      , c."Firstname" 
+      , c."Surname" 
+      , c."IDNumber" 
+      , c."DateOfBirth" 
+      , c."Gender" 
+      , c."MaritalStatusId"
+      , c."MaritalAgreement"
+      , c."EthnicityId"
+      , c."OTPVerified"
+      , c."NewStatusId"
+      , c."CountryOfBirthId"
+      , c."LanguageId"
+      , c."ModifiedBy" 
+      , c."ModifiedDate" 
+      , c."BranchId"
+      , c."PropertyOwnershipId"
+      , c."Updated" 
+      , c."CompanyId" 
+      , c."ChannelCode" 
+      , c."IsDelinquent" 
+      , c."IsDebtReview"
+      , c."DeliquencyReasonId"
+from 	  backoffice.sqlmig."Application" a, backoffice.sqlmig."Client" c
+where   a."CreateDate" between '{STARTDATE}' and '{ENDDATE}'
+and     a."ClientId" = c."ClientId";

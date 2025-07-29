@@ -18,7 +18,7 @@ AtlasTNS = f"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db-sa-03.ajenti.co.za)(PO
 
 
 # Create connection string
-MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5432/MatogenDB"
+MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5832/MatogenDB"
 BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.75.6:5432/backoffice"
 print (BackOffice)
 
@@ -44,7 +44,7 @@ except Exception as e:
 
 # Query and load into DataFrame from STG_BureauResponse
 print('Collect the data')
-with open('./sql/BureauRespone_V2.sql', 'r') as file:
+with open('./sql/delta/BureauRespone.sql', 'r') as file:
     query = file.read()
     #This query contains special charcaters that needs to be converted to text before the enige can read the data
     query = text(query)
