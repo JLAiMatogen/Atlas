@@ -10,7 +10,7 @@ import os
 import oracledb
 
 # Create connection string
-MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5432/MatogenDB"
+MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5832/MatogenDB"
 BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.75.6:5432/backoffice"
 print (BackOffice)
 
@@ -27,13 +27,14 @@ AtlasTNS = f"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db-sa-03.ajenti.co.za)(PO
 
 
 # Define start and end date (inclusive)
-start_date = datetime(2024, 1, 1)
-end_date = datetime(2025, 5, 31)
+start_date = datetime(2024, 9, 1)
+end_date = datetime(2025, 6, 30)
+
 
 # Loop through months
 current = start_date
 while current <= end_date:
-  with open('./sql/BadRates.sql', 'r') as file:
+  with open('./sql/history/BadRates.sql', 'r') as file:
         query = file.read()
 
   year = current.year
@@ -91,7 +92,7 @@ while current <= end_date:
           if_exists='append',          # Options: 'fail', 'replace', 'append'
           index=False
       )
-      print("Data written to 'staging.TestWrite' successfully.")
+      print("Data written to 'staging.STG_ACCOUNTINFO' successfully.")
   except Exception as e:
       print("Error writing to table:", e)
 

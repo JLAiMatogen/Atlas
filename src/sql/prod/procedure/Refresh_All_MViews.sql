@@ -24,7 +24,7 @@ AS $$
 BEGIN
     RAISE NOTICE 'Refreshing materialized views...';
 
-  /*  -- Refresh each materialized in sequence
+    -- Refresh each materialized in sequence
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."XDS_CusomerDetailsLog_MV";
 	RAISE NOTICE 'XDS_CusomerDetailsLog_MV complete.';
     
@@ -41,7 +41,7 @@ BEGIN
 	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
 
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_PaymentStatusHistory_Latest";
-	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';*/
+	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
 
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_Detail_MV";
 	RAISE NOTICE 'Account_Detail_MV complete.';

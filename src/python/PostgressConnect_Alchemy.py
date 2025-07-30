@@ -22,7 +22,7 @@ end_date = datetime(2025, 1, 1)
 # Loop through months
 current = start_date
 while current <= end_date:
-  with open('./sql/BadRates.sql', 'r') as file:
+  with open('./sql/delta/BadRates.sql', 'r') as file:
         query = file.read()
 
   year = current.year

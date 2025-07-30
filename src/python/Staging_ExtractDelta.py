@@ -10,10 +10,9 @@ import sys
 
 import builtins
 from datetime import datetime
-
 # Override print globally
 def print(*args, **kwargs):
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     builtins.print(f"{timestamp} -", *args, **kwargs)
 
 ## Open log file

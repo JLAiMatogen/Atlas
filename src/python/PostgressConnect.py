@@ -28,7 +28,7 @@ try:
     query = 'Select * from ' \
     'staging.bank'
 
-    with open('./sql/BadRates.sql', 'r') as file:
+    with open('./sql/delta/BadRates.sql', 'r') as file:
         query = file.read()
 
     print(query)

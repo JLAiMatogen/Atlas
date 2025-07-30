@@ -31,7 +31,7 @@ BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.7
 AtlasOracle = "oracle+oracledb://atlas:Atlas_123@otrsup.premipoint.co.za:1726/?sid=OTRSUP"
 
 #/Users/johan/Workspace/Matogen/Atlas/src/python/sql/BureauRespone.sql
-with open('./sql/BureauRespone.sql', 'r') as file:
+with open('./sql/delta/BureauRespone.sql', 'r') as file:
   query = file.read()
 query = text(query)
 

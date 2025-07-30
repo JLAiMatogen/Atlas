@@ -10,7 +10,7 @@ import builtins
 from datetime import datetime
 # Override print globally
 def print(*args, **kwargs):
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     builtins.print(f"{timestamp} -", *args, **kwargs)
 
 
@@ -34,7 +34,8 @@ table_scripts = [
     ("PaymentModes.sql", "PaymentModes", ['PaymentModeId']),
     ("Bank.sql", "Bank", ['BankId']),
     ("PRD_Products.sql", "PRD_Products", ['ProductId']),
-    ("ACC_PaymentStatus.sql", "ACC_PaymentStatus", ['PaymentStatusId'])
+    ("ACC_PaymentStatus.sql", "ACC_PaymentStatus", ['PaymentStatusId']),
+    ("Province.sql", "Province", ['ProvinceId'])
     ]
 
 # Get the current folder

@@ -13,7 +13,7 @@ import oracledb
 
 
 def get_week_ranges(year):
-    first_day = date(year, 5, 14)
+    first_day = date(year, 5, 21)
     # Find the first Monday of the year
     start = first_day if first_day.weekday() == 0 else first_day + timedelta(days=(7 - first_day.weekday()))
 
