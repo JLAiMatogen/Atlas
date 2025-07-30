@@ -43,7 +43,7 @@ select
 	, case 
 		when ( ap."ClientCategory" is not null ) then ap."ClientCategory" 
 	  when ( aa."CreateDate" > acs."First_Opened" ) then 'Existing Client' 
-		else 'New' 
+		else 'New Clients' 
 		end "ClientCategory"
 	, ado."ServiceProvider"
 	, b."BranchName"

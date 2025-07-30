@@ -40,8 +40,8 @@ BEGIN
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_PaymentStatusHistory_Latest";
 	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
 
-    REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_PaymentStatusHistory_Latest";
-	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
+--    REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_PaymentStatusHistory_Latest";
+--	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
 
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_Detail_MV";
 	RAISE NOTICE 'Account_Detail_MV complete.';
@@ -51,3 +51,7 @@ END;
 $$;
 
 CALL prod."Refresh_All_MViews"();
+
+select Count(*)
+from   prod."Account_Detail_MV"
+where "OpenMonth"::int >= 202401;

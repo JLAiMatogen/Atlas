@@ -15,20 +15,6 @@ def print(*args, **kwargs):
     timestamp = datetime.now().strftime('%d-%b-%Y %H:%M:%S')
     builtins.print(f"{timestamp}", *args, **kwargs)
 
-# Open log file
-#timestamp = datetime.now().strftime("%Y%m%d%H%M")
-#log_file_path = f'Staging_ExtractHistory_{timestamp}.log'
-#err_log_path = f'Staging_ExtractHistory_{timestamp}_Error.log'
-#log_file = open(log_file_path, 'w' , buffering=1)
-#err_log =  open(log_file_path, 'w' , buffering=1)
-
-# Optional: Also redirect os-level stdout/stderr (for subprocesses)
-#os.dup2(log_file.fileno(), 1)  # stdout (fd 1)
-#os.dup2(log_file.fileno(), 2)  # stderr (fd 2)
-
-# Redirect stdout and stderr
-#sys.stdout = log_file
-#sys.stderr = log_file
 
 def generate_5_day_intervals(start_date_str, end_date_str):
   # Parse input dates
@@ -120,16 +106,14 @@ try:
 
 
     # Collect the bureau data for the month in question in week intervals due to the db not able to handle more than 7 days worth of data.
-    #intervals = generate_5_day_intervals(str(start_of_month.date()), str(end_of_month.date()))
-    #for start, end in intervals:
-    #  print(f"Processing XDSCustomerDetailsLog... {start} to {end}")
-    #  subprocess.run(
-    #        ["python", target_script , "history", start, end, "XDSCustomerDetailsLog.sql", "XDSCustomerDetailsLog"] + ['ApplicationId','Type'],
-    #        check=True,  # Raises CalledProcessError on failure
-    #        stdout=log_file,
-    #        stderr=log_file 
-    #    )
-    #  print(f"{start} to {end}")
+    intervals = generate_5_day_intervals(str(start_of_month.date()), str(end_of_month.date()))
+    for start, end in intervals:
+      print(f"Processing XDSCustomerDetailsLog... {start} to {end}")
+      subprocess.run(
+            ["python", target_script , "history", start, end, "XDSCustomerDetailsLog.sql", "XDSCustomerDetailsLog"] + ['ApplicationId','Type'],
+            check=True  # Raises CalledProcessError on failure
+        )
+      print(f"{start} to {end}")
 
 except subprocess.CalledProcessError as e:
     print(f"Error: Subprocess failed with exit code {e.returncode}. Command: {' '.join(e.cmd)}")

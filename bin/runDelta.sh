@@ -1,4 +1,8 @@
 #!/bin/bash
+
+python3 -m venv venv_matogen
+source venv_matogen/bin/activate
+
 set +x 
 set -e  # Exit immediately if a command exits with a non-zero status
 

@@ -15,22 +15,6 @@ def print(*args, **kwargs):
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     builtins.print(f"{timestamp} -", *args, **kwargs)
 
-## Open log file
-#timestamp = datetime.now().strftime("%Y%m%d%H%M")
-#log_file_path = f'Staging_ExtractDelta_{timestamp}.log'
-#err_log_path = f'Staging_ExtractDelta_{timestamp}_Error.log'
-#log_file = open(log_file_path, 'w' , buffering=1)
-#err_log =  open(log_file_path, 'w' , buffering=1)
-#
-## Optional: Also redirect os-level stdout/stderr (for subprocesses)
-#os.dup2(log_file.fileno(), 1)  # stdout (fd 1)
-#os.dup2(log_file.fileno(), 2)  # stderr (fd 2)
-#
-## Redirect stdout and stderr
-#sys.stdout = log_file
-#sys.stderr = log_file
-
-
 # Get the current folder
 script_dir = os.path.dirname(os.path.abspath(__file__))
 

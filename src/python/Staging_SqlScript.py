@@ -44,7 +44,7 @@ else:
 
     query = query.replace("{STARTDATE}", StartDate)
     query = query.replace("{ENDDATE}",  EndDate)
-    
+  
 # Create the engine for the source DB
 sourceDB = create_engine(BackOffice)
 # Creat the engine for the Target DB
