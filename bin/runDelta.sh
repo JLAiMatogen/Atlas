@@ -1,7 +1,8 @@
 #!/bin/bash
 
-python3 -m venv venv_matogen
-source venv_matogen/bin/activate
+
+
+./venv_matogen/bin/activate
 
 set +x 
 set -e  # Exit immediately if a command exits with a non-zero status
@@ -37,6 +38,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 log_message "Reference Tables collected at ${SECONDS} Seconds"
+
 
 #Collect Account related data
 log_message "Collect Account related data"
