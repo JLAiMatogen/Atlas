@@ -1,0 +1,72 @@
+2025-07-31 12:07:54 - Collect reference data
+2025-07-31 12:07:55 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-07-31 12:07:55 - Execution time: 0.1703195571899414 seconds
+2025-07-31 12:07:55 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-07-31 12:07:55 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-07-31 12:07:55 - Data written to staging.ACC_LoanStateReason successfully.
+2025-07-31 12:07:55 - Data written to prod.ACC_LoanStateReason successfully.
+2025-07-31 12:07:56 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-07-31 12:07:56 - Execution time: 0.0925450325012207 seconds
+2025-07-31 12:07:56 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-07-31 12:07:56 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-07-31 12:07:56 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-07-31 12:07:56 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-07-31 12:07:57 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-07-31 12:07:57 - Execution time: 0.08098697662353516 seconds
+2025-07-31 12:07:57 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-07-31 12:07:57 - Table staging.Branch truncated successfully.
+2025-07-31 12:07:57 - Data written to staging.Branch successfully.
+2025-07-31 12:07:57 - Data written to prod.Branch successfully.
+Traceback (most recent call last):
+  File "/data/matogen/Atlas/src/python/Staging_SqlScript.py", line 7, in <module>
+    import pandas as pd
+  File "/data/matogen/Atlas/bin/venv_matogen/lib/python3.12/site-packages/pandas/__init__.py", line 14, in <module>
+    __import__(_dependency)
+  File "/data/matogen/Atlas/bin/venv_matogen/lib/python3.12/site-packages/numpy/__init__.py", line 112, in <module>
+    from numpy.__config__ import show_config
+  File "/data/matogen/Atlas/bin/venv_matogen/lib/python3.12/site-packages/numpy/__config__.py", line 4, in <module>
+    from numpy._core._multiarray_umath import (
+  File "/data/matogen/Atlas/bin/venv_matogen/lib/python3.12/site-packages/numpy/_core/__init__.py", line 99, in <module>
+    from . import (
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1124, in get_code
+  File "<frozen importlib._bootstrap_external>", line 753, in _compile_bytecode
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/data/matogen/Atlas/bin/../src/python/Staging_ReferenceTables.py", line 49, in <module>
+    subprocess.run(
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1201, in communicate
+    self.wait()
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
