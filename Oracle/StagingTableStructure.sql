@@ -40,7 +40,7 @@ group by applicationid , accountid,type,BUREAU_RETURNED,IDNUMBER
 having count(*) >= 2;
 
 
-DROP TABLE STG_ACCOUNTINFO;
+DROP TABLE STG_ACCOUNTINFO cascade constraints;
 
 CREATE TABLE "STG_ACCOUNTINFO" (
   "OPENMONTH"                     VARCHAR2(6)
@@ -62,12 +62,16 @@ CREATE TABLE "STG_ACCOUNTINFO" (
 , "CREDIT_SCORE_OR_CAT"           VARCHAR2(128)
 , "CDE_OVERRIDE"                  VARCHAR2(10)
 , "HANDEDOVER"                    NUMBER
+, "FIRSTARREARDATE"               TIMESTAMP
 , "FIRSTDUEDATE_MISSED_FLAG"      NUMBER 
 , "FIRSTINSTALMENT_DEFAULT_FLAG"  NUMBER 
 , "ONE_EVER_3_FLAG"               NUMBER
 , "TWO_EVER_6_FLAG"               NUMBER
 , "BUREAUSCORE"                   NUMBER
 , "APPLICATIONSCORE"              NUMBER
+, "NRE_STATUS"                    VARCHAR2(40)
+, "SERVICEPROVIDER"               VARCHAR2(40)
+, "OVERDUE_STATUS"                VARCHAR2(40)
 );
 
 
