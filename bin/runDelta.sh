@@ -1,8 +1,11 @@
 #!/bin/bash
 
 
+# Get full path to script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-./venv_matogen/bin/activate
+# Activate the virtual environment (use full path)
+source "${SCRIPT_DIR}/venv_matogen/bin/activate"
 
 set +x 
 set -e  # Exit immediately if a command exits with a non-zero status
