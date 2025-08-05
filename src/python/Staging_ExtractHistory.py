@@ -92,6 +92,7 @@ try:
       ]
     table_scripts = [
       ("Application.sql" , "Application", ['ApplicationId'])
+      ("Application.sql" , "Application", ['ApplicationId'])
     ]   
 
 
