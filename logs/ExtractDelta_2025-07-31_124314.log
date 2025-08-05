@@ -1,0 +1,346 @@
+2025-07-31 12:43:14 - Collect reference data
+2025-07-31 12:43:17 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-07-31 12:43:17 - Execution time: 0.42997026443481445 seconds
+2025-07-31 12:43:17 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-07-31 12:43:17 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-07-31 12:43:17 - Data written to staging.ACC_LoanStateReason successfully.
+2025-07-31 12:43:17 - Data written to prod.ACC_LoanStateReason successfully.
+2025-07-31 12:43:18 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-07-31 12:43:18 - Execution time: 0.061920166015625 seconds
+2025-07-31 12:43:18 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-07-31 12:43:18 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-07-31 12:43:18 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-07-31 12:43:18 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-07-31 12:43:19 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-07-31 12:43:19 - Execution time: 0.05989193916320801 seconds
+2025-07-31 12:43:19 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-07-31 12:43:19 - Table staging.Branch truncated successfully.
+2025-07-31 12:43:19 - Data written to staging.Branch successfully.
+2025-07-31 12:43:19 - Data written to prod.Branch successfully.
+2025-07-31 12:43:20 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-07-31 12:43:20 - Execution time: 0.05673837661743164 seconds
+2025-07-31 12:43:20 -    PaymentModeId PaymentCode  ... DebitOrderModeId UseRefundMode
+0              3     REALPAY  ...              NaN         False
+1              5         POS  ...              NaN         False
+2              7         REG  ...              NaN         False
+3              9         SNA  ...              NaN         False
+4             13      REFUND  ...              NaN         False
+
+[5 rows x 12 columns]
+2025-07-31 12:43:20 - Table staging.PaymentModes truncated successfully.
+2025-07-31 12:43:20 - Data written to staging.PaymentModes successfully.
+2025-07-31 12:43:20 - Data written to prod.PaymentModes successfully.
+2025-07-31 12:43:20 - Start Extracting reference for Bank with keys as ['BankId']
+2025-07-31 12:43:21 - Execution time: 0.09903812408447266 seconds
+2025-07-31 12:43:21 -    BankId    Code  ... IsRealPayTT1Enable  RealPayBankId
+0       9       0  ...              False              0
+1      13  460005  ...              False              0
+2      14  400001  ...              False              0
+3      19  580105  ...              False              0
+4      24  450105  ...               True              8
+
+[5 rows x 24 columns]
+2025-07-31 12:43:21 - Table staging.Bank truncated successfully.
+2025-07-31 12:43:21 - Data written to staging.Bank successfully.
+2025-07-31 12:43:21 - Data written to prod.Bank successfully.
+2025-07-31 12:43:21 - Start Extracting reference for PRD_Products with keys as ['ProductId']
+2025-07-31 12:43:21 - Execution time: 0.06635355949401855 seconds
+2025-07-31 12:43:21 -    ProductId             ProductName  ... IsExpressLoan  IsUnSecuredLoan
+0          1             Branch Loan  ...         False            False
+1          2  Payroll Deduction Loan  ...         False            False
+2          3             Remote Loan  ...         False            False
+3          4                 Hollard  ...         False            False
+4          5   Over 65 - Branch loan  ...         False            False
+
+[5 rows x 19 columns]
+2025-07-31 12:43:21 - Table staging.PRD_Products truncated successfully.
+2025-07-31 12:43:21 - Data written to staging.PRD_Products successfully.
+2025-07-31 12:43:21 - Data written to prod.PRD_Products successfully.
+2025-07-31 12:43:22 - Start Extracting reference for ACC_PaymentStatus with keys as ['PaymentStatusId']
+2025-07-31 12:43:22 - Execution time: 0.06547355651855469 seconds
+2025-07-31 12:43:22 -    PaymentStatusId PaymentStatusDescription
+0                0                  Current
+1                7              Debt Review
+2                8                      New
+3                6                     120+
+4                1                  Current
+2025-07-31 12:43:22 - Table staging.ACC_PaymentStatus truncated successfully.
+2025-07-31 12:43:22 - Data written to staging.ACC_PaymentStatus successfully.
+2025-07-31 12:43:22 - Data written to prod.ACC_PaymentStatus successfully.
+2025-07-31 12:43:23 - Start Extracting reference for Province with keys as ['ProvinceId']
+2025-07-31 12:43:23 - Execution time: 0.0751960277557373 seconds
+2025-07-31 12:43:23 -    ProvinceId ShortCode     Description PostalCode  AddressLine3
+0           1        WC    WESTERN CAPE       6670    RIVERSDALE
+1           2        FS      FREE STATE       9301  BLOEMFONTEIN
+2           3       KZN  KWA-ZULU NATAL       4126      DOONSIDE
+3           4        WC    WESTERN CAPE       7300    MALMESBURY
+4           5       GAU         GAUTENG       2192  JOHANNESBURG
+2025-07-31 12:43:23 - Table staging.Province truncated successfully.
+2025-07-31 12:43:23 - Data written to staging.Province successfully.
+2025-07-31 12:43:23 - Data written to prod.Province successfully.
+2025-07-31 12:43:23 - Reference Tables collected at 9 Seconds
+2025-07-31 12:43:23 - Collect Account related data
+2025-07-31 12:43:24 - Start Extracting delta for ACC_Account with keys as ['AccountId']
+2025-07-31 12:43:41 - Execution time: 17.233503341674805 seconds
+2025-07-31 12:43:41 -    AccountId   AccountNo  ... newbranchid  assignedconsultantid
+0     272670  AOL0272670  ...        None                  None
+1     122782  AOL0122782  ...        None                  None
+2     280739  AOL0280739  ...        None                  None
+3     948889  AOL0948889  ...        None                  None
+4     379757  AOL0379757  ...        None                  None
+
+[5 rows x 76 columns]
+2025-07-31 12:43:41 - Table staging.ACC_Account truncated successfully.
+2025-07-31 12:44:53 - Data written to staging.ACC_Account successfully.
+2025-07-31 12:45:13 - Data written to prod.ACC_Account successfully.
+2025-07-31 12:45:14 - Start Extracting delta for ACC_DebitOrder with keys as ['DebitOrderId']
+2025-07-31 12:45:24 - Execution time: 9.767311334609985 seconds
+2025-07-31 12:45:24 -    DebitOrderId  AccountId  ... ServiceProvider IsVAPCancel
+0        745468    1358972  ...           NUPAY        None
+1       1351365    2286858  ...           NUPAY        None
+2       2838524    4543858  ...           NUPAY       False
+3       1596454    2690343  ...           NUPAY        None
+4       1169347    2038198  ...           NUPAY        None
+
+[5 rows x 26 columns]
+2025-07-31 12:45:24 - Table staging.ACC_DebitOrder truncated successfully.
+2025-07-31 12:45:55 - Data written to staging.ACC_DebitOrder successfully.
+2025-07-31 12:47:46 - Data written to prod.ACC_DebitOrder successfully.
+2025-07-31 12:47:47 - Start Extracting delta for ACC_Schedules with keys as ['AccountId', 'Installment_SrNo']
+2025-07-31 12:50:24 - Execution time: 157.03120636940002 seconds
+2025-07-31 12:50:24 -    AccountId  Installment_SrNo  ...  StatusDescription  IsAdhoc
+0      38453                 2  ...               None    False
+1      33839                 3  ...               None    False
+2      35184                 2  ...               None    False
+3      35421                 2  ...               None    False
+4      35468                 3  ...               None    False
+
+[5 rows x 31 columns]
+2025-07-31 12:50:25 - Table staging.ACC_Schedules truncated successfully.
+2025-07-31 12:54:16 - Data written to staging.ACC_Schedules successfully.
+2025-07-31 12:56:12 - Data written to prod.ACC_Schedules successfully.
+2025-07-31 12:56:19 - Start Extracting delta for Address with keys as ['AddressId']
+2025-07-31 12:56:26 - Execution time: 7.478554010391235 seconds
+2025-07-31 12:56:26 -    AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0   10179489              2     None  ...         None       3950    704.0
+1   10199342              3     None  ...         None       None      NaN
+2   10353138              3     None  ...         None       None      NaN
+3   10166365              3     None  ...         None       None      NaN
+4   10290447              2     None  ...         None       3201     84.0
+
+[5 rows x 9 columns]
+2025-07-31 12:56:26 - Table staging.Address truncated successfully.
+2025-07-31 12:56:33 - Data written to staging.Address successfully.
+2025-07-31 12:56:41 - Data written to prod.Address successfully.
+2025-07-31 12:56:42 - Start Extracting delta for Affordability with keys as ['AffordabilityId']
+2025-07-31 12:56:52 - Execution time: 10.270061731338501 seconds
+2025-07-31 12:56:52 -    AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3869284         1  ...                 False            False
+1          3864868         1  ...                 False            False
+2          3868607         1  ...                 False            False
+3          3874413         1  ...                 False            False
+4          3892761         1  ...                 False            False
+
+[5 rows x 60 columns]
+2025-07-31 12:56:52 - Table staging.Affordability truncated successfully.
+2025-07-31 12:57:23 - Data written to staging.Affordability successfully.
+2025-07-31 12:57:34 - Data written to prod.Affordability successfully.
+2025-07-31 12:57:34 - Start Extracting delta for Application with keys as ['ApplicationId']
+2025-07-31 12:58:44 - Execution time: 69.19541907310486 seconds
+2025-07-31 12:58:44 -     StartDate     EndDate  ... IsCopyAppliation  previous_application_date
+0  2025-07-01  2025-07-31  ...            False                        NaT
+1  2025-07-01  2025-07-31  ...            False                        NaT
+2  2025-07-01  2025-07-31  ...            False                        NaT
+3  2025-07-01  2025-07-31  ...            False 2025-05-28 11:46:37.092857
+4  2025-07-01  2025-07-31  ...            False 2025-05-02 08:38:05.314133
+
+[5 rows x 80 columns]
+2025-07-31 12:58:44 - Table staging.Application truncated successfully.
+2025-07-31 12:58:50 - Error writing to table: (psycopg2.errors.UndefinedColumn) column "StartDate" of relation "Application" does not exist
+LINE 1: INSERT INTO staging."Application" ("StartDate", "EndDate", "...
+                                           ^
+
+[SQL: INSERT INTO staging."Application" ("StartDate", "EndDate", "SevenDaysPriorStart", "SevenDaysPriorEnd", "ApplicationId", "AffordabilityId", "AccountNo", "NextOfKinId", "ReasonId", "AccountId", "ClientId", "EmployerId", "BankDetailId", "ResidentialAddr ... 784604 characters truncated ... _407)s, %(SourceApplicationId__407)s, %(IsCopyAppliation__407)s, %(previous_application_date__407)s)]
+[parameters: {'RolloverAcceptanceDate__0': None, 'AffordabilityId__0': 3871832, 'CreatedBy__0': 10000192, 'DisbursementId__0': 3871859, 'DocumentId__0': None, 'QuotationId__0': 3871831, 'SevenDaysPriorEnd__0': datetime.date(2025, 6, 30), 'IP__0': None, 'DcAgreementStatus__0': None, 'CreateDate__0': datetime.datetime(2025, 7, 21, 12, 26, 13, 27579), 'QuoteApprovalBy__0': None, 'NoofDaysSinceLastLoanPaid__0': 0, 'ReferralCode__0': '', 'SettlementId__0': None, 'TotalExpenses__0': 0.0, 'RepaymentDate__0': None, 'CancelReasonId__0': 9.0, 'RollOverAccountId__0': 0, 'IsCurrent__0': True, 'SevenDaysPriorStart__0': datetime.date(2025, 6, 24), 'AgentCode__0': '', 'ResidentialAddressId__0': 10376209, 'Updated__0': False, 'NextOfKinId__0': None, 'EmployerId__0': 5551461, 'InstallmentAffordabilityPerMonth__0': 0.0, 'Step__0': 0, 'ReasonId__0': 13, 'SalaryTypeNo__0': 0, 'ClientIpAddress__0': '192.168.200.21', 'RequestedLoanAmount__0': 0.0, 'Period__0': 0, 'CurrentActiveLoan__0': False, 'EndDate__0': datetime.date(2025, 7, 31), 'IsDisburseButtonClicked__0': False, 'IncomeId__0': None, 'Amount__0': 0.0, 'IsCopyAppliation__0': False, 'ClientId__0': 943186, 'IsGetOfferOverride__0': False, 'DisbursementModeId__0': 0, 'DcQuotationStatus__0': None, 'Status__0': 0, 'ApplicationId__0': 3859255, 'previous_application_date__0': None, 'DcAgreementId__0': 0, 'ServerIpAddress__0': '172.31.75.52', 'NewStatusId__0': 4, 'IsLoanExist__0': False, 'StartDate__0': datetime.date(2025, 7, 1) ... 32540 parameters truncated ... 'RequestedLoanAmount__407': 0.0, 'Period__407': 0, 'CurrentActiveLoan__407': True, 'EndDate__407': datetime.date(2025, 7, 31), 'IsDisburseButtonClicked__407': False, 'IncomeId__407': None, 'Amount__407': 0.0, 'IsCopyAppliation__407': False, 'ClientId__407': 837863, 'IsGetOfferOverride__407': False, 'DisbursementModeId__407': 0, 'DcQuotationStatus__407': None, 'Status__407': 0, 'ApplicationId__407': 3809507, 'previous_application_date__407': datetime.datetime(2025, 5, 31, 9, 42, 19, 118380), 'DcAgreementId__407': 0, 'ServerIpAddress__407': '172.31.75.56', 'NewStatusId__407': 4, 'IsLoanExist__407': True, 'StartDate__407': datetime.date(2025, 7, 1), 'ParentFlashLoanAccountId__407': 0, 'CompanyId__407': 1, 'ProcessBy__407': ' ', 'CampaignCode__407': '', 'PayableAmount__407': 0.0, 'OtherIncome__407': None, 'SalaryTypeId__407': None, 'OverrideOfferReason__407': '', 'ChannelCode__407': 2, 'AggregateLoanAmount__407': 0.0, 'AccountId__407': None, 'IsLoanOrEmi__407': 'Emi', 'Source__407': None, 'CopyLoanAccountId__407': 0, 'ClientCategory__407': 'Existing Client', 'OverrideOfferReasonId__407': 0.0, 'DcQuotationId__407': 0, 'BankDetailId__407': 4761137, 'ApplicationClientId__407': 3822117, 'DebitOrderModeId__407': 0, 'BrandId__407': 1, 'SourceApplicationId__407': 0, 'RepaymentAmount__407': 0.0, 'ChannelReferenceNo__407': None, 'ProductId__407': 0, 'BranchId__407': 343, 'AggregateLoan__407': False, 'TotalIncome__407': 0.0, 'Hash__407': 'a44eab90788e7fa9f151cecf22235d30ca1dc5c54cd8f238abab11eedf71f57b', 'AccountNo__407': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-31 12:58:50 - Data written to prod.Application successfully.
+2025-07-31 12:58:51 - Start Extracting delta for Application_AccountMapping with keys as ['ApplicationAccountMappingId']
+2025-07-31 12:59:02 - Execution time: 10.836591720581055 seconds
+2025-07-31 12:59:02 -    ApplicationAccountMappingId  ApplicationId  ...     CellNo  Email
+0                      4916980        3834471  ...  825270283       
+1                      4916983        3834474  ...  760322788       
+2                      4916984        3834490  ...  677771202       
+3                      4916985        3834490  ...  677771202       
+4                      4917019        3834478  ...  730823728       
+
+[5 rows x 9 columns]
+2025-07-31 12:59:02 - Table staging.Application_AccountMapping truncated successfully.
+2025-07-31 12:59:07 - Data written to staging.Application_AccountMapping successfully.
+2025-07-31 12:59:13 - Data written to prod.Application_AccountMapping successfully.
+2025-07-31 12:59:13 - Start Extracting delta for Application_Client with keys as ['ApplicationClientId']
+2025-07-31 12:59:17 - Execution time: 3.533144235610962 seconds
+2025-07-31 12:59:17 -    ApplicationClientId  PersonId Title  ... PhoneTypeId Isconsent Whatsapp_Phoneno
+0              3853008       NaN  None  ...           0     False             None
+1              3853017  965492.0    MS  ...           0      True             None
+2              3852977  884047.0  MISS  ...           0      True        766953291
+3              3853004  818606.0  MISS  ...           0      True        815921534
+4              3852976       NaN  None  ...           0     False             None
+
+[5 rows x 25 columns]
+2025-07-31 12:59:17 - Table staging.Application_Client truncated successfully.
+2025-07-31 12:59:30 - Data written to staging.Application_Client successfully.
+2025-07-31 12:59:39 - Data written to prod.Application_Client successfully.
+2025-07-31 12:59:40 - Start Extracting delta for BankDetail with keys as ['BankDetailId']
+2025-07-31 12:59:43 - Execution time: 3.2952725887298584 seconds
+2025-07-31 12:59:43 -    BankDetailId TransactionId ReferenceId  ...  strikeDate1  strikeDate2  strikeDate3
+0       4841302          None        None  ...         None         None         None
+1       4814004          None        None  ...         None         None         None
+2       4813761          None        None  ...         None         None         None
+3       4752251          None        None  ...         None         None         None
+4       4840871          None        None  ...         None         None         None
+
+[5 rows x 20 columns]
+2025-07-31 12:59:43 - Table staging.BankDetail truncated successfully.
+2025-07-31 12:59:52 - Data written to staging.BankDetail successfully.
+2025-07-31 12:59:59 - Data written to prod.BankDetail successfully.
+2025-07-31 13:00:00 - Start Extracting delta for Client with keys as ['ClientId']
+2025-07-31 13:00:30 - Execution time: 29.899264335632324 seconds
+2025-07-31 13:00:30 -    ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    567481       0     None  ...        False        False                NaN
+1    934838       0     None  ...        False        False                NaN
+2    309658       0     None  ...        False        False                NaN
+3    660355       0     None  ...        False        False                NaN
+4    560466       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+2025-07-31 13:00:30 - Table staging.Client truncated successfully.
+2025-07-31 13:01:02 - Data written to staging.Client successfully.
+2025-07-31 13:01:10 - Data written to prod.Client successfully.
+2025-07-31 13:01:11 - Start Extracting delta for CreditScore with keys as ['CreditScoreId']
+2025-07-31 13:01:32 - Execution time: 21.26920747756958 seconds
+2025-07-31 13:01:32 -    CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3702267        3867558  ...        COMPUSCAN             None
+1        3702268        3867702  ...        COMPUSCAN             None
+2        3702269        3867092  ...        COMPUSCAN             None
+3        3702298        3867717  ...        COMPUSCAN             None
+4        3702300        3867723  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+2025-07-31 13:01:32 - Table staging.CreditScore truncated successfully.
+2025-07-31 13:01:35 - Data written to staging.CreditScore successfully.
+2025-07-31 13:01:40 - Data written to prod.CreditScore successfully.
+2025-07-31 13:01:41 - Start Extracting delta for Disbursement with keys as ['DisbursementId']
+2025-07-31 13:01:44 - Execution time: 3.7878000736236572 seconds
+2025-07-31 13:01:44 -    DisbursementId NuCardNumber  ... IsReferred  ReferralAmount
+0         3899342         None  ...        NaN             NaN
+1         3869835         None  ...        NaN             NaN
+2         3846285         None  ...        NaN             NaN
+3         3895209         None  ...        NaN             NaN
+4         3889060         None  ...        NaN             NaN
+
+[5 rows x 36 columns]
+2025-07-31 13:01:45 - Table staging.Disbursement truncated successfully.
+2025-07-31 13:01:59 - Data written to staging.Disbursement successfully.
+2025-07-31 13:02:11 - Data written to prod.Disbursement successfully.
+2025-07-31 13:02:12 - Start Extracting delta for Employer with keys as ['EmployerId']
+2025-07-31 13:02:16 - Execution time: 4.1624791622161865 seconds
+2025-07-31 13:02:16 -    EmployerId  AddressId  IndustryId  ... PayDay2 AddressTypeId3  PayDay3
+0     5478183   10257098        10.0  ...      31              1       31
+1     5485299   10268507         7.0  ...    None              0     None
+2     5582464   10424504        10.0  ...      26              1       24
+3     5496248   10286315         NaN  ...      23              1       24
+4     5522566   10329765         NaN  ...       4              2        4
+
+[5 rows x 29 columns]
+2025-07-31 13:02:16 - Table staging.Employer truncated successfully.
+2025-07-31 13:02:31 - Data written to staging.Employer successfully.
+2025-07-31 13:02:43 - Data written to prod.Employer successfully.
+2025-07-31 13:02:44 - Start Extracting delta for PER_Person with keys as ['PersonId']
+2025-07-31 13:02:53 - Execution time: 9.140097618103027 seconds
+2025-07-31 13:02:53 -    PersonId SecurityId  ...  LanguageId  PropertyOwnershipId
+0    921346       None  ...         2.0                  2.0
+1    703859       None  ...         NaN                  0.0
+2    738211       None  ...         NaN                  0.0
+3    613074       None  ...         NaN                  0.0
+4    601190       None  ...         2.0                  1.0
+
+[5 rows x 32 columns]
+2025-07-31 13:02:53 - Table staging.PER_Person truncated successfully.
+2025-07-31 13:03:09 - Data written to staging.PER_Person successfully.
+2025-07-31 13:03:13 - Data written to prod.PER_Person successfully.
+2025-07-31 13:03:14 - Start Extracting delta for Quotation with keys as ['QuotationId']
+2025-07-31 13:03:23 - Execution time: 8.260286331176758 seconds
+2025-07-31 13:03:23 -    QuotationId  ... FamilyBenefitAcceptanceSigningMethod
+0      3869283  ...                                 None
+1      3868590  ...                                    D
+2      3892755  ...                                 None
+3      3824720  ...                                 None
+4      3874412  ...                                 None
+
+[5 rows x 51 columns]
+2025-07-31 13:03:23 - Table staging.Quotation truncated successfully.
+2025-07-31 13:03:49 - Data written to staging.Quotation successfully.
+2025-07-31 13:03:57 - Data written to prod.Quotation successfully.
+2025-07-31 13:03:57 - Start Extracting delta for ACC_PaymentStatusHistory with keys as ['PaymentStatusHistoryId']
+2025-07-31 13:04:34 - Execution time: 36.74971342086792 seconds
+2025-07-31 13:04:34 -    PaymentStatusHistoryId  AccountId  ...     RunDate  PersonId
+0                    7489    4346572  ...  2024-11-22    819620
+1                    2118    4341504  ...  2024-11-20    908799
+2                    2196    4341588  ...  2024-11-20    511705
+3                    2212    4341681  ...  2024-11-20    183541
+4                    5125    4344576  ...  2024-11-21    880753
+
+[5 rows x 6 columns]
+2025-07-31 13:04:34 - Table staging.ACC_PaymentStatusHistory truncated successfully.
+2025-07-31 13:04:48 - Data written to staging.ACC_PaymentStatusHistory successfully.
+2025-07-31 13:04:56 - Data written to prod.ACC_PaymentStatusHistory successfully.
+2025-07-31 13:04:56 - Start Extracting delta for XDSCustomerDetailsLog with keys as ['ApplicationId', 'Type']
+2025-07-31 13:58:16 - Execution time: 3199.7052421569824 seconds
+2025-07-31 13:58:16 -                   CreateDate  ...                                           JsonText
+0 2025-07-21 01:49:49.453604  ...  {"rules_fired": [], "codex_rules_fired": [{"co...
+1 2025-07-21 03:30:35.952188  ...  {"rules_fired": [{"description": "Branch canno...
+2 2025-07-21 03:30:35.952188  ...  {"rules_fired": [], "codex_rules_fired": [{"co...
+3 2025-07-21 05:44:03.805370  ...  {"rules_fired": [{"description": "CODIX has no...
+4 2025-07-21 05:44:03.805370  ...  {"rules_fired": [], "codex_rules_fired": [], "...
+
+[5 rows x 5 columns]
+2025-07-31 13:58:16 - Table staging.XDSCustomerDetailsLog truncated successfully.
+2025-07-31 13:58:20 - Data written to staging.XDSCustomerDetailsLog successfully.
+2025-07-31 13:58:32 - Data written to prod.XDSCustomerDetailsLog successfully.
+2025-07-31 12:43:23 - Processing Deltas ...
+2025-07-31 12:43:23 - Start ACC_Account
+2025-07-31 12:45:13 - Start ACC_DebitOrder
+2025-07-31 12:47:46 - Start ACC_Schedules
+2025-07-31 12:56:17 - Start Address
+2025-07-31 12:56:41 - Start Affordability
+2025-07-31 12:57:34 - Start Application
+2025-07-31 12:58:51 - Start Application_AccountMapping
+2025-07-31 12:59:13 - Start Application_Client
+2025-07-31 12:59:39 - Start BankDetail
+2025-07-31 13:00:00 - Start Client
+2025-07-31 13:01:10 - Start CreditScore
+2025-07-31 13:01:40 - Start Disbursement
+2025-07-31 13:02:11 - Start Employer
+2025-07-31 13:02:44 - Start PER_Person
+2025-07-31 13:03:14 - Start Quotation
+2025-07-31 13:03:57 - Start ACC_PaymentStatusHistory
+2025-07-31 13:04:56 - Start XDSCustomerDetailsLog
+2025-07-31 13:58:33 - Account Information Tables collected at 4519 Seconds
+2025-07-31 13:58:33 - Total runtime: 4519 Seconds
