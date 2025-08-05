@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Get full path to script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Activate the virtual environment (use full path)
+source "${SCRIPT_DIR}/venv_matogen/bin/activate"
+
 # Extract directory path and create it if it does not exist
 LOG_DIR=$(dirname "../logs")
 mkdir -p "$LOG_DIR"
@@ -90,7 +96,7 @@ log_message "Reference Tables collected at ${SECONDS} Seconds"
 
 #Collect Account related data
 log_message "Collect Account related data"
-#python  ../src/python/Staging_ExtractHistory.py $from_date $to_date >> "$LOG_FILENAME" 2>&1
+python  ../src/python/Staging_ExtractHistory.py $from_date $to_date >> "$LOG_FILENAME" 2>&1
 if [ $? -ne 0 ]; then
     log_message "Staging_ExtractHistory.py failed. Exiting."
     log_message "Total runtime: ${SECONDS} Seconds"

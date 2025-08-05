@@ -11,6 +11,6 @@ ApplicationData as (
   from 	  backoffice.sqlmig."Application" a , backoffice.sqlmig."Client" c
   where   a."ClientId" = c."ClientId"
 )
-select 	p.* , a.* 
+select 	a.* 
 from 		ApplicationData a, parameters p
 where   a."CreateDate" between p."SevenDaysPriorStart" and p."EndDate";
