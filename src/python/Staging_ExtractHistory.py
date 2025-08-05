@@ -91,7 +91,7 @@ try:
         ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
       ]
     table_scripts = [
-      ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
+      ("Application.sql" , "Application", ['ApplicationId'])
     ]   
 
 
@@ -104,7 +104,7 @@ try:
           check=True
       )
 
-
+    exit()
     # Collect the bureau data for the month in question in week intervals due to the db not able to handle more than 7 days worth of data.
     intervals = generate_5_day_intervals(str(start_of_month.date()), str(end_of_month.date()))
     for start, end in intervals:
