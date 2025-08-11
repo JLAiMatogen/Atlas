@@ -5,7 +5,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Activate the virtual environment (use full path)
-source "${SCRIPT_DIR}/venv_matogen/bin/activate"
+source "${HOME}/venv_matogen/bin/activate"
 
 set +x 
 set -e  # Exit immediately if a command exits with a non-zero status
