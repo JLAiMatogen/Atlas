@@ -35,7 +35,10 @@ table_scripts = [
     ("Bank.sql", "Bank", ['BankId']),
     ("PRD_Products.sql", "PRD_Products", ['ProductId']),
     ("ACC_PaymentStatus.sql", "ACC_PaymentStatus", ['PaymentStatusId']),
-    ("Province.sql", "Province", ['ProvinceId'])
+    ("Province.sql", "Province", ['ProvinceId']),
+    ("MaritalStatus.sql", "MaritalStatus", ['MaritalStatusId']),
+    ("Languages.sql", "Languages", ['LanguagesId']),
+    ("Country.sql", "Country", ['CountryId'])
     ]
 
 # Get the current folder
