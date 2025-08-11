@@ -7,7 +7,7 @@ select
 	, pc."Firstname"||' '||pc."Lastname" "Consultant"
 	, aa."OpenDate" 
 	, aa."CloseDate"
-	,	TO_CHAR(aa."OpenDate", 'YYYYMM') "OpenMonth"
+	,	TO_CHAR(aa."OpenDate", 'YYYYMM')::int "OpenMonth"
 	, apf."Description" as "PaymentFrequency"
 	, case 
 		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 0   and 30  then '1'
@@ -111,6 +111,78 @@ and     aa."LoanStateReasonCode" = lsr."Code"
 and     aa."ProductId" = p."ProductId";
 
 
+create materialized view prod."Account_Detail_MV" as
+select  * 
+from    prod."Account_Detail";
+
+Create  index Account_Detail_MV_OpenMonth_idx
+on prod."Account_Detail_MV" ("OpenMonth");
+
 select 	* 
-from 		prod."Account_Detail_MV";
+from 		prod."Account_Detail_MV"
+where "OpenMonth" between  202401 and 202508
+;
+
+
+
+select extract(year from age(:FirstArrearDate, :OpenDate )) * 12  + extract(month from age(:FirstArrearDate, :OpenDate) ) "MonthsFirstArrear";
+
+select EXTRACT(month FROM :FirstArrearDate::date);
+
+select :FirstArrearDate::date - (:OpenDate||' 23:59:59')::date;
+
+SELECT
+  (EXTRACT(year FROM :FirstArrearDate::date) - EXTRACT(year FROM :OpenDate::date)) * 12 +
+  (EXTRACT(month FROM :FirstArrearDate::date) - EXTRACT(month FROM :OpenDate::date)) +
+  CASE 
+    WHEN EXTRACT(day FROM :FirstArrearDate::date) >= EXTRACT(day FROM :OpenDate::date) THEN 0
+    ELSE -1
+  END AS "MonthsFirstArrear";
+
+SELECT 
+  (DATE_PART('year', :FirstArrearDate::date) - DATE_PART('year', :OpenDate::date)) Years, --* 12 +
+  (DATE_PART('month', :FirstArrearDate::date) - DATE_PART('month', :OpenDate::date)) Months --AS "MonthsFirstArrear"
+  ;
+
+
+with rollingmonths AS (
+		SELECT generate_series(1, 8) AS "MonthsOnBook"
+	),
+AccountData as (
+	select '2024-05-15'::date AS OpenDate,
+				 '2024-05-22'::date as FirstInstallmentDate,
+				 '2024-05-01'::date as FirstInstallmentMonth,
+  				CURRENT_DATE AS Today,
+  				'2024-06-01'::date as FirstArrearDate
+),
+FinalData as (
+SELECT 
+  OpenDate,
+  FirstInstallmentDate,
+  CURRENT_DATE AS Today,
+  FirstArrearDate,
+  (DATE_PART('year', Today) - DATE_PART('year', Opendate)) * 12 +
+  (DATE_PART('month', Today) - DATE_PART('month', OpenDate)) AS AgeInMonths,
+  (DATE_PART('year', FirstArrearDate) - DATE_PART('year', FirstInstallmentMonth)) * 12 +
+  (DATE_PART('month', FirstArrearDate) - DATE_PART('month', FirstInstallmentMonth)) + 1 AS "MonthsFirstArrear",
+  rm."MonthsOnBook"
+from AccountData , rollingmonths rm
+)
+select 	f.* 
+		,		CASE
+		    WHEN f."MonthsFirstArrear" IS NOT NULL AND f."MonthsOnBook"::numeric >= "MonthsFirstArrear" THEN 1
+		    ELSE 0
+		    END AS "Vintage_Indicator"
+		,   EXTRACT(YEAR FROM age(f.FirstArrearDate, f.OpenDate)) * 12 +
+    		EXTRACT(MONTH FROM age(f.FirstArrearDate, f.OpenDate)) AS "Months_Passed"
+    ,   AGE(f.FirstArrearDate, f.OpenDate) "Calendar_Based"
+from 		FinalData f
+where  	f.AgeInMonths >= f."MonthsOnBook";
+
+
+
+select 	"OpenMonth"::text , count(*) 
+from 		prod."Account_Detail_MV" adm 
+group by "OpenMonth"
+order by 1;
 
