@@ -3,8 +3,11 @@
 # Get full path to script location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+cd $SCRIPT_DIR
+
 # Activate the virtual environment (use full path)
-source "${SCRIPT_DIR}/venv_matogen/bin/activate"
+#source "${SCRIPT_DIR}/venv_matogen/bin/activate"
+source "${HOME}/venv_matogen/bin/activate"
 
 # Extract directory path and create it if it does not exist
 LOG_DIR=$(dirname "../logs")

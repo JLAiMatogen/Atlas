@@ -3,7 +3,6 @@
 
 # Get full path to script location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd $SCRIPT_DIR
 
 # Activate the virtual environment (use full path)
 source "${HOME}/venv_matogen/bin/activate"
@@ -16,7 +15,7 @@ LOG_DIR=$(dirname "../logs")
 mkdir -p "$LOG_DIR"
 
 # Define the base log filename
-BASE_LOG_NAME="../logs/ExtractDelta"
+BASE_LOG_NAME="../logs/Extracteference"
 
 # Get the current date and time in a specific format (e.g., YYYY-MM-DD_HH-MM-SS)
 TIMESTAMP=$(date +"%Y-%m-%d_%H%M%S")
@@ -42,16 +41,3 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 log_message "Reference Tables collected at ${SECONDS} Seconds"
-
-
-#Collect Account related data
-log_message "Collect Account related data"
-python  ../src/python/Staging_ExtractDelta.py $from_date $to_date >> "$LOG_FILENAME" 2>&1
-if [ $? -ne 0 ]; then
-    echo "Staging_ExtractDelta.py failed. Exiting."
-    exit 1
-fi
-
-log_message "Account Information Tables collected at ${SECONDS} Seconds"
-# Print the total runtime
-log_message "Total runtime: ${SECONDS} Seconds"
