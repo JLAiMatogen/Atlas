@@ -1,4 +1,6 @@
-create materialized view "Account_BadRate_Indicators" as
+DROP materialized view prod."Account_BadRate_Indicators" cascade;
+
+create materialized view prod."Account_BadRate_Indicators" as
 with ACC_Schedules as (
 	select 	ac."AccountId",as1."Installment_SrNo", as1."Duedate", as1."PaidDate"
 			,		extract(year from age(now(), ac."OpenDate" )) * 12  + extract(month from age(now(), ac."OpenDate") ) "AgeInMonths"
@@ -59,6 +61,7 @@ ACC_Schedules_Detail as (
 	from 		ACC_Schedules as2 )
 select 	asd."AccountId" 
 			,	asd."AgeInMonths"
+			, min(asd."Duedate") "FirstDueDate"
 			, min(asd."ArrearDate") "FirstArrearDate"
 			,	max(asd."FirstDueDate_Missed_Ind")	"FirstDueDate_Missed_Flag"
 			,	max(asd."FirstInstalment_Default_Ind") "FirstInstalment_Default_Flag"
@@ -73,3 +76,6 @@ select 	asd."AccountId"
 from 		ACC_Schedules_Detail asd
 group by asd."AccountId" , asd."AgeInMonths"
 order by "AccountId";
+
+
+select * from prod."Account_BadRate_Indicators" ;

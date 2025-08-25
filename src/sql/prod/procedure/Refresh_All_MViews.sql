@@ -14,37 +14,55 @@ ON prod."XDS_CusomerDetailsLog_MV" ("ApplicationId");
 Create UNIQUE INDEX ACC_PaymentStatusHistory_Latest_uq
 on prod."ACC_PaymentStatusHistory_Latest" ("AccountId");
 
-Create UNIQUE index Account_Detail_MV_uq 
-on prod."Account_Detail_MV" ("AccountId");
 
 --List all the Mviews to be updated
 CREATE OR REPLACE PROCEDURE prod."Refresh_All_MViews"()
 LANGUAGE plpgsql
 AS $$
+DECLARE
+	  t_start   TIMESTAMP;
+    t_step    TIMESTAMP;
+    elapsed   NUMERIC;
 BEGIN
-    RAISE NOTICE 'Refreshing materialized views...';
+    -- Start timing
+    t_start := clock_timestamp();
+    RAISE NOTICE 'Refreshing materialized views at %', t_start;
+
 
     -- Refresh each materialized in sequence
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."XDS_CusomerDetailsLog_MV";
-	RAISE NOTICE 'XDS_CusomerDetailsLog_MV complete.';
-    
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'XDS_CusomerDetailsLog_MV complete in % seconds', elapsed;
+
+
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_Client_IDNumber_Summary";
-	RAISE NOTICE 'ACC_Client_IDNumber_Summary complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'ACC_Client_IDNumber_Summary complete in % seconds', elapsed;
 
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_DebitOrder_Latest";
-	RAISE NOTICE 'ACC_DebitOrder_Latest complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'ACC_DebitOrder_Latest complete in % seconds', elapsed;
 
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_BadRate_Indicators";
-	RAISE NOTICE 'Account_BadRate_Indicators complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'Account_BadRate_Indicators complete in % seconds', elapsed;
 
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."ACC_PaymentStatusHistory_Latest";
-	RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'ACC_PaymentStatusHistory_Latest complete in % seconds', elapsed;
 
-
+		t_step := clock_timestamp();
     REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_Detail_MV";
-	RAISE NOTICE 'Account_Detail_MV complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_step));
+		RAISE NOTICE 'Account_Detail_MV complete in % seconds', elapsed;
 
-    RAISE NOTICE 'Refresh complete.';
+		elapsed := EXTRACT(EPOCH FROM (clock_timestamp() - t_start));
+    RAISE NOTICE 'Refresh complete at % in % seconds',clock_timestamp(),elapsed;
 END;
 $$;
 

@@ -1,3 +1,7 @@
+--Age in Months Calculation:
+-- Email from Adelle 08 August 2025. The Age in motnhs starts with 1 in the month that the first instalment is due.
+-- In my kop (maar daar is seker ander manière ook om dit te doen) is “1” die eerste maand wat ‘n instalment due is, so ja in jou eerste geval is May = “1” en in jou tweede voorbeeld is May eintlik “0” as daar so iets was en June = “1”
+
 drop view prod."Account_Detail" cascade;
 
 create or replace view prod."Account_Detail" as 
@@ -58,8 +62,18 @@ select
 	, case when ( ap."IsGetOfferOverride") then 'Yes' ELSE 'No' end "CDE_Override"
 	, c."IDNumber"
 	, abr."FirstArrearDate"
-	, extract(year from age(now(), aa."OpenDate" )) * 12  + extract(month from age(now(), aa."OpenDate") ) "AgeInMonths"
-	, extract(year from age(abr."FirstArrearDate", aa."OpenDate" )) * 12  + extract(month from age(abr."FirstArrearDate", aa."OpenDate") ) + 1 "MonthsFirstArrear"
+	--, (EXTRACT(YEAR FROM age(current_date, aa."FirstInstalmentDate")) * 12 +
+  --   EXTRACT(MONTH FROM age(current_date, aa."FirstInstalmentDate")) + 1
+  --  )::numeric "AgeInMonths"
+	, (
+			(DATE_PART('year', now()) - DATE_PART('year', aa."OpenDate")) * 12 +
+  		(DATE_PART('month', now()) - DATE_PART('month', aa."OpenDate"))
+  		)::numeric AS "AgeInMonths"	
+  , (
+  		(DATE_PART('year', abr."FirstArrearDate") - DATE_PART('year', "FirstDueDate")) * 12 +
+  		(DATE_PART('month', abr."FirstArrearDate") - DATE_PART('month', "FirstDueDate")) + 1 
+  	)::numeric AS "MonthsFirstArrear"
+	--, extract(year from age(abr."FirstArrearDate", aa."OpenDate" )) * 12  + extract(month from age(abr."FirstArrearDate", aa."OpenDate") ) + 1 "MonthsFirstArrear"
 	,	abr."FirstDueDate_Missed_Flag"
 	,	abr."FirstInstalment_Default_Flag"
 	, abr."One_ever_3_Flag"
@@ -115,74 +129,12 @@ create materialized view prod."Account_Detail_MV" as
 select  * 
 from    prod."Account_Detail";
 
+Create UNIQUE index Account_Detail_MV_uq 
+on prod."Account_Detail_MV" ("AccountId");
+
+
 Create  index Account_Detail_MV_OpenMonth_idx
 on prod."Account_Detail_MV" ("OpenMonth");
 
-select 	* 
-from 		prod."Account_Detail_MV"
-where "OpenMonth" between  202401 and 202508
-;
-
-
-
-select extract(year from age(:FirstArrearDate, :OpenDate )) * 12  + extract(month from age(:FirstArrearDate, :OpenDate) ) "MonthsFirstArrear";
-
-select EXTRACT(month FROM :FirstArrearDate::date);
-
-select :FirstArrearDate::date - (:OpenDate||' 23:59:59')::date;
-
-SELECT
-  (EXTRACT(year FROM :FirstArrearDate::date) - EXTRACT(year FROM :OpenDate::date)) * 12 +
-  (EXTRACT(month FROM :FirstArrearDate::date) - EXTRACT(month FROM :OpenDate::date)) +
-  CASE 
-    WHEN EXTRACT(day FROM :FirstArrearDate::date) >= EXTRACT(day FROM :OpenDate::date) THEN 0
-    ELSE -1
-  END AS "MonthsFirstArrear";
-
-SELECT 
-  (DATE_PART('year', :FirstArrearDate::date) - DATE_PART('year', :OpenDate::date)) Years, --* 12 +
-  (DATE_PART('month', :FirstArrearDate::date) - DATE_PART('month', :OpenDate::date)) Months --AS "MonthsFirstArrear"
-  ;
-
-
-with rollingmonths AS (
-		SELECT generate_series(1, 8) AS "MonthsOnBook"
-	),
-AccountData as (
-	select '2024-05-15'::date AS OpenDate,
-				 '2024-05-22'::date as FirstInstallmentDate,
-				 '2024-05-01'::date as FirstInstallmentMonth,
-  				CURRENT_DATE AS Today,
-  				'2024-06-01'::date as FirstArrearDate
-),
-FinalData as (
-SELECT 
-  OpenDate,
-  FirstInstallmentDate,
-  CURRENT_DATE AS Today,
-  FirstArrearDate,
-  (DATE_PART('year', Today) - DATE_PART('year', Opendate)) * 12 +
-  (DATE_PART('month', Today) - DATE_PART('month', OpenDate)) AS AgeInMonths,
-  (DATE_PART('year', FirstArrearDate) - DATE_PART('year', FirstInstallmentMonth)) * 12 +
-  (DATE_PART('month', FirstArrearDate) - DATE_PART('month', FirstInstallmentMonth)) + 1 AS "MonthsFirstArrear",
-  rm."MonthsOnBook"
-from AccountData , rollingmonths rm
-)
-select 	f.* 
-		,		CASE
-		    WHEN f."MonthsFirstArrear" IS NOT NULL AND f."MonthsOnBook"::numeric >= "MonthsFirstArrear" THEN 1
-		    ELSE 0
-		    END AS "Vintage_Indicator"
-		,   EXTRACT(YEAR FROM age(f.FirstArrearDate, f.OpenDate)) * 12 +
-    		EXTRACT(MONTH FROM age(f.FirstArrearDate, f.OpenDate)) AS "Months_Passed"
-    ,   AGE(f.FirstArrearDate, f.OpenDate) "Calendar_Based"
-from 		FinalData f
-where  	f.AgeInMonths >= f."MonthsOnBook";
-
-
-
-select 	"OpenMonth"::text , count(*) 
-from 		prod."Account_Detail_MV" adm 
-group by "OpenMonth"
-order by 1;
+REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_Detail_MV";
 
