@@ -14,8 +14,8 @@ from datetime import datetime
 
 # Override print globally
 def print(*args, **kwargs):
-    timestamp = datetime.now().strftime('%d-%b-%Y %H:%M:%S')
-    builtins.print(f"{timestamp}", *args, **kwargs)
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    builtins.print(f"{timestamp} -", *args, **kwargs)
 
 
 def generate_5_day_intervals(start_date_str, end_date_str):
