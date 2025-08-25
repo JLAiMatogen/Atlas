@@ -93,7 +93,8 @@ try:
         ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
       ]
     table_scripts = [
-      ("ACC_Schedules.sql" , "ACC_Schedules", ['AccountId','Installment_SrNo'])
+      ("ACC_Account.sql" , "ACC_Account_202506_202508", ['AccountId']),
+      ("ACC_Schedules.sql" , "ACC_Schedules_202506_202508", ['AccountId','Installment_SrNo'])
     ]   
 
 
@@ -106,16 +107,15 @@ try:
           check=True
       )
 
-    exit()
     # Collect the bureau data for the month in question in week intervals due to the db not able to handle more than 7 days worth of data.
-    intervals = generate_5_day_intervals(str(start_of_month.date()), str(end_of_month.date()))
-    for start, end in intervals:
-      print(f"Processing XDSCustomerDetailsLog... {start} to {end}")
-      subprocess.run(
-            ["python", target_script , "history", start, end, "XDSCustomerDetailsLog.sql", "XDSCustomerDetailsLog"] + ['ApplicationId','Type'],
-            check=True  # Raises CalledProcessError on failure
-        )
-      print(f"{start} to {end}")
+    #intervals = generate_5_day_intervals(str(start_of_month.date()), str(end_of_month.date()))
+    #for start, end in intervals:
+    #  print(f"Processing XDSCustomerDetailsLog... {start} to {end}")
+    #  subprocess.run(
+    #        ["python", target_script , "history", start, end, "XDSCustomerDetailsLog.sql", "XDSCustomerDetailsLog"] + ['ApplicationId','Type'],
+    #        check=True  # Raises CalledProcessError on failure
+    #    )
+    #  print(f"{start} to {end}")
 
 except subprocess.CalledProcessError as e:
     print(f"Error: Subprocess failed with exit code {e.returncode}. Command: {' '.join(e.cmd)}")

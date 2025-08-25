@@ -65,8 +65,8 @@ Data as  (
       from    backoffice.public."ACC_Account" ac , backoffice.sqlmig."Client" c , parameters p
       where   ac."LoanType" = 'L'
       and     (  		ac."CloseDate" is null
-					or 	ac."CloseDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd"
-					or  ac."StatusChangeDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd" 
+					or 	ac."CloseDate" between p."SevenDaysPriorStart" and p."EndDate"
+					or  ac."StatusChangeDate" between p."SevenDaysPriorStart" and p."EndDate" 
 			)
       and     ac."ClientId" = c."ClientId"
 ) 

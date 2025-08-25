@@ -39,7 +39,7 @@ table_scripts = [
     ("ACC_PaymentStatus.sql", "ACC_PaymentStatus", ['PaymentStatusId']),
     ("Province.sql", "Province", ['ProvinceId']),
     ("MaritalStatus.sql", "MaritalStatus", ['MaritalStatusId']),
-    ("Languages.sql", "Languages", ['LanguagesId']),
+    ("Languages.sql", "Languages", ['LanguageId']),
     ("Country.sql", "Country", ['CountryId'])
     ]
 

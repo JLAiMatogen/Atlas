@@ -10,7 +10,7 @@ from 	  backoffice.public."ACC_Account" aa , parameters p , backoffice.public."A
 where   aa."LoanType" = 'L'
 and     aa."OpenDate" is not null
 and     (  		aa."CloseDate" is null
-          or 	aa."CloseDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd"
-          or  aa."StatusChangeDate" between p."SevenDaysPriorStart" and p."SevenDaysPriorEnd" 
+          or 	aa."CloseDate" between p."SevenDaysPriorStart" and p."EndDate"
+          or  aa."StatusChangeDate" between p."SevenDaysPriorStart" and p."EndDate" 
         )
 and     aa."AccountId" = ado."AccountId";
