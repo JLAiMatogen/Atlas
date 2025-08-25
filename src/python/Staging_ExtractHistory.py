@@ -91,12 +91,7 @@ try:
         ("PER_Person.sql" , "PER_Person", ['PersonId']),
         ("Quotation.sql" , "Quotation", ['QuotationId']),
         ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
-      ]
-    table_scripts = [
-      ("ACC_Account.sql" , "ACC_Account_202506_202508", ['AccountId']),
-      ("ACC_Schedules.sql" , "ACC_Schedules_202506_202508", ['AccountId','Installment_SrNo'])
-    ]   
-
+      ]  
 
     # Collect all the related tables
     for script_file, table_name, key_columns in table_scripts:
