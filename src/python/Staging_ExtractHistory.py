@@ -7,6 +7,8 @@ import subprocess
 import os
 import sys
 
+sys.stdout.reconfigure(line_buffering=True)
+
 import builtins
 from datetime import datetime
 
@@ -91,7 +93,7 @@ try:
         ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
       ]
     table_scripts = [
-      ("Application.sql" , "Application", ['ApplicationId'])
+      ("ACC_Schedules.sql" , "ACC_Schedules", ['AccountId','Installment_SrNo'])
     ]   
 
 

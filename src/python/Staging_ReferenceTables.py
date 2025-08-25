@@ -6,6 +6,8 @@ import os
 import sys
 from datetime import datetime, timedelta, date
 
+sys.stdout.reconfigure(line_buffering=True)
+
 import builtins
 from datetime import datetime
 # Override print globally

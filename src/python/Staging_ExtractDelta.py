@@ -5,6 +5,8 @@ import subprocess
 import os
 import sys
 
+sys.stdout.reconfigure(line_buffering=True)
+
 import os
 import sys
 
