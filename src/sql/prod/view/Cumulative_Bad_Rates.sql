@@ -6,7 +6,7 @@ accountsummary AS (
    SELECT ad."OpenMonth",
       count(*) AS "TotalAccounts"
      FROM prod."Account_Detail_MV" ad
-    WHERE ad."OpenMonth" >= '202401'::text
+    WHERE ad."OpenMonth" >= 202401
     GROUP BY ad."OpenMonth"
   ), 
 vintageindicators AS (
@@ -25,7 +25,7 @@ vintageindicators AS (
           END AS "Vintage_Indicator",
       rm."MonthsOnBook"
  	FROM 	prod."Account_Detail_MV" ad,	rollingmonths rm
-  WHERE 	ad."OpenMonth"::integer >= 202401
+  WHERE 	ad."OpenMonth" >= 202401
   and     ad."AgeInMonths" + 1 >= rm."MonthsOnBook"::numeric  --Added the one month to move the indiactors into the correct bucket.
       ), 
 vintageidicator_summary AS (
@@ -37,15 +37,15 @@ vintageidicator_summary AS (
             sum(vintageindicators."Vintage_Indicator") AS "TotalAccountsInArrears"
      FROM vintageindicators
      GROUP BY vintageindicators."OpenMonth", vintageindicators."Loan_Term", vintageindicators."Loan_Size", vintageindicators."MonthsOnBook"
-     UNION ALL
-     SELECT 'General'::text AS "OpenMonth",
-            vintageindicators."Loan_Term",
-            vintageindicators."Loan_Size",
-            vintageindicators."MonthsOnBook",
-            count(vintageindicators."AccountId") AS "TotalAccounts",
-            sum(vintageindicators."Vintage_Indicator") AS "TotalAccountsInArrears"
-           FROM vintageindicators
-      GROUP BY vintageindicators."Loan_Term", vintageindicators."Loan_Size", vintageindicators."MonthsOnBook"
+     --UNION ALL
+     --SELECT 'General'::text AS "OpenMonth",
+     --       vintageindicators."Loan_Term",
+     --       vintageindicators."Loan_Size",
+     --       vintageindicators."MonthsOnBook",
+     --       count(vintageindicators."AccountId") AS "TotalAccounts",
+     --       sum(vintageindicators."Vintage_Indicator") AS "TotalAccountsInArrears"
+     --      FROM vintageindicators
+     -- GROUP BY vintageindicators."Loan_Term", vintageindicators."Loan_Size", vintageindicators."MonthsOnBook"
     )
  SELECT "OpenMonth",
     "Loan_Term",
