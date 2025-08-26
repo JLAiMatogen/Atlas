@@ -2,9 +2,12 @@
 -- Email from Adelle 08 August 2025. The Age in motnhs starts with 1 in the month that the first instalment is due.
 -- In my kop (maar daar is seker ander manière ook om dit te doen) is “1” die eerste maand wat ‘n instalment due is, so ja in jou eerste geval is May = “1” en in jou tweede voorbeeld is May eintlik “0” as daar so iets was en June = “1”
 
-drop view prod."Account_Detail" cascade;
+drop view "Account_Detail" cascade;
 
-create or replace view prod."Account_Detail" as 
+create or replace view "Account_Detail" as 
+WITH parameters AS (
+ SELECT date_trunc('month'::text, CURRENT_DATE::timestamp with time zone) + '1 mon -1 days'::interval AS last_day_of_month
+)
 select 	
 		aa."AccountId"
 	,	aam."ApplicationId"
@@ -61,19 +64,11 @@ select
 	,	case when ( q."IsRollOver") then 'Yes' else 'No' end "ROLLd_Loan"
 	, case when ( ap."IsGetOfferOverride") then 'Yes' ELSE 'No' end "CDE_Override"
 	, c."IDNumber"
+	, abr."FirstDueDate"
 	, abr."FirstArrearDate"
-	--, (EXTRACT(YEAR FROM age(current_date, aa."FirstInstalmentDate")) * 12 +
-  --   EXTRACT(MONTH FROM age(current_date, aa."FirstInstalmentDate")) + 1
-  --  )::numeric "AgeInMonths"
-	, (
-			(DATE_PART('year', now()) - DATE_PART('year', aa."OpenDate")) * 12 +
-  		(DATE_PART('month', now()) - DATE_PART('month', aa."OpenDate"))
-  		)::numeric AS "AgeInMonths"	
-  , (
-  		(DATE_PART('year', abr."FirstArrearDate") - DATE_PART('year', "FirstDueDate")) * 12 +
-  		(DATE_PART('month', abr."FirstArrearDate") - DATE_PART('month', "FirstDueDate")) + 1 
-  	)::numeric AS "MonthsFirstArrear"
-	--, extract(year from age(abr."FirstArrearDate", aa."OpenDate" )) * 12  + extract(month from age(abr."FirstArrearDate", aa."OpenDate") ) + 1 "MonthsFirstArrear"
+	, age_in_months(date_trunc('month'::text, abr."FirstDueDate")::date, pp.last_day_of_month::date) AS "AgeInMonths"
+  , abr."FirstDueDate"
+  ,	age_in_months(date_trunc('month'::text, aa."FirstDueDate")::date, (date_trunc('month'::text, abr."FirstArrearDate") + '1 mon -1 days'::interval)::date) AS "MonthsFirstArrear"
 	,	abr."FirstDueDate_Missed_Flag"
 	,	abr."FirstInstalment_Default_Flag"
 	, abr."One_ever_3_Flag"
@@ -86,37 +81,38 @@ select
 		when ( psh."PaymentStatusDescription" is null ) then 'Pre-Segmentation'
 		else 'Other' end "OverDue_Segment"
 from  prod."ACC_Account" aa
-				left outer join prod."Account_BadRate_Indicators" abr
+				left outer join "Account_BadRate_Indicators" abr
 					on aa."AccountId" = abr."AccountId"
-				left outer join prod."Branch" b
+				left outer join "Branch" b
 					on	aa."BranchId" = b."BranchId" 
-				left outer join prod."ACC_DebitOrder_Latest" ado
+				left outer join "ACC_DebitOrder_Latest" ado
 					on aa."AccountId" =  ado."AccountId"
-				left outer join prod."Client" c
+				left outer join "Client" c
 					on aa."ClientId" = c."ClientId"
-				left outer join prod."ACC_Client_IDNumber_Summary" acs
+				left outer join "ACC_Client_IDNumber_Summary" acs
 					on c."IDNumber" = acs."IDNumber"
-				left outer join prod."ACC_PaymentStatusHistory_Latest" psh
+				left outer join "ACC_PaymentStatusHistory_Latest" psh
 					on aa."AccountId" = psh."AccountId"
-	,		prod."PRD_Products" p
-	, 	prod."PER_Person" pc
-	, 	prod."ACC_PeriodFrequency" apf 
-	, 	prod."ACC_LoanStateReason" lsr
-	,		prod."Application_AccountMapping" aam
-				left outer join prod."Application" ap
+	,		"PRD_cts" p
+	, 	"PER_Person" pc
+	, 	"ACC_PeriodFrequency" apf 
+	, 	"ACC_LoanStateReason" lsr
+	,		"Application_AccountMapping" aam
+				left outer join "Application" ap
 					on aam."ApplicationId" = ap."ApplicationId"
-				left outer join prod."BankDetail" bd 
+				left outer join "BankDetail" bd 
 					on  ap."BankDetailId"   = bd."BankDetailId"
-				left outer join prod."Bank" b2 
+				left outer join "Bank" b2 
 					on  bd."BankId"  		 = b2."BankId"
-				left outer join prod."Quotation" q 
+				left outer join "Quotation" q 
 					on	ap."QuotationId" = q."QuotationId"
-				left outer join prod."Affordability" a
+				left outer join "Affordability" a
 					on aam."ApplicationId" = a."ApplicationId" 
-				left outer join prod."CreditScore" cs 
+				left outer join "CreditScore" cs 
 					on aam."ApplicationId"  = cs."ApplicationId"
-				left outer join prod."XDS_CusomerDetailsLog_MV" xds
+				left outer join "XDS_CusomerDetailsLog_MV" xds
 					on aam."ApplicationId"  = xds."ApplicationId"
+	,   parameters pp 
 where   aa."LoanType" = 'L'
 and     aa."AccountId" = aam."AccountId"
 and     aa."CreatedBy" = pc."PersonId" 
@@ -125,16 +121,16 @@ and     aa."LoanStateReasonCode" = lsr."Code"
 and     aa."ProductId" = p."ProductId";
 
 
-create materialized view prod."Account_Detail_MV" as
+create materialized view "Account_Detail_MV" as
 select  * 
-from    prod."Account_Detail";
+from    "Account_Detail";
 
 Create UNIQUE index Account_Detail_MV_uq 
-on prod."Account_Detail_MV" ("AccountId");
+on "Account_Detail_MV" ("AccountId");
 
 
 Create  index Account_Detail_MV_OpenMonth_idx
-on prod."Account_Detail_MV" ("OpenMonth");
+on "Account_Detail_MV" ("OpenMonth");
 
-REFRESH MATERIALIZED VIEW CONCURRENTLY prod."Account_Detail_MV";
+REFRESH MATERIALIZED VIEW CONCURRENTLY "Account_Detail_MV";
 
