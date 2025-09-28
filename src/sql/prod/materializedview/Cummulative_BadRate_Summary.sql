@@ -2,7 +2,7 @@ Create or replace view Cumulative_Bad_rate as
 With RollingMonths as(
   select level AgeInMonths
   from dual 
-  CONNECT BY LEVEL<= 8
+  CONNECT BY LEVEL<= 12
   ),
 VintageIndicators as (
   Select  OpenMonth 

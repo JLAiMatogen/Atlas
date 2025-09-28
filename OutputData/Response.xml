@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-16"?>
+<string>{"score": 618, "rule_selected_bureau": "XDS", "random_digit": 272, "bureau_returned": "XDS",
+  "application_status": "approve", "HAIDNumberBlocked": null, "codex_1_month_status": "Accept",
+  "codex_5_6_month_status": "Decline", "rules_fired": [], "codex_rules_fired": [{"codex_rule_type":
+  "Branch Rule", "codex_12_month_status": "Decline", "codex_rule_id": "Br_1",
+  "codex_1_month_status": "Accept", "codex_rule_description": "Branch: 'MALELANE' is not allowed to
+  offer 12 month loans", "codex_1_month_capped_status": "Accept", "codex_2_4_month_status":
+  "Accept", "codex_1_month_thinfile_status": "Accept", "codex_5_6_month_status": "Accept"},
+  {"codex_rule_type": "Application Score", "codex_12_month_status": "Decline", "codex_rule_id":
+  "Scr_1.3", "codex_1_month_status": "Accept", "codex_rule_description": "Application Score &lt;
+  644", "codex_1_month_capped_status": "Accept", "codex_2_4_month_status": "Accept",
+  "codex_1_month_thinfile_status": "Accept", "codex_5_6_month_status": "Decline"},
+  {"codex_rule_type": "Other", "codex_12_month_status": "Decline", "codex_rule_id": "Oth_3.11",
+  "codex_1_month_status": "Accept", "codex_rule_description": "&lt; 1 Atlas loans and Medium or
+  Higher Risk", "codex_1_month_capped_status": "Accept", "codex_2_4_month_status": "Accept",
+  "codex_1_month_thinfile_status": "Accept", "codex_5_6_month_status": "Decline"}],
+  "application_reference": "2487429", "BirthDate": "1987-05-05T00:00:00", "EmployerDetail":
+  "BARBERTON MINES PTY LTD", "FirstName": "SIBUSISO", "HABirthPlace": null, "HADateOfBirth":
+  "1987-05-05T00:00:00", "HADeceasedDate": null, "HADeceasedStatus": null, "HAErrorDescription":
+  null, "HAGender": "Male", "HAIDBookIssuedDate": null, "HAIDCardDate": null, "HAIDSequenceNumber":
+  null, "HAMarriageDate": null, "HAMarriageStatus": null, "HASurname": "METISO", "HomeTelephoneNo":
+  "0798474551", "IdCardInd": null, "IDNOMatchStatus": "Matched", "Initials": "SS",
+  "MaritalStatusDesc": "Single", "mds_uuid": "131222d9-ccff-48f8-91c2-76cbf91675e4",
+  "PostalAddress": "STAND NO 1090 1320", "ResidentialAddress": "STAND NO 1090 1320", "TitleDesc":
+  "Mister", "WorkTelephoneNo": "0798474551", "xds_error_message": null, "xds_service_error": null,
+  "experian_error_message": null, "experian_service_error": null, "risk_group": "Medium",
+  "codex_1_month_capped_status": "Accept", "codex_2_4_month_status": "Accept",
+  "codex_12_month_status": "Decline", "codex_1_month_thinfile_status": "Accept", "CellularNo":
+  "0727986165", "EmailAddress": null, "HANames": "SIBUSISO SELBY ", "MaidenName": null,
+  "SecondName": "SELBY", "Surname": "METISO", "ThirdName": null}</string>

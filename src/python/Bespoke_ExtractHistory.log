@@ -1,0 +1,1237 @@
+Month: 202409
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 48.90156006813049 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation previous_application_date
+0        3041927          3054549  ...            False   2024-08-31 09:08:59.940
+1        3083558          3096179  ...            False                       NaT
+2        3072212          3084833  ...            False                       NaT
+3        3077114          3089735  ...            False   2024-08-15 10:48:54.403
+4        3075226          3087847  ...            False   2024-07-22 06:26:54.367
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=36), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=14), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=19), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=232), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 30.675654888153076 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4159206  AOL4159206  ...                 None                        NaT
+1    4146617  AOL4146617  ...                 None                        NaT
+2    4151819  AOL4151819  ...                 None 2024-08-15 11:20:00.119503
+3    4150114  AOL4150114  ...                 None 2024-07-22 06:29:08.423686
+4    4166948  AOL4166948  ...                 None 2024-04-20 10:21:06.127179
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=15), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/2 written successfully.
+Batch 2/2 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 50.55787682533264 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3056393         1  ...                 False            False
+1          3056473         1  ...                 False            False
+2          3057862         1  ...                 False            False
+3          3058182         1  ...                 False            False
+4          3063399         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=20), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=16), 'TELEPHONE': VARCHAR(length=21), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=17), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=17), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=16), 'STATEMENTDEBITS': VARCHAR(length=18), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=18), 'OTHERMICROLOAN': VARCHAR(length=18), 'PREVIOUSMICROLOAN': VARCHAR(length=18), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=19), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=19), 'LOANAMOUNT': VARCHAR(length=19), 'USERDEFINEDEXPENSES': VARCHAR(length=18), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=19), 'TOTALLIVINGEXPENSE': VARCHAR(length=21), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=21), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=191), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 51.02738904953003 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        2910322        3039416  ...        COMPUSCAN             None
+1        2910323        3039417  ...        COMPUSCAN             None
+2        2910324        3039418  ...        COMPUSCAN             None
+3        2910325        3039419  ...        COMPUSCAN             None
+4        2910326        3039420  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 10.110246181488037 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    662806       0     None  ...         True        False               None
+1    258859       0     None  ...        False        False               None
+2    608214       0     None  ...         True        False               None
+3    494202       0     None  ...        False        False               None
+4    631212       0     None  ...        False        False               None
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2024-09-01 00:00:00 .. 2024-09-30 23:59:59
+Execution time: 14.293208837509155 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    7740459              2     None  ...         None       8446   1743.0
+1    7740460              3     None  ...         None       None      NaN
+2    7740463              2     None  ...         None       1575   1969.0
+3    7740464              3     None  ...         None       None      NaN
+4    7740467              2     None  ...                              NaN
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=88), 'ADDRESSLINE2': VARCHAR(length=73), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=39), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/8 written successfully.
+Batch 2/8 written successfully.
+Batch 3/8 written successfully.
+Batch 4/8 written successfully.
+Batch 5/8 written successfully.
+Batch 6/8 written successfully.
+Batch 7/8 written successfully.
+Batch 8/8 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202410
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 48.19918894767761 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation previous_application_date
+0        3115718          3128339  ...            False   2024-09-02 10:16:36.003
+1        3176632          3189233  ...            False                       NaT
+2        3127561          3140182  ...            False   2024-09-16 10:16:54.447
+3        3158891          3171496  ...            False                       NaT
+4        3160441          3173046  ...            False   2024-09-25 14:00:10.593
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=29), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=239), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 33.35545802116394 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4196323  AOL4196323  ...                 None 2024-08-31 09:15:14.093819
+1    4267073  AOL4267073  ...                 None                        NaT
+2    4210695  AOL4210695  ...                 None 2024-09-16 10:41:19.954052
+3    4246225  AOL4246225  ...                 None                        NaT
+4    4248319  AOL4248319  ...                 None 2024-09-25 14:11:50.478026
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=19), 'INTERESTRATE': VARCHAR(length=14), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=18), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=13), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 26.972925186157227 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3127772         1  ...                 False            False
+1          3127773         1  ...                 False            False
+2          3127774         1  ...                 False            False
+3          3127775         1  ...                 False            False
+4          3127776         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=17), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=16), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=17), 'COMPANYLOANS': VARCHAR(length=18), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=16), 'STATEMENTDEBITS': VARCHAR(length=19), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=18), 'PREVIOUSMICROLOAN': VARCHAR(length=18), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=19), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=19), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=18), 'NLRCOMMENT': VARCHAR(length=1297), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 6.162121057510376 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        2981565        3113606  ...        COMPUSCAN             None
+1        2981566        3113607  ...        COMPUSCAN             None
+2        2981567        3113608  ...        COMPUSCAN             None
+3        2981568        3113609  ...        COMPUSCAN             None
+4        2981569        3113610  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 8.976480960845947 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    793614       0     None  ...        False        False               None
+1    789444       0     None  ...        False        False               None
+2    799574       0     None  ...        False        False               None
+3    742304       0     None  ...        False        False               None
+4    609596       0     None  ...        False        False               None
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=30), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2024-10-01 00:00:00 .. 2024-10-31 23:59:59
+Execution time: 16.467491149902344 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    7979460              2     None  ...         None       7460   1420.0
+1    7979461              3     None  ...         None       None      NaN
+2    7979463              2     None  ...         None       1939    173.0
+3    7979464              3     None  ...         None       None      NaN
+4    7979467              2     None  ...         None       2001    179.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=95), 'ADDRESSLINE2': VARCHAR(length=89), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/9 written successfully.
+Batch 2/9 written successfully.
+Batch 3/9 written successfully.
+Batch 4/9 written successfully.
+Batch 5/9 written successfully.
+Batch 6/9 written successfully.
+Batch 7/9 written successfully.
+Batch 8/9 written successfully.
+Batch 9/9 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202411
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 37.431087255477905 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation previous_application_date
+0        3280471          3293070  ...            False                       NaT
+1        3196112          3208713  ...            False   2024-10-01 09:36:32.827
+2        3283386          3295985  ...            False   2024-11-01 07:12:08.467
+3        3254812          3267411  ...            False                       NaT
+4        3211371          3223971  ...            False   2024-10-04 08:43:01.937
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=27), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=148), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 30.143407106399536 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4389181  AOL4389181  ...                 None                        NaT
+1    4290667  AOL4290667  ...                 None 2024-10-01 09:46:03.371478
+2    4391007  AOL4391007  ...                 None 2024-11-01 07:23:10.607683
+3    4356971  AOL4356971  ...                 None                        NaT
+4    4309145  AOL4309145  ...                 None 2024-10-04 08:59:54.422869
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=18), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 24.005619287490845 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3287654         1  ...                 False            False
+1          3223084         1  ...                 False            False
+2          3217185         1  ...                 False            False
+3          3217901         1  ...                 False            False
+4          3218678         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=18), 'WATER_LIGHTS': VARCHAR(length=16), 'TELEPHONE': VARCHAR(length=23), 'GROCERIERS': VARCHAR(length=19), 'MEDICAL': VARCHAR(length=17), 'INSURANCE': VARCHAR(length=16), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=18), 'COMPANYLOANS': VARCHAR(length=18), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=17), 'BANKCHARGES': VARCHAR(length=17), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=18), 'PREVIOUSMICROLOAN': VARCHAR(length=17), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=19), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=23), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=23), 'TOTALLIABILITY': VARCHAR(length=18), 'NLRCOMMENT': VARCHAR(length=447), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 6.003144979476929 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3059592        3195340  ...        COMPUSCAN             None
+1        3059593        3195341  ...        COMPUSCAN             None
+2        3059594        3195342  ...        COMPUSCAN             None
+3        3059595        3195343  ...        COMPUSCAN             None
+4        3059596        3195344  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 19.10600709915161 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    800641       0     None  ...        False        False                NaN
+1    800644       0     None  ...        False        False                NaN
+2    808578       0     None  ...        False        False                NaN
+3    816501       0     None  ...        False        False                NaN
+4    801116       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=35), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2024-11-01 00:00:00 .. 2024-11-30 23:59:59
+Execution time: 11.110602140426636 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    8242492              2     None  ...         None       3815   1183.0
+1    8242493              3     None  ...         None       None      NaN
+2    8242496              2     None  ...         None        182   2831.0
+3    8242497              3     None  ...         None       None      NaN
+4    8242500              2     None  ...         None       1609   1067.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=89), 'ADDRESSLINE2': VARCHAR(length=85), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=39), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/9 written successfully.
+Batch 2/9 written successfully.
+Batch 3/9 written successfully.
+Batch 4/9 written successfully.
+Batch 5/9 written successfully.
+Batch 6/9 written successfully.
+Batch 7/9 written successfully.
+Batch 8/9 written successfully.
+Batch 9/9 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202412
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 31.255074977874756 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation previous_application_date
+0        3301493          3314092  ...            False                       NaT
+1        3355365          3367964  ...            False   2024-11-30 12:01:41.330
+2        3367811          3380410  ...            False                       NaT
+3        3355774          3368373  ...            False                       NaT
+4        3309941          3322540  ...            False   2024-11-11 12:46:27.367
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=36), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=23), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=160), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 36.66804504394531 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4472361  AOL4472361  ...                 None 2024-11-30 12:12:00.179477
+1    4486144  AOL4486144  ...                 None 2024-11-08 10:23:26.071711
+2    4455488  AOL4455488  ...                 None 2024-11-27 07:26:07.465097
+3    4475993  AOL4475993  ...                 None 2024-09-13 08:50:56.703305
+4    4447853  AOL4447853  ...                 None 2024-07-01 16:15:24.502440
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=18), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 31.293068885803223 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3328066         1  ...                 False            False
+1          3298037         1  ...                 False            False
+2          3298074         1  ...                 False            False
+3          3299836         1  ...                 False            False
+4          3301924         1  ...                  True            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=18), 'WATER_LIGHTS': VARCHAR(length=17), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=17), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=20), 'OTHER': VARCHAR(length=17), 'COMPANYLOANS': VARCHAR(length=21), 'BANKLOANS': VARCHAR(length=21), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=19), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=18), 'PREVIOUSMICROLOAN': VARCHAR(length=17), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=19), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=21), 'NLRCOMMENT': VARCHAR(length=846), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 7.133090019226074 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3148180        3288392  ...        COMPUSCAN             None
+1        3144041        3284114  ...        COMPUSCAN             None
+2        3144042        3284115  ...        COMPUSCAN             None
+3        3144043        3284116  ...        COMPUSCAN             None
+4        3144044        3284117  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/5 written successfully.
+Batch 2/5 written successfully.
+Batch 3/5 written successfully.
+Batch 4/5 written successfully.
+Batch 5/5 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 11.991117000579834 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    763155       0     None  ...        False        False                NaN
+1    769315       0     None  ...        False        False                NaN
+2    827561       0     None  ...        False        False                NaN
+3    412054       0     None  ...        False        False                NaN
+4    765491       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=30), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=23), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2024-12-01 00:00:00 .. 2024-12-31 23:59:59
+Execution time: 15.93247675895691 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    8529244              2     None  ...         None       1632    942.0
+1    8529245              3     None  ...         None       None      NaN
+2    8529248              2     None  ...         None       5050   1081.0
+3    8529249              3     None  ...         None       None      NaN
+4    8529252              2     None  ...         None       1835   3391.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=93), 'ADDRESSLINE2': VARCHAR(length=85), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=39), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/10 written successfully.
+Batch 2/10 written successfully.
+Batch 3/10 written successfully.
+Batch 4/10 written successfully.
+Batch 5/10 written successfully.
+Batch 6/10 written successfully.
+Batch 7/10 written successfully.
+Batch 8/10 written successfully.
+Batch 9/10 written successfully.
+Batch 10/10 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202501
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 29.633768320083618 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation previous_application_date
+0        3446913          3459496  ...            False   2024-11-30 07:56:27.180
+1        3384133          3396732  ...            False   2024-12-09 14:02:23.523
+2        3394215          3406814  ...            False   2025-01-03 19:30:16.423
+3        3398863          3411462  ...            False   2025-01-09 07:56:38.217
+4        3407942          3420541  ...            False   2024-11-14 07:47:20.117
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': VARCHAR(length=19), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=30), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=126), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 26.783456087112427 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4575126  AOL4575126  ...                 None 2024-11-30 10:16:11.027934
+1    4520628  AOL4520628  ...                 None 2024-11-11 13:22:04.844783
+2    4530101  AOL4530101  ...                 None 2024-11-14 09:19:08.231131
+3    4560787  AOL4560787  ...                 None                        NaT
+4    4574146  AOL4574146  ...                 None 2024-10-01 10:25:25.255260
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=15), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/2 written successfully.
+Batch 2/2 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 20.07430911064148 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3426998         1  ...                 False            False
+1          3427805         1  ...                 False            False
+2          3420149         1  ...                 False            False
+3          3419884         1  ...                 False            False
+4          3418784         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=21), 'WATER_LIGHTS': VARCHAR(length=21), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=21), 'MEDICAL': VARCHAR(length=21), 'INSURANCE': VARCHAR(length=21), 'PETROL_TRANSPORT': VARCHAR(length=21), 'SCHOOLFEES': VARCHAR(length=21), 'ENTERTAINMENT': VARCHAR(length=21), 'MAINTENANCE': VARCHAR(length=21), 'OTHER': VARCHAR(length=21), 'COMPANYLOANS': VARCHAR(length=21), 'BANKLOANS': VARCHAR(length=21), 'EMOLUORDERS': VARCHAR(length=21), 'STATEMENTDEBITS': VARCHAR(length=21), 'BANKCHARGES': VARCHAR(length=21), 'HIREPURCHASE': VARCHAR(length=21), 'OTHERMICROLOAN': VARCHAR(length=21), 'PREVIOUSMICROLOAN': VARCHAR(length=21), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=21), 'NLRCOMMENT': VARCHAR(length=129), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 8.073435068130493 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3233776        3378153  ...        COMPUSCAN             None
+1        3233777        3378154  ...        COMPUSCAN             None
+2        3233778        3378155  ...        COMPUSCAN             None
+3        3233779        3378156  ...        COMPUSCAN             None
+4        3233780        3378157  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 8.638141870498657 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    800641       0     None  ...        False        False                NaN
+1    800644       0     None  ...        False        False                NaN
+2    847215       0     None  ...        False        False                NaN
+3    799574       0     None  ...        False        False                NaN
+4    836717       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=23), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': VARCHAR(length=15), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'UPDATED': VARCHAR(length=15), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-01-01 00:00:00 .. 2025-01-31 23:59:59
+Execution time: 8.196377038955688 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    8833796              2     None  ...         None       6059    170.0
+1    8833797              3     None  ...         None       None      NaN
+2    8833800              2     None  ...         None       6028    985.0
+3    8833801              3     None  ...         None       None      NaN
+4    8833803              2     None  ...         None       1618    416.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=110), 'ADDRESSLINE2': VARCHAR(length=79), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/8 written successfully.
+Batch 2/8 written successfully.
+Batch 3/8 written successfully.
+Batch 4/8 written successfully.
+Batch 5/8 written successfully.
+Batch 6/8 written successfully.
+Batch 7/8 written successfully.
+Batch 8/8 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202502
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 31.15454077720642 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3512583          3525166  ...            False                        NaT
+1        3515185          3527768  ...            False                        NaT
+2        3517076          3529659  ...            False 2025-02-28 09:55:53.731838
+3        3474164          3486747  ...            False 2024-11-05 12:09:39.353000
+4        3462687          3475270  ...            False 2025-01-11 07:16:16.917000
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=28), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=18), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=135), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 25.195719242095947 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4656167  AOL4656167  ...                 None 2025-02-28 12:01:58.807131
+1    4608300  AOL4608300  ...                 None 2024-11-05 12:30:18.951586
+2    4594973  AOL4594973  ...                 None 2025-02-04 13:54:08.209312
+3    4598019  AOL4598019  ...                 None                        NaT
+4    4620750  AOL4620750  ...                 None 2024-12-23 13:44:51.630674
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=14), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=13), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/2 written successfully.
+Batch 2/2 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 24.397729873657227 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3502141         1  ...                 False            False
+1          3502324         1  ...                 False            False
+2          3501426         1  ...                 False            False
+3          3502635         1  ...                 False            False
+4          3503251         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=17), 'TELEPHONE': VARCHAR(length=21), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=17), 'INSURANCE': VARCHAR(length=18), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=18), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=16), 'STATEMENTDEBITS': VARCHAR(length=17), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=17), 'PREVIOUSMICROLOAN': VARCHAR(length=17), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=21), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=21), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=290), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 5.996027231216431 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3303146        3451463  ...        COMPUSCAN             None
+1        3304091        3452436  ...        COMPUSCAN             None
+2        3304111        3452476  ...        COMPUSCAN             None
+3        3304125        3452484  ...        COMPUSCAN             None
+4        3304126        3452473  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 9.704761028289795 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    816501       0     None  ...        False        False               None
+1    866689       0     None  ...        False        False               None
+2    412054       0     None  ...        False        False               None
+3    765491       0     None  ...        False        False               None
+4    864245       0     None  ...        False        False               None
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-02-01 00:00:00 .. 2025-02-28 23:59:59
+Execution time: 9.876907110214233 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    9069535              2     None  ...         None        198   2174.0
+1    9069536              3     None  ...         None       None      NaN
+2    9069538              2     None  ...         None       7780    186.0
+3    9069539              3     None  ...         None       None      NaN
+4    9069542              2     None  ...         None       4339    307.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=105), 'ADDRESSLINE2': VARCHAR(length=85), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/7 written successfully.
+Batch 2/7 written successfully.
+Batch 3/7 written successfully.
+Batch 4/7 written successfully.
+Batch 5/7 written successfully.
+Batch 6/7 written successfully.
+Batch 7/7 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202503
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 34.336353063583374 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3536278          3548861  ...            False                        NaT
+1        3521263          3533846  ...            False 2024-12-23 09:19:51.110000
+2        3521488          3534071  ...            False 2025-03-01 08:19:58.393273
+3        3527664          3540247  ...            False                        NaT
+4        3573568          3586151  ...            False 2025-02-28 12:13:38.345279
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=22), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=31), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=16), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=127), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 36.2479612827301 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4662049  AOL4662049  ...                 None 2024-12-23 09:42:45.408131
+1    4720451  AOL4720451  ...                 None 2025-02-28 12:18:03.205749
+2    4742931  AOL4742931  ...                 None 2025-01-31 07:38:58.126203
+3    4749557  AOL4749557  ...                 None 2025-02-05 14:44:37.821533
+4    4702373  AOL4702373  ...                 None                        NaT
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=14), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=13), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 25.558510780334473 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3563252         1  ...                 False            False
+1          3563354         1  ...                 False            False
+2          3563286         1  ...                 False            False
+3          3563349         1  ...                 False            False
+4          3563448         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=16), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=16), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=17), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=21), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=19), 'BANKCHARGES': VARCHAR(length=17), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=17), 'PREVIOUSMICROLOAN': VARCHAR(length=18), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=22), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=17), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=1384), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 8.567842960357666 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3368129        3519327  ...        COMPUSCAN             None
+1        3368103        3519297  ...        COMPUSCAN             None
+2        3368104        3519298  ...        COMPUSCAN             None
+3        3368105        3519299  ...        COMPUSCAN             None
+4        3368106        3519300  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 7.466516971588135 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    494202       0     None  ...        False        False                NaN
+1    631212       0     None  ...        False        False                NaN
+2    879620       0     None  ...        False        False                NaN
+3    886151       0     None  ...        False        False                NaN
+4    884662       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=39), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-03-01 00:00:00 .. 2025-03-31 23:59:59
+Execution time: 8.879480123519897 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    9286239              2     None  ...         None       4068   3034.0
+1    9286240              3     None  ...         None       None      NaN
+2    9286243              2     None  ...         None       1983   3331.0
+3    9286244              3     None  ...         None       None      NaN
+4    9286247              2     None  ...         None        106   1244.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=105), 'ADDRESSLINE2': VARCHAR(length=90), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/8 written successfully.
+Batch 2/8 written successfully.
+Batch 3/8 written successfully.
+Batch 4/8 written successfully.
+Batch 5/8 written successfully.
+Batch 6/8 written successfully.
+Batch 7/8 written successfully.
+Batch 8/8 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202504
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 32.31847405433655 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3602309          3614892  ...            False                        NaT
+1        3602915          3615498  ...            False 2025-04-01 12:42:39.164410
+2        3608381          3620964  ...            False 2025-02-05 06:19:42.923931
+3        3622912          3635495  ...            False 2025-03-07 07:47:33.084671
+4        3640145          3652728  ...            False 2025-03-20 10:15:09.932072
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=22), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=33), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=23), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=18), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=100), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 30.77648425102234 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4755610  AOL4755610  ...                 None 2025-04-01 13:26:46.541857
+1    4761623  AOL4761623  ...                 None 2025-02-04 14:07:54.902786
+2    4777532  AOL4777532  ...                 None 2025-01-16 07:13:52.591841
+3    4796900  AOL4796900  ...                 None 2024-12-27 12:15:59.879185
+4    4834046  AOL4834046  ...                 None 2025-03-31 14:23:17.629280
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=14), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=18), 'HANDOVERDATE': DATE(), 'HANDOVERDUEDATE': DATE(), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=13), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=14), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/2 written successfully.
+Batch 2/2 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 31.2928249835968 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3658789         1  ...                 False            False
+1          3658587         1  ...                 False            False
+2          3658806         1  ...                 False            False
+3          3658839         1  ...                 False            False
+4          3658850         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=18), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=22), 'MEDICAL': VARCHAR(length=16), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=18), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=17), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=18), 'PREVIOUSMICROLOAN': VARCHAR(length=17), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=23), 'LOANAMOUNT': VARCHAR(length=19), 'USERDEFINEDEXPENSES': VARCHAR(length=22), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=17), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=23), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=140), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 5.9618308544158936 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3514891        3671738  ...        COMPUSCAN             None
+1        3514892        3671739  ...        COMPUSCAN             None
+2        3514893        3671740  ...        COMPUSCAN             None
+3        3514894        3671741  ...        COMPUSCAN             None
+4        3514895        3671742  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 16.160606861114502 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    886151       0     None  ...        False        False                NaN
+1    898032       0     None  ...        False        False                NaN
+2    898880       0     None  ...        False        False                NaN
+3    901323       0     None  ...        False        False                NaN
+4    896859       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=39), 'IDNUMBER': VARCHAR(length=24), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-04-01 00:00:00 .. 2025-04-30 23:59:59
+Execution time: 9.513376951217651 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    9537148              2     None  ...         None       1550    702.0
+1    9537149              3     None  ...         None       None      NaN
+2    9537152              2     None  ...         None       4126    208.0
+3    9537153              3     None  ...         None       None      NaN
+4    9537155              2     None  ...         None       8005    262.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=105), 'ADDRESSLINE2': VARCHAR(length=81), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/8 written successfully.
+Batch 2/8 written successfully.
+Batch 3/8 written successfully.
+Batch 4/8 written successfully.
+Batch 5/8 written successfully.
+Batch 6/8 written successfully.
+Batch 7/8 written successfully.
+Batch 8/8 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202505
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 39.45425486564636 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3691041          3703624  ...            False                        NaT
+1        3673083          3685666  ...            False 2025-01-31 08:13:09.376714
+2        3746786          3759369  ...            False 2025-05-01 08:40:27.894647
+3        3673761          3686344  ...            False                        NaT
+4        3684700          3697283  ...            False 2025-05-01 09:54:24.850998
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=30), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=20), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=151), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 34.49329900741577 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4903213  AOL4903213  ...                 None                        NaT
+1    4838815  AOL4838815  ...                 None                        NaT
+2    4834773  AOL4834773  ...                 None 2025-03-29 11:13:48.390771
+3    4915506  AOL4915506  ...                 None 2025-05-01 07:39:45.498989
+4    4915807  AOL4915807  ...                 None 2025-04-30 16:20:45.663621
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=13), 'HANDOVERDATE': VARCHAR(length=14), 'HANDOVERDUEDATE': VARCHAR(length=14), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=16), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=14), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 29.499107837677002 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3760266         1  ...                 False            False
+1          3708111         1  ...                 False            False
+2          3708108         1  ...                 False            False
+3          3708106         1  ...                 False            False
+4          3708099         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=17), 'WATER_LIGHTS': VARCHAR(length=17), 'TELEPHONE': VARCHAR(length=22), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=18), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=18), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=18), 'BANKCHARGES': VARCHAR(length=16), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=17), 'PREVIOUSMICROLOAN': VARCHAR(length=17), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=19), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=22), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=22), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=303), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 6.350992918014526 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3514971        3671820  ...        COMPUSCAN             None
+1        3514986        3671845  ...        COMPUSCAN             None
+2        3514972        3671818  ...        COMPUSCAN             None
+3        3514981        3671826  ...        COMPUSCAN             None
+4        3514996        3671853  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 10.927917718887329 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    631212       0     None  ...        False        False                NaN
+1    886151       0     None  ...        False        False                NaN
+2    800641       0     None  ...        False        False                NaN
+3    903379       0     None  ...        False        False                NaN
+4    896859       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=39), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-05-01 00:00:00 .. 2025-05-31 23:59:59
+Execution time: 8.622376918792725 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0    9772695              2     None  ...         None       2600   1505.0
+1    9772696              3     None  ...         None       None      NaN
+2    9772699              2     None  ...         None       3900    105.0
+3    9772700              3     None  ...         None       None      NaN
+4    9772703              2     None  ...         None        892   2975.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=110), 'ADDRESSLINE2': VARCHAR(length=103), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=40), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/8 written successfully.
+Batch 2/8 written successfully.
+Batch 3/8 written successfully.
+Batch 4/8 written successfully.
+Batch 5/8 written successfully.
+Batch 6/8 written successfully.
+Batch 7/8 written successfully.
+Batch 8/8 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.
+Month: 202506
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_APPLICATION' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_APPLICATION
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 38.671481132507324 seconds
+   ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3781116          3793699  ...            False 2023-10-04 09:31:37.677000
+1        3748896          3761479  ...            False 2025-03-01 08:34:23.692014
+2        3788247          3800830  ...            False                        NaT
+3        3770180          3782763  ...            False 2025-02-11 09:36:34.250588
+4        3753062          3765645  ...            False 2025-04-03 10:38:20.365108
+
+[5 rows x 76 columns]
+{'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'NEXTOFKINID': VARCHAR(length=14), 'REASONID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTID': VARCHAR(length=19), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'EMPLOYERID': NUMBER(precision=38, scale=0, asdecimal=False), 'BANKDETAILID': NUMBER(precision=38, scale=0, asdecimal=False), 'RESIDENTIALADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=17), 'REPAYMENTAMOUNT': VARCHAR(length=19), 'TOTALEXPENSES': VARCHAR(length=13), 'TOTALINCOME': VARCHAR(length=13), 'SALARYTYPEID': VARCHAR(length=14), 'SALARYTYPENO': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'STEP': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'SETTLEMENTID': VARCHAR(length=14), 'REPAYMENTDATE': DATE(), 'HASH': VARCHAR(length=74), 'CREATEDATE': DATE(), 'IP': VARCHAR(length=14), 'OTHERINCOME': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'DOCUMENTID': VARCHAR(length=14), 'INCOMEID': VARCHAR(length=14), 'APPLICATIONCLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'QUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'AGENTCODE': VARCHAR(length=23), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'PAYABLEAMOUNT': VARCHAR(length=17), 'DCQUOTATIONSTATUS': VARCHAR(length=14), 'DCAGREEMENTSTATUS': VARCHAR(length=14), 'DCAGREEMENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'DCQUOTATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELREFERENCENO': VARCHAR(length=14), 'REQUESTEDLOANAMOUNT': VARCHAR(length=16), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'CAMPAIGNCODE': VARCHAR(length=36), 'PROCESSBY': VARCHAR(length=20), 'REFERRALCODE': VARCHAR(length=20), 'ROLLOVERACCEPTANCEDATE': DATE(), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANDID': NUMBER(precision=38, scale=0, asdecimal=False), 'COPYLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ISLOANOREMI': VARCHAR(length=19), 'INSTALLMENTAFFORDABILITYPERMONTH': VARCHAR(length=22), 'CANCELREASONID': VARCHAR(length=14), 'SOURCE': VARCHAR(length=14), 'QUOTEAPPROVALBY': VARCHAR(length=20), 'ISGETOFFEROVERRIDE': VARCHAR(length=15), 'OVERRIDEOFFERREASONID': VARCHAR(length=14), 'OVERRIDEOFFERREASON': VARCHAR(length=133), 'AGGREGATELOAN': VARCHAR(length=15), 'AGGREGATELOANAMOUNT': VARCHAR(length=13), 'CLIENTCATEGORY': VARCHAR(length=25), 'NOOFDAYSSINCELASTLOANPAID': NUMBER(precision=38, scale=0, asdecimal=False), 'SOURCEAPPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'PREVIOUS_APPLICATION_DATE': DATE()}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_APPLICATION successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ACCOUNT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ACCOUNT
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 24.945510864257812 seconds
+   AccountId   AccountNo  ... assignedconsultantid         previous_loan_date
+0    4920621  AOL4920621  ...                 None 2025-03-01 08:42:49.141998
+1    4943392  AOL4943392  ...                 None 2025-02-11 09:51:47.459666
+2    4925577  AOL4925577  ...                 None 2025-04-03 10:57:56.020272
+3    4958639  AOL4958639  ...                 None 2024-10-22 14:11:34.975019
+4    4994194  AOL4994194  ...                 None 2025-05-31 07:54:33.674084
+
+[5 rows x 77 columns]
+{'ACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'ACCOUNTNO': VARCHAR(length=20), 'ACCOUNTTYPEID': VARCHAR(length=14), 'PERSONID': NUMBER(precision=38, scale=0, asdecimal=False), 'HOSTID': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANAMOUNT': VARCHAR(length=17), 'TOTALTOPUPAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=17), 'CAPITALAMOUNT': VARCHAR(length=13), 'PAYOUTAMOUNT': VARCHAR(length=18), 'THIRDPARTYPAYOUTAMOUNT': VARCHAR(length=14), 'ACCOUNTBALANCE': VARCHAR(length=18), 'INTERESTRATE': VARCHAR(length=15), 'PERIOD': NUMBER(precision=38, scale=0, asdecimal=False), 'PERIODFREQUENCYID': NUMBER(precision=38, scale=0, asdecimal=False), 'INSTALMENTAMOUNT': VARCHAR(length=17), 'NUMOFINSTALMENTS': NUMBER(precision=38, scale=0, asdecimal=False), 'STATUSREASONID': VARCHAR(length=14), 'STATUSSUBREASONID': VARCHAR(length=14), 'NLRENQUIRYREFERENCENO': VARCHAR(length=14), 'NLRREGISTRATIONNO': VARCHAR(length=14), 'STATUSCHANGEDATE': DATE(), 'FIRSTINSTALMENTDATE': DATE(), 'OPENDATE': DATE(), 'CLOSEDATE': DATE(), 'CREATEDATE': DATE(), 'CREATEDBY': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIMISTICLOCKFIELD': NUMBER(precision=38, scale=0, asdecimal=False), 'GCRECORD': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANTYPE': VARCHAR(length=11), 'PAIDDATE': DATE(), 'LOANSTATEREASONCODE': VARCHAR(length=11), 'DISCOUNTAMOUNT': VARCHAR(length=13), 'HANDOVERAMOUNT': VARCHAR(length=13), 'HANDOVERDATE': VARCHAR(length=14), 'HANDOVERDUEDATE': VARCHAR(length=14), 'HANDOVERSERVICEFEE': VARCHAR(length=13), 'EXCLUDEPHOLOANREASONCODE': VARCHAR(length=14), 'ROLLOVERACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'LOANENDDATE': VARCHAR(length=20), 'REPAYMENTAMOUNT': VARCHAR(length=18), 'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAP_CST': VARCHAR(length=15), 'FUN_CST': VARCHAR(length=16), 'VAT_VAP_CST': VARCHAR(length=15), 'DISBURSEMENTMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'DEBITORDERMODEID': NUMBER(precision=38, scale=0, asdecimal=False), 'PRODUCTID': NUMBER(precision=38, scale=0, asdecimal=False), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'MANAGERAPPROVEBY': NUMBER(precision=38, scale=0, asdecimal=False), 'CONSULTANTAPPROVEDATE': DATE(), 'MANAGERAPPROVEDATE': DATE(), 'REWARDAMOUNT': VARCHAR(length=13), 'ISREFERRED': VARCHAR(length=15), 'REFERRALAMOUNT': VARCHAR(length=13), 'CLIENTIPADDRESS': VARCHAR(length=25), 'SERVERIPADDRESS': VARCHAR(length=23), 'IDLPSTATUS': VARCHAR(length=21), 'IDLDDATE': DATE(), 'PARENTFLASHLOANACCOUNTID': NUMBER(precision=38, scale=0, asdecimal=False), 'REPORATE': VARCHAR(length=14), 'REPORATEFACTOR': VARCHAR(length=13), 'REPORATEADJUSTMENT': VARCHAR(length=14), 'VAPCANCELID': NUMBER(precision=38, scale=0, asdecimal=False), 'VAPCANCELSTATUS': NUMBER(precision=38, scale=0, asdecimal=False), 'DAYSINARREARS': VARCHAR(length=15), 'NEWBRANCHID': VARCHAR(length=14), 'ASSIGNEDCONSULTANTID': VARCHAR(length=14), 'PREVIOUS_LOAN_DATE': DATE()}
+Write data to Oracle
+Batch 1/2 written successfully.
+Batch 2/2 written successfully.
+All data written to Oracle DB BSP_ACCOUNT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_AFFORDABILITY' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_AFFORDABILITY
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 23.829636096954346 seconds
+   AffordabilityId  OptionId  ...  CreditScoreFromCache  MockCreditScore
+0          3785719         1  ...                 False            False
+1          3763641         1  ...                 False            False
+2          3824721         1  ...                 False            False
+3          3809768         1  ...                 False            False
+4          3809743         1  ...                 False            False
+
+[5 rows x 60 columns]
+{'AFFORDABILITYID': NUMBER(precision=38, scale=0, asdecimal=False), 'OPTIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'AMOUNT': VARCHAR(length=13), 'REPAYMENTAMOUNT': VARCHAR(length=13), 'TOTALFEES': VARCHAR(length=13), 'CAPITALAMOUNT': VARCHAR(length=13), 'INSTALMENT': VARCHAR(length=14), 'OPTIONTYPE': NUMBER(precision=38, scale=0, asdecimal=False), 'CREATEDATE': DATE(), 'ARREARS': VARCHAR(length=14), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'GROSSSALARY': VARCHAR(length=19), 'DEDUCTIONS': VARCHAR(length=19), 'NETSALARY': VARCHAR(length=19), 'AVERAGENETSALARY': VARCHAR(length=19), 'RENT': VARCHAR(length=18), 'WATER_LIGHTS': VARCHAR(length=17), 'TELEPHONE': VARCHAR(length=23), 'GROCERIERS': VARCHAR(length=17), 'MEDICAL': VARCHAR(length=17), 'INSURANCE': VARCHAR(length=17), 'PETROL_TRANSPORT': VARCHAR(length=17), 'SCHOOLFEES': VARCHAR(length=17), 'ENTERTAINMENT': VARCHAR(length=17), 'MAINTENANCE': VARCHAR(length=17), 'OTHER': VARCHAR(length=17), 'COMPANYLOANS': VARCHAR(length=17), 'BANKLOANS': VARCHAR(length=18), 'EMOLUORDERS': VARCHAR(length=17), 'STATEMENTDEBITS': VARCHAR(length=18), 'BANKCHARGES': VARCHAR(length=17), 'HIREPURCHASE': VARCHAR(length=17), 'OTHERMICROLOAN': VARCHAR(length=17), 'PREVIOUSMICROLOAN': VARCHAR(length=21), 'NLRSCORE': VARCHAR(length=15), 'ENQNO': VARCHAR(length=22), 'ENQDATE': DATE(), 'CPAINST': VARCHAR(length=18), 'NLRINST': VARCHAR(length=18), 'NETPM': VARCHAR(length=14), 'INSTALL_P_M': VARCHAR(length=22), 'LOANAMOUNT': VARCHAR(length=19), 'USERDEFINEDEXPENSES': VARCHAR(length=21), 'USERDEFINEDSALARY': VARCHAR(length=19), 'USERDEFINEDLIABILITY': VARCHAR(length=18), 'USERDEFINEDNLR': NUMBER(precision=38, scale=0, asdecimal=False), 'USERDEFINEDCPA': NUMBER(precision=38, scale=0, asdecimal=False), 'DISCRETION': VARCHAR(length=22), 'TOTALLIVINGEXPENSE': VARCHAR(length=23), 'RECOGNISEDLIVINGEXPENSE': VARCHAR(length=18), 'ACTUALLIVINGEXPENSE': VARCHAR(length=23), 'TOTALLIABILITY': VARCHAR(length=17), 'NLRCOMMENT': VARCHAR(length=556), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_AFFORDABILITY successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CREDITSCORE' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CREDITSCORE
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 5.6235198974609375 seconds
+   CreditScoreId  ApplicationId  ...  ServiceProvider  ReferenceNumber
+0        3588671        3748487  ...        COMPUSCAN             None
+1        3588679        3748491  ...        COMPUSCAN             None
+2        3588693        3748512  ...        COMPUSCAN             None
+3        3588702        3748523  ...        COMPUSCAN             None
+4        3588734        3748547  ...        COMPUSCAN             None
+
+[5 rows x 8 columns]
+{'CREDITSCOREID': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONID': NUMBER(precision=38, scale=0, asdecimal=False), 'NLRSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'APPLICATIONSCORE': NUMBER(precision=38, scale=0, asdecimal=False), 'BEHAVIOURSCORE': VARCHAR(length=14), 'RISKTYPE': VARCHAR(length=24), 'SERVICEPROVIDER': VARCHAR(length=19), 'REFERENCENUMBER': VARCHAR(length=14)}
+Write data to Oracle
+Batch 1/4 written successfully.
+Batch 2/4 written successfully.
+Batch 3/4 written successfully.
+Batch 4/4 written successfully.
+All data written to Oracle DB BSP_CREDITSCORE successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_CLIENT' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_CLIENT
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 12.222723007202148 seconds
+   ClientId  UserId PersonId  ... IsDelinquent IsDebtReview DeliquencyReasonId
+0    406938       0     None  ...        False        False                NaN
+1    494202       0     None  ...        False        False                NaN
+2    919434       0     None  ...        False        False                NaN
+3    921918       0     None  ...        False        False                NaN
+4    923145       0     None  ...        False        False                NaN
+
+[5 rows x 26 columns]
+{'CLIENTID': NUMBER(precision=38, scale=0, asdecimal=False), 'USERID': NUMBER(precision=38, scale=0, asdecimal=False), 'PERSONID': VARCHAR(length=14), 'TITLE': VARCHAR(length=14), 'FIRSTNAME': VARCHAR(length=31), 'SURNAME': VARCHAR(length=40), 'IDNUMBER': VARCHAR(length=25), 'DATEOFBIRTH': DATE(), 'GENDER': VARCHAR(length=11), 'MARITALSTATUSID': VARCHAR(length=13), 'MARITALAGREEMENT': VARCHAR(length=14), 'ETHNICITYID': VARCHAR(length=13), 'NEWSTATUSID': NUMBER(precision=38, scale=0, asdecimal=False), 'COUNTRYOFBIRTHID': VARCHAR(length=15), 'LANGUAGEID': VARCHAR(length=14), 'MODIFIEDBY': VARCHAR(length=14), 'MODIFIEDDATE': DATE(), 'BRANCHID': NUMBER(precision=38, scale=0, asdecimal=False), 'PROPERTYOWNERSHIPID': VARCHAR(length=13), 'COMPANYID': NUMBER(precision=38, scale=0, asdecimal=False), 'CHANNELCODE': NUMBER(precision=38, scale=0, asdecimal=False), 'DELIQUENCYREASONID': VARCHAR(length=13)}
+Write data to Oracle
+Batch 1/3 written successfully.
+Batch 2/3 written successfully.
+Batch 3/3 written successfully.
+All data written to Oracle DB BSP_CLIENT successfully.
+/Users/johan/Workspace/Matogen/Atlas/src/python/Oracle_SqlScript.py:141: UserWarning: The provided table name 'BSP_ADDRESS' is not found exactly as such in the database after writing the table, possibly due to case sensitivity issues. Consider using lower case table names.
+  batch_df.to_sql(
+history BSP_ADDRESS
+Dates Received 2025-06-01 00:00:00 .. 2025-06-30 23:59:59
+Execution time: 10.526228904724121 seconds
+   AddressId  AddressTypeId ClientId  ... AddressLine4 PostalCode Province
+0   10018036              2     None  ...         None       8271    791.0
+1   10018037              3     None  ...         None       None      NaN
+2   10018040              2     None  ...         None       6625    513.0
+3   10018041              3     None  ...         None       None      NaN
+4   10018044              2     None  ...         None        743   2362.0
+
+[5 rows x 9 columns]
+{'ADDRESSID': NUMBER(precision=38, scale=0, asdecimal=False), 'ADDRESSTYPEID': NUMBER(precision=38, scale=0, asdecimal=False), 'CLIENTID': VARCHAR(length=14), 'ADDRESSLINE1': VARCHAR(length=105), 'ADDRESSLINE2': VARCHAR(length=79), 'ADDRESSLINE3': VARCHAR(length=40), 'ADDRESSLINE4': VARCHAR(length=37), 'POSTALCODE': VARCHAR(length=14), 'PROVINCE': VARCHAR(length=16)}
+Write data to Oracle
+Batch 1/7 written successfully.
+Batch 2/7 written successfully.
+Batch 3/7 written successfully.
+Batch 4/7 written successfully.
+Batch 5/7 written successfully.
+Batch 6/7 written successfully.
+Batch 7/7 written successfully.
+All data written to Oracle DB BSP_ADDRESS successfully.

@@ -1,0 +1,48 @@
+2025-07-30 13:45:36 - Collect reference data
+2025-07-30 13:45:37 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-07-30 13:45:38 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-07-30 13:45:39 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-07-30 13:45:40 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-07-30 13:45:41 - Start Extracting reference for Bank with keys as ['BankId']
+2025-07-30 13:45:41 - Start Extracting reference for PRD_Products with keys as ['ProductId']
+2025-07-30 13:45:42 - Start Extracting reference for ACC_PaymentStatus with keys as ['PaymentStatusId']
+2025-07-30 13:45:43 - Start Extracting reference for Province with keys as ['ProvinceId']
+2025-07-30 13:45:43 - Reference Tables collected at 7 Seconds
+2025-07-30 13:45:43 - Collect Account related data
+2025-07-30 13:45:44 - Start Extracting delta for ACC_Account with keys as ['AccountId']
+2025-07-30 13:45:45 - Start Extracting delta for ACC_DebitOrder with keys as ['DebitOrderId']
+2025-07-30 13:45:46 - Start Extracting delta for ACC_Schedules with keys as ['AccountId', 'Installment_SrNo']
+2025-07-30 13:45:46 - Start Extracting delta for Address with keys as ['AddressId']
+2025-07-30 13:45:47 - Start Extracting delta for Affordability with keys as ['AffordabilityId']
+2025-07-30 13:45:48 - Start Extracting delta for Application with keys as ['ApplicationId']
+2025-07-30 13:45:49 - Start Extracting delta for Application_AccountMapping with keys as ['ApplicationAccountMappingId']
+2025-07-30 13:45:50 - Start Extracting delta for Application_Client with keys as ['ApplicationClientId']
+2025-07-30 13:45:51 - Start Extracting delta for BankDetail with keys as ['BankDetailId']
+2025-07-30 13:45:52 - Start Extracting delta for Client with keys as ['ClientId']
+2025-07-30 13:45:53 - Start Extracting delta for CreditScore with keys as ['CreditScoreId']
+2025-07-30 13:45:54 - Start Extracting delta for Disbursement with keys as ['DisbursementId']
+2025-07-30 13:45:55 - Start Extracting delta for Employer with keys as ['EmployerId']
+2025-07-30 13:45:55 - Start Extracting delta for PER_Person with keys as ['PersonId']
+2025-07-30 13:45:56 - Start Extracting delta for Quotation with keys as ['QuotationId']
+2025-07-30 13:45:57 - Start Extracting delta for ACC_PaymentStatusHistory with keys as ['PaymentStatusHistoryId']
+2025-07-30 13:45:58 - Start Extracting delta for XDSCustomerDetailsLog with keys as ['ApplicationId', 'Type']
+2025-07-30 13:45:43 - Processing Deltas ...
+2025-07-30 13:45:43 - Start ACC_Account
+2025-07-30 13:45:44 - Start ACC_DebitOrder
+2025-07-30 13:45:45 - Start ACC_Schedules
+2025-07-30 13:45:46 - Start Address
+2025-07-30 13:45:47 - Start Affordability
+2025-07-30 13:45:47 - Start Application
+2025-07-30 13:45:48 - Start Application_AccountMapping
+2025-07-30 13:45:49 - Start Application_Client
+2025-07-30 13:45:50 - Start BankDetail
+2025-07-30 13:45:51 - Start Client
+2025-07-30 13:45:52 - Start CreditScore
+2025-07-30 13:45:53 - Start Disbursement
+2025-07-30 13:45:54 - Start Employer
+2025-07-30 13:45:55 - Start PER_Person
+2025-07-30 13:45:56 - Start Quotation
+2025-07-30 13:45:57 - Start ACC_PaymentStatusHistory
+2025-07-30 13:45:57 - Start XDSCustomerDetailsLog
+2025-07-30 13:45:58 - Account Information Tables collected at 22 Seconds
+2025-07-30 13:45:59 - Total runtime: 23 Seconds

@@ -1,0 +1,1 @@
+00 18 * * * ~/Atlas/bin/runDelta.sh >/data/matogen/Atlas/logs/cronlog_runDelta.log 2>/data/matogen/Atlas/logs/cronlog_runDelta.errlog

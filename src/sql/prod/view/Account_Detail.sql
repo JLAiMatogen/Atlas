@@ -1,8 +1,9 @@
 --Age in Months Calculation:
 -- Email from Adelle 08 August 2025. The Age in motnhs starts with 1 in the month that the first instalment is due.
 -- In my kop (maar daar is seker ander manière ook om dit te doen) is “1” die eerste maand wat ‘n instalment due is, so ja in jou eerste geval is May = “1” en in jou tweede voorbeeld is May eintlik “0” as daar so iets was en June = “1”
+-- Changed the bands to include bands until R14,000
 
-drop view "Account_Detail" cascade;
+Drop view "Account_Detail" cascade;
 
 create or replace view "Account_Detail" as 
 WITH parameters AS (
@@ -42,7 +43,11 @@ select
 		when ( aa."LoanAmount"  between 7001 and 8000  ) then '7001 - 8000'
 		when ( aa."LoanAmount"  between 8001 and 9000  ) then '8001 - 9000'
 		when ( aa."LoanAmount"  between 9001 and 10000 ) then '9001 - 10000'
-		else	'10000 +' 
+		when ( aa."LoanAmount"  between 10001 and 11000 ) then '10001 - 11000'
+		when ( aa."LoanAmount"  between 11001 and 12000 ) then '11001 - 12000'
+		when ( aa."LoanAmount"  between 12001 and 13000 ) then '12001 - 13000'
+		when ( aa."LoanAmount"  between 13001 and 14000 ) then '13001 - 14000'
+		else	'14000 +' 
 		end  "Loan_Size"
 	, case when ( aa."LoanStateReasonCode"  in ('H') ) then 1 else 0 end "HandedOver" 
 	, a."NLRScore" "BureauScore"
@@ -66,21 +71,30 @@ select
 	, c."IDNumber"
 	, abr."FirstDueDate"
 	, abr."FirstArrearDate"
-	, age_in_months(date_trunc('month'::text, abr."FirstDueDate")::date, pp.last_day_of_month::date) AS "AgeInMonths"
-  , abr."FirstDueDate"
-  ,	age_in_months(date_trunc('month'::text, aa."FirstDueDate")::date, (date_trunc('month'::text, abr."FirstArrearDate") + '1 mon -1 days'::interval)::date) AS "MonthsFirstArrear"
+	, age_in_months(date_trunc('month'::text, greatest(aa."OpenDate",abr."FirstDueDate") )::date, pp.last_day_of_month::date) AS "AgeInMonths"
+  ,	age_in_months(date_trunc('month'::text, greatest(aa."OpenDate",abr."FirstDueDate") )::date, (date_trunc('month'::text, abr."FirstArrearDate") + '1 mon -1 days'::interval)::date) AS "MonthsFirstArrear"
 	,	abr."FirstDueDate_Missed_Flag"
 	,	abr."FirstInstalment_Default_Flag"
 	, abr."One_ever_3_Flag"
 	, abr."Two_ever_6_Flag"
 	, coalesce(xds."Bureau_Returned",'Experian') "Bureau_Returned"
 	, xds."Bureau_Score"
+	,	case 
+		when a."NLRScore" <= 579 then '  0 - 580'
+		when a."NLRScore" >= 621 then '621 +'
+		else (TRUNC(a."NLRScore" / 5) * 5 + 1)::text ||' - '||(TRUNC(a."NLRScore" / 5) * 5 + 5)::text 
+		end  "BureauScoreBand"
+  , case 
+		when cs."ApplicationScore" < 560 then '  0 - 560'
+		when cs."ApplicationScore" >= 750 then '750 +'
+		else ((cs."ApplicationScore" / 5) * 5 + 1)::text||' - '||((cs."ApplicationScore" / 5) * 5 + 5)::text
+		end  "ApplicationScoreBand"
 	, case 
 		when ( psh."PaymentStatusDescription" is not null ) then  psh."PaymentStatusDescription"
 		when ( aa."OpenDate" < '2024-11-01' ) then 'Pre-Segmentation' --only started recording overdue after this date.
 		when ( psh."PaymentStatusDescription" is null ) then 'Pre-Segmentation'
 		else 'Other' end "OverDue_Segment"
-from  prod."ACC_Account" aa
+from  "ACC_Account" aa
 				left outer join "Account_BadRate_Indicators" abr
 					on aa."AccountId" = abr."AccountId"
 				left outer join "Branch" b
@@ -93,7 +107,7 @@ from  prod."ACC_Account" aa
 					on c."IDNumber" = acs."IDNumber"
 				left outer join "ACC_PaymentStatusHistory_Latest" psh
 					on aa."AccountId" = psh."AccountId"
-	,		"PRD_cts" p
+	,		"PRD_Products" p
 	, 	"PER_Person" pc
 	, 	"ACC_PeriodFrequency" apf 
 	, 	"ACC_LoanStateReason" lsr
@@ -119,18 +133,4 @@ and     aa."CreatedBy" = pc."PersonId"
 and     aa."PeriodFrequencyId"  = apf."PeriodFrequencyId"
 and     aa."LoanStateReasonCode" = lsr."Code" 
 and     aa."ProductId" = p."ProductId";
-
-
-create materialized view "Account_Detail_MV" as
-select  * 
-from    "Account_Detail";
-
-Create UNIQUE index Account_Detail_MV_uq 
-on "Account_Detail_MV" ("AccountId");
-
-
-Create  index Account_Detail_MV_OpenMonth_idx
-on "Account_Detail_MV" ("OpenMonth");
-
-REFRESH MATERIALIZED VIEW CONCURRENTLY "Account_Detail_MV";
 

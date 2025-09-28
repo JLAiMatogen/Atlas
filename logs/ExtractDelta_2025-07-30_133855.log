@@ -1,0 +1,101 @@
+2025-07-30 13:38:55 - Collect reference data
+2025-07-30 13:39:15 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-07-30 13:39:17 - Execution time: 1.3620831966400146 seconds
+2025-07-30 13:39:17 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-07-30 13:39:18 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-07-30 13:39:18 - Data written to staging.ACC_LoanStateReason successfully.
+2025-07-30 13:39:19 - Data written to prod.ACC_LoanStateReason successfully.
+2025-07-30 13:39:20 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-07-30 13:39:21 - Execution time: 1.2537569999694824 seconds
+2025-07-30 13:39:21 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-07-30 13:39:22 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-07-30 13:39:23 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-07-30 13:39:23 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-07-30 13:39:24 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-07-30 13:39:25 - Execution time: 1.3662059307098389 seconds
+2025-07-30 13:39:25 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-07-30 13:39:26 - Table staging.Branch truncated successfully.
+2025-07-30 13:39:27 - Data written to staging.Branch successfully.
+2025-07-30 13:39:27 - Data written to prod.Branch successfully.
+2025-07-30 13:39:28 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-07-30 13:39:29 - Execution time: 1.2750179767608643 seconds
+2025-07-30 13:39:29 -    PaymentModeId PaymentCode  ... DebitOrderModeId UseRefundMode
+0              3     REALPAY  ...              NaN         False
+1              5         POS  ...              NaN         False
+2              7         REG  ...              NaN         False
+3              9         SNA  ...              NaN         False
+4             13      REFUND  ...              NaN         False
+
+[5 rows x 12 columns]
+2025-07-30 13:39:31 - Table staging.PaymentModes truncated successfully.
+2025-07-30 13:39:31 - Data written to staging.PaymentModes successfully.
+2025-07-30 13:39:31 - Data written to prod.PaymentModes successfully.
+2025-07-30 13:39:32 - Start Extracting reference for Bank with keys as ['BankId']
+2025-07-30 13:39:33 - Execution time: 1.3995420932769775 seconds
+2025-07-30 13:39:33 -    BankId    Code  ... IsRealPayTT1Enable  RealPayBankId
+0       9       0  ...              False              0
+1      13  460005  ...              False              0
+2      14  400001  ...              False              0
+3      19  580105  ...              False              0
+4      24  450105  ...               True              8
+
+[5 rows x 24 columns]
+2025-07-30 13:39:35 - Table staging.Bank truncated successfully.
+2025-07-30 13:39:35 - Data written to staging.Bank successfully.
+2025-07-30 13:39:35 - Data written to prod.Bank successfully.
+2025-07-30 13:39:36 - Start Extracting reference for PRD_Products with keys as ['ProductId']
+2025-07-30 13:39:37 - Execution time: 1.3351821899414062 seconds
+2025-07-30 13:39:37 -    ProductId             ProductName  ... IsExpressLoan  IsUnSecuredLoan
+0          1             Branch Loan  ...         False            False
+1          2  Payroll Deduction Loan  ...         False            False
+2          3             Remote Loan  ...         False            False
+3          4                 Hollard  ...         False            False
+4          5   Over 65 - Branch loan  ...         False            False
+
+[5 rows x 19 columns]
+2025-07-30 13:39:39 - Table staging.PRD_Products truncated successfully.
+2025-07-30 13:39:39 - Data written to staging.PRD_Products successfully.
+2025-07-30 13:39:39 - Data written to prod.PRD_Products successfully.
+2025-07-30 13:39:40 - Start Extracting reference for ACC_PaymentStatus with keys as ['PaymentStatusId']
+2025-07-30 13:39:41 - Execution time: 1.3176279067993164 seconds
+2025-07-30 13:39:41 -    PaymentStatusId PaymentStatusDescription
+0                0                  Current
+1                7              Debt Review
+2                8                      New
+3                6                     120+
+4                1                  Current
+2025-07-30 13:39:42 - Table staging.ACC_PaymentStatus truncated successfully.
+2025-07-30 13:39:43 - Data written to staging.ACC_PaymentStatus successfully.
+2025-07-30 13:39:43 - Data written to prod.ACC_PaymentStatus successfully.
+2025-07-30 13:39:44 - Start Extracting reference for Province with keys as ['ProvinceId']
+2025-07-30 13:39:45 - Execution time: 1.0349550247192383 seconds
+2025-07-30 13:39:45 -    ProvinceId ShortCode     Description PostalCode  AddressLine3
+0           1        WC    WESTERN CAPE       6670    RIVERSDALE
+1           2        FS      FREE STATE       9301  BLOEMFONTEIN
+2           3       KZN  KWA-ZULU NATAL       4126      DOONSIDE
+3           4        WC    WESTERN CAPE       7300    MALMESBURY
+4           5       GAU         GAUTENG       2192  JOHANNESBURG
+2025-07-30 13:39:46 - Table staging.Province truncated successfully.
+2025-07-30 13:39:46 - Data written to staging.Province successfully.
+2025-07-30 13:39:46 - Data written to prod.Province successfully.
+2025-07-30 13:39:47 - Reference Tables collected at 52 Seconds
+2025-07-30 13:39:47 - Collect Account related data
+2025-07-30 13:39:47 - Account Information Tables collected at 52 Seconds
+2025-07-30 13:39:47 - Total runtime: 52 Seconds

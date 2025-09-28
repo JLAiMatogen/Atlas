@@ -1,3 +1,5 @@
+drop materialized view "ACC_Client_IDNumber_Summary";
+
 Create materialized view "ACC_Client_IDNumber_Summary" as
 Select c."IDNumber" "IDNumber" 
 		, min(ac."OpenDate") "First_Opened"
@@ -10,4 +12,4 @@ group by c."IDNumber";
 
 
 CREATE UNIQUE INDEX ACC_Client_IDNumber_Summary_uq
-ON prod."ACC_Client_IDNumber_Summary" ("IDNumber");
+ON "ACC_Client_IDNumber_Summary" ("IDNumber");

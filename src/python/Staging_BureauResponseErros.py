@@ -1,0 +1,115 @@
+from sqlalchemy import create_engine, text
+import pandas as pd
+import math
+
+#Setup to connect to Oracle DB
+import os
+import oracledb
+
+# Oracle Credentials
+username = 'atlas'
+password = 'Atlas_123'
+host = 'otrsup.premipoint.co.za'
+port = 1726
+service_name = 'OTRSUP'
+
+ld = '/Applications/instantclient_19_8'
+# Use TNS descriptor (for SID)
+AtlasTNS = f"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=db-sa-03.ajenti.co.za)(PORT=1726))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=OTRSUP)))"
+
+
+# Create connection string
+MatogenDB = "postgresql+psycopg2://matogen:M%40t0g3N%2105@172.31.75.49:5832/MatogenDB"
+BackOffice = "postgresql+psycopg2://atlas_read_all:atlasAfrica%40123%21@172.31.75.6:5432/backoffice"
+print (BackOffice)
+
+
+# Create the engine for the source DB
+sourceDB = create_engine(BackOffice)
+
+# Creat the engine for the Target DB
+targetDB = create_engine(MatogenDB)
+
+print('Start BureauResponseErrors')
+# Define the SQL query
+try:
+  deleteQuery = text('DELETE FROM staging."BureauResponseErrors"')
+  print(deleteQuery)
+
+  # Use a connection context
+  with targetDB.connect() as connection:
+    connection.execute(deleteQuery)
+    connection.commit()  # Required for data-changing operations
+except Exception as e:
+  print("Error Deleting the data from the target table:", e)
+
+
+# Query and load into DataFrame from STG_AccountInfo
+with open('./sql/BureauResponseErrors.sql', 'r') as file:
+    query = file.read()
+    query = text(query)
+    df = pd.read_sql(query, sourceDB)
+print(df.head())
+
+# Write DataFrame to a table in the "staging" schema
+print("Write data to PostgreSQL")
+try:
+    df.to_sql(
+        name='BureauResponseErrors',            # Replace with actual table name
+        con=targetDB,
+        schema='staging',            # 🔄 Specify schema here
+        if_exists='append',          # Options: 'fail', 'replace', 'append'
+        index=False
+    )
+    print("Data written to 'staging.BureauResponseErrors' successfully.")
+except Exception as e:
+    print("Error writing to table:", e)
+
+
+#currently also write the data to the Oracle staging area
+print("Write data to Oracle")
+oracleDB = create_engine(f'oracle+oracledb://@',
+            thick_mode={"lib_dir": ld},
+            connect_args={
+                "user": username,
+                "password": password,
+                "dsn": AtlasTNS
+            } )
+
+# Write DataFrame to a table in the "staging" schema
+try:
+    df.columns = df.columns.str.upper()
+
+    # Define the batch size
+    batch_size = 20000
+    # Calculate the number of batches
+    num_batches = math.ceil(len(df) / batch_size)
+
+    for i in range(num_batches):
+        start_idx = i * batch_size
+        end_idx = min((i + 1) * batch_size, len(df))
+        
+        batch_df = df.iloc[start_idx:end_idx]
+        
+        batch_df.to_sql(
+            name='BUREAURESPONSEERRORS',  # Replace with actual table name
+            con=oracleDB,
+            schema='atlas',          # Replace with your schema
+            if_exists='append',      # Options: 'fail', 'replace', 'append'
+            index=False
+        )
+        
+        print(f"Batch {i+1}/{num_batches} written successfully.")
+
+
+    print("All data written to Oracle DB staging.BureauResponseErrors successfully.")
+    #df.to_sql(
+    #    name='STG_ACCOUNTINFO',            # Replace with actual table name
+    #    con=oracleDB,
+    #    schema='atlas',            # 🔄 Specify schema here
+    #    if_exists='append',          # Options: 'fail', 'replace', 'append'
+    #    index=False
+    #)
+    #print("Data written to 'Oracle DB staging.STG_ACCOUNTINFO' successfully.")
+except Exception as e:
+    print("Error writing to table:", e)

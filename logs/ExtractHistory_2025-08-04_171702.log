@@ -1,0 +1,128 @@
+2025-08-04 17:17:02 - Collect reference data
+2025-08-04 17:17:04 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-08-04 17:17:06 - Execution time: 1.257091999053955 seconds
+2025-08-04 17:17:06 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-08-04 17:17:07 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-08-04 17:17:08 - Data written to staging.ACC_LoanStateReason successfully.
+2025-08-04 17:17:08 - Data written to prod.ACC_LoanStateReason successfully.
+2025-08-04 17:17:09 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-08-04 17:17:11 - Execution time: 1.4264569282531738 seconds
+2025-08-04 17:17:11 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-08-04 17:17:12 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-08-04 17:17:12 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-08-04 17:17:13 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-08-04 17:17:14 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-08-04 17:17:16 - Execution time: 1.8142650127410889 seconds
+2025-08-04 17:17:16 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-08-04 17:17:17 - Table staging.Branch truncated successfully.
+2025-08-04 17:17:18 - Data written to staging.Branch successfully.
+2025-08-04 17:17:18 - Data written to prod.Branch successfully.
+2025-08-04 17:17:19 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-08-04 17:17:20 - Execution time: 1.4150950908660889 seconds
+2025-08-04 17:17:20 -    PaymentModeId PaymentCode  ... DebitOrderModeId UseRefundMode
+0              3     REALPAY  ...              NaN         False
+1              5         POS  ...              NaN         False
+2              7         REG  ...              NaN         False
+3              9         SNA  ...              NaN         False
+4             13      REFUND  ...              NaN         False
+
+[5 rows x 12 columns]
+2025-08-04 17:17:22 - Table staging.PaymentModes truncated successfully.
+2025-08-04 17:17:22 - Data written to staging.PaymentModes successfully.
+2025-08-04 17:17:22 - Data written to prod.PaymentModes successfully.
+2025-08-04 17:17:24 - Start Extracting reference for Bank with keys as ['BankId']
+2025-08-04 17:17:25 - Execution time: 1.334794044494629 seconds
+2025-08-04 17:17:25 -    BankId    Code  ... IsRealPayTT1Enable  RealPayBankId
+0       9       0  ...              False              0
+1      13  460005  ...              False              0
+2      14  400001  ...              False              0
+3      19  580105  ...              False              0
+4      24  450105  ...               True              8
+
+[5 rows x 24 columns]
+2025-08-04 17:17:26 - Table staging.Bank truncated successfully.
+2025-08-04 17:17:27 - Data written to staging.Bank successfully.
+2025-08-04 17:17:27 - Data written to prod.Bank successfully.
+2025-08-04 17:17:28 - Start Extracting reference for PRD_Products with keys as ['ProductId']
+2025-08-04 17:17:29 - Execution time: 1.3248398303985596 seconds
+2025-08-04 17:17:29 -    ProductId             ProductName  ... IsExpressLoan  IsUnSecuredLoan
+0          1             Branch Loan  ...         False            False
+1          2  Payroll Deduction Loan  ...         False            False
+2          3             Remote Loan  ...         False            False
+3          4                 Hollard  ...         False            False
+4          5   Over 65 - Branch loan  ...         False            False
+
+[5 rows x 19 columns]
+2025-08-04 17:17:31 - Table staging.PRD_Products truncated successfully.
+2025-08-04 17:17:31 - Data written to staging.PRD_Products successfully.
+2025-08-04 17:17:31 - Data written to prod.PRD_Products successfully.
+2025-08-04 17:17:32 - Start Extracting reference for ACC_PaymentStatus with keys as ['PaymentStatusId']
+2025-08-04 17:17:34 - Execution time: 1.2396190166473389 seconds
+2025-08-04 17:17:34 -    PaymentStatusId PaymentStatusDescription
+0                0                  Current
+1                7              Debt Review
+2                8                      New
+3                6                     120+
+4                1                  Current
+2025-08-04 17:17:35 - Table staging.ACC_PaymentStatus truncated successfully.
+2025-08-04 17:17:36 - Data written to staging.ACC_PaymentStatus successfully.
+2025-08-04 17:17:36 - Data written to prod.ACC_PaymentStatus successfully.
+2025-08-04 17:17:37 - Start Extracting reference for Province with keys as ['ProvinceId']
+2025-08-04 17:17:39 - Execution time: 1.7874410152435303 seconds
+2025-08-04 17:17:39 -    ProvinceId ShortCode     Description PostalCode  AddressLine3
+0           1        WC    WESTERN CAPE       6670    RIVERSDALE
+1           2        FS      FREE STATE       9301  BLOEMFONTEIN
+2           3       KZN  KWA-ZULU NATAL       4126      DOONSIDE
+3           4        WC    WESTERN CAPE       7300    MALMESBURY
+4           5       GAU         GAUTENG       2192  JOHANNESBURG
+2025-08-04 17:17:40 - Table staging.Province truncated successfully.
+2025-08-04 17:17:41 - Data written to staging.Province successfully.
+2025-08-04 17:17:41 - Data written to prod.Province successfully.
+2025-08-04 17:17:41 - Reference Tables collected at 39 Seconds
+2025-08-04 17:17:41 - Collect Account related data
+04-Aug-2025 17:17:42 Month: 202507
+04-Aug-2025 17:17:42 Processing Application for 202507...2025-07-01 00:00:00..2025-07-31 23:59:59
+Traceback (most recent call last):
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1266, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2061, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2019, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/johan/Workspace/Matogen/Atlas/bin/../src/python/Staging_ExtractHistory.py", line 101, in <module>
+    subprocess.run(
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 552, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1203, in communicate
+    self.wait()
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 1279, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 2055, in _wait
+    time.sleep(delay)
+KeyboardInterrupt

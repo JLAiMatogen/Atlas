@@ -1,0 +1,32 @@
+Branch
+Consultant
+Frequency (M W B)
+Term (1 – 12 months individually)
+Debtors Bank
+Loan Size (R0.01 – R1,000; R1000.01 – R2,000 etc)
+ROLLd loan Y / N
+Product split
+Credit Score or CAT if accurate (per provider Experian / XDS)
+CDE Override Y / N
+Service Provider (NuPay RealPay Other)
+Overdue Segment Monthly fixed field (Current / Debt Review / Days Overdue segmented)
+NRE Status (new / repeat / existing)
+
+
+
+
+Vintages: 1+ bad definition
+Terms are filters
+X-axis months on book
+Y-axis bad rate for the months on book
+
+
+One line for each calendar month and one for generic risk (rolling 12 months)
+
+
+This analysis identified 5 distinct customer segments from transaction data:
+Responsible Savers (43.7%) - Stable income, positive cashflow
+Financial Strugglers (24.3%) - Chronic overdrafts, high existing debt
+Average Spenders (16.9%) - Moderate income, high fees
+High-Income Savers (13.8%) - Strong finances, lowest risk
+Ultra High Earners (1.3%) - Very high income but poor management

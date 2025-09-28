@@ -1,0 +1,211 @@
+2025-08-04 17:38:05 - Collect reference data
+2025-08-04 17:38:08 - Start Extracting reference for ACC_LoanStateReason with keys as ['Code']
+2025-08-04 17:38:09 - Execution time: 1.90403413772583 seconds
+2025-08-04 17:38:09 -   Code    Description OptimisticLockField GCRecord Saccra_Code
+0    E  Early Settled                None     None           T
+1    F  Fully paid up                None     None           C
+2    H    Handed over                None     None           L
+3    W    Written Off                None     None           T
+4    C      Cancelled                None     None           V
+2025-08-04 17:38:11 - Table staging.ACC_LoanStateReason truncated successfully.
+2025-08-04 17:38:12 - Data written to staging.ACC_LoanStateReason successfully.
+2025-08-04 17:38:12 - Data written to prod.ACC_LoanStateReason successfully.
+2025-08-04 17:38:13 - Start Extracting reference for ACC_PeriodFrequency with keys as ['PeriodFrequencyId']
+2025-08-04 17:38:15 - Execution time: 1.9723529815673828 seconds
+2025-08-04 17:38:15 -    PeriodFrequencyId  Description  ...  DaysInOneTerm  VapCancelCoolingPeriod
+0                  1      Monthly  ...             30                       1
+1                  2       Weekly  ...              7                       4
+2                  3  Fortnightly  ...             14                       2
+
+[3 rows x 6 columns]
+2025-08-04 17:38:17 - Table staging.ACC_PeriodFrequency truncated successfully.
+2025-08-04 17:38:18 - Data written to staging.ACC_PeriodFrequency successfully.
+2025-08-04 17:38:18 - Data written to prod.ACC_PeriodFrequency successfully.
+2025-08-04 17:38:19 - Start Extracting reference for Branch with keys as ['BranchId']
+2025-08-04 17:38:21 - Execution time: 2.243429183959961 seconds
+2025-08-04 17:38:21 -    BranchId  Company  ...  SecondInterestRate  ChannelId
+0       361        1  ...                 NaN       None
+1       321        1  ...                 NaN       None
+2       226      224  ...                 NaN       None
+3         6        6  ...                 NaN       None
+4       328        1  ...                 NaN       None
+
+[5 rows x 23 columns]
+2025-08-04 17:38:23 - Table staging.Branch truncated successfully.
+2025-08-04 17:38:23 - Data written to staging.Branch successfully.
+2025-08-04 17:38:24 - Data written to prod.Branch successfully.
+2025-08-04 17:38:24 - Start Extracting reference for PaymentModes with keys as ['PaymentModeId']
+2025-08-04 17:38:25 - Execution time: 1.0189719200134277 seconds
+2025-08-04 17:38:25 -    PaymentModeId PaymentCode  ... DebitOrderModeId UseRefundMode
+0              3     REALPAY  ...              NaN         False
+1              5         POS  ...              NaN         False
+2              7         REG  ...              NaN         False
+3              9         SNA  ...              NaN         False
+4             13      REFUND  ...              NaN         False
+
+[5 rows x 12 columns]
+2025-08-04 17:38:26 - Table staging.PaymentModes truncated successfully.
+2025-08-04 17:38:27 - Data written to staging.PaymentModes successfully.
+2025-08-04 17:38:27 - Data written to prod.PaymentModes successfully.
+2025-08-04 17:38:28 - Start Extracting reference for Bank with keys as ['BankId']
+2025-08-04 17:38:30 - Execution time: 2.0966978073120117 seconds
+2025-08-04 17:38:30 -    BankId    Code  ... IsRealPayTT1Enable  RealPayBankId
+0       9       0  ...              False              0
+1      13  460005  ...              False              0
+2      14  400001  ...              False              0
+3      19  580105  ...              False              0
+4      24  450105  ...               True              8
+
+[5 rows x 24 columns]
+2025-08-04 17:38:31 - Table staging.Bank truncated successfully.
+2025-08-04 17:38:32 - Data written to staging.Bank successfully.
+2025-08-04 17:38:32 - Data written to prod.Bank successfully.
+2025-08-04 17:38:33 - Start Extracting reference for PRD_Products with keys as ['ProductId']
+2025-08-04 17:38:34 - Execution time: 1.34002685546875 seconds
+2025-08-04 17:38:34 -    ProductId             ProductName  ... IsExpressLoan  IsUnSecuredLoan
+0          1             Branch Loan  ...         False            False
+1          2  Payroll Deduction Loan  ...         False            False
+2          3             Remote Loan  ...         False            False
+3          4                 Hollard  ...         False            False
+4          5   Over 65 - Branch loan  ...         False            False
+
+[5 rows x 19 columns]
+2025-08-04 17:38:36 - Table staging.PRD_Products truncated successfully.
+2025-08-04 17:38:36 - Data written to staging.PRD_Products successfully.
+2025-08-04 17:38:36 - Data written to prod.PRD_Products successfully.
+2025-08-04 17:38:37 - Start Extracting reference for ACC_PaymentStatus with keys as ['PaymentStatusId']
+2025-08-04 17:38:38 - Execution time: 0.9770810604095459 seconds
+2025-08-04 17:38:38 -    PaymentStatusId PaymentStatusDescription
+0                0                  Current
+1                7              Debt Review
+2                8                      New
+3                6                     120+
+4                1                  Current
+2025-08-04 17:38:39 - Table staging.ACC_PaymentStatus truncated successfully.
+2025-08-04 17:38:39 - Data written to staging.ACC_PaymentStatus successfully.
+2025-08-04 17:38:39 - Data written to prod.ACC_PaymentStatus successfully.
+2025-08-04 17:38:40 - Start Extracting reference for Province with keys as ['ProvinceId']
+2025-08-04 17:38:41 - Execution time: 1.1651577949523926 seconds
+2025-08-04 17:38:41 -    ProvinceId ShortCode     Description PostalCode  AddressLine3
+0           1        WC    WESTERN CAPE       6670    RIVERSDALE
+1           2        FS      FREE STATE       9301  BLOEMFONTEIN
+2           3       KZN  KWA-ZULU NATAL       4126      DOONSIDE
+3           4        WC    WESTERN CAPE       7300    MALMESBURY
+4           5       GAU         GAUTENG       2192  JOHANNESBURG
+2025-08-04 17:38:42 - Table staging.Province truncated successfully.
+2025-08-04 17:38:43 - Data written to staging.Province successfully.
+2025-08-04 17:38:43 - Data written to prod.Province successfully.
+2025-08-04 17:38:44 - Reference Tables collected at 39 Seconds
+2025-08-04 17:38:44 - Collect Account related data
+2025-08-04 17:38:45 - Start Extracting history for Application with keys as ['ApplicationId']
+2025-08-04 17:39:24 - Execution time: 38.810322999954224 seconds
+2025-08-04 17:39:24 -    ApplicationId  AffordabilityId  ... IsCopyAppliation  previous_application_date
+0        3859255          3871832  ...            False                        NaT
+1        3860855          3873432  ...            False                        NaT
+2        3860108          3872685  ...            False                        NaT
+3        3845572          3858155  ...            False 2025-05-28 11:46:37.092857
+4        3818821          3831404  ...            False 2025-05-02 08:38:05.314133
+
+[5 rows x 76 columns]
+2025-08-04 19:33:00 - Table staging.Application truncated successfully.
+2025-08-04 19:34:04 - Data written to staging.Application successfully.
+2025-08-04 19:34:06 - Data written to prod.Application successfully.
+2025-08-04 19:34:07 - Start Extracting history for XDSCustomerDetailsLog with keys as ['ApplicationId', 'Type']
+Traceback (most recent call last):
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.OperationalError: could not receive data from server: Operation timed out
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/johan/Workspace/Matogen/Atlas/src/python/Staging_SqlScript.py", line 56, in <module>
+    df = pd.read_sql(query, sourceDB)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/pandas/io/sql.py", line 734, in read_sql
+    return pandas_sql.read_query(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/pandas/io/sql.py", line 1836, in read_query
+    result = self.execute(sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/pandas/io/sql.py", line 1660, in execute
+    return self.con.execute(sql, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not receive data from server: Operation timed out
+
+[SQL: with Application as materialized (
+    select  ap.*
+		    ,  	ap."ApplicationId"::TEXT "ApplicationId_TEXT"
+    from    backoffice.sqlmig."Application" ap
+    where   ap."CreateDate" between '2025-07-01 00:00:00' and '2025-07-05 23:59:59'
+),
+Response as materialized (
+    Select  a."CreateDate"
+		      ,	a."ApplicationId"  
+		      , xds."IdNumber"
+		      ,	xds."Type" 
+          --, 	CASE
+          --    WHEN xds."Response" IS NOT NULL AND xds."Response" ~ '<.+>' THEN
+          --        ((xpath('//string/text()', xds."Response"::xml))[1])::TEXT::jsonb
+          --    ELSE NULL
+          --  END AS "Obj"
+          , regexp_replace (
+		      	regexp_replace(
+			         xds."Response",
+			         ',?"(bureau_response|encoded_xds_bureau_string|Base64StringJpeg2000Image)": "[^"]*",?',
+			         '',
+			         'g'
+			       )
+			      ,	'&#x[0-9A-Fa-f]+;|&#\d+;',  -- matches &#xHEX; and &#DECIMAL;
+		         '',
+		         'g'
+		        )::xml "XmlResponse"
+          , dense_rank() over ( partition by xds."ApplicationId", xds."Type" order by "InsertTime" desc ) ranking
+    from    Application a , backoffice.public."XDSCustomerDetailsLog" xds
+    where   a."ApplicationId_TEXT" = xds."ApplicationId"
+    and     xds."Type" in ( 'PreVet' , 'AtlasProductMatrix')
+    and     ( xds."Response" LIKE '%%max_principal%%' or xds."Response" LIKE '%%rule_selected_bureau%%' )
+)
+select  r."CreateDate"	 			
+		  , r."ApplicationId" 	
+		  , r."IdNumber" 				
+		  , r."Type" 	
+      --, r."XmlResponse"
+      , ((xpath('//string/text()', r."XmlResponse"::xml))[1])::TEXT	"JsonText"
+      --, r."Obj"->>'bureau_returned' as "bureau_returned"
+      --, r."Obj"->>'score' as "bureau_score"
+      --, case when r."Type" = 'AtlasProductMatrix' 
+      --	then (r."Obj" -> 'product_matrix' -> 0 ->> 'max_principal')::numeric 
+      --	else null
+      --	end  AS max_principal
+      --, r.ranking
+from    Response r
+where   r.ranking = 1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+04-Aug-2025 17:38:44 Month: 202507
+04-Aug-2025 17:38:44 Processing Application for 202507...2025-07-01 00:00:00..2025-07-31 23:59:59
+04-Aug-2025 19:34:06 Processing XDSCustomerDetailsLog... 2025-07-01 00:00:00 to 2025-07-05 23:59:59
+05-Aug-2025 06:04:04 Error: Subprocess failed with exit code 1. Command: python /Users/johan/Workspace/Matogen/Atlas/src/python/Staging_SqlScript.py history 2025-07-01 00:00:00 2025-07-05 23:59:59 XDSCustomerDetailsLog.sql XDSCustomerDetailsLog ApplicationId Type

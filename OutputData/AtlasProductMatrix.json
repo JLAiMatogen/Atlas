@@ -1,0 +1,57 @@
+{
+  "Surname": "KOATLA",
+  "mds_uuid": "ab464985-92db-4f59-ba85-1bf36ab0aa78",
+  "FirstName": "MPHO YVETTE",
+  "ThirdName": "",
+  "SecondName": "",
+  "rules_fired": [
+    {
+      "detail": "Applicant has 1 active long term loans and 0 active unsecured loans.",
+      "ruleId": "POL-04",
+      "description": "Only 1 active longe term loan is permitted"
+    },
+    {
+      "detail": "CODIX has no approved terms",
+      "ruleId": "CODIX-01",
+      "description": "CODIX has no approved terms"
+    },
+    {
+      "detail": "Applicant is in Arrears on existing loan.",
+      "ruleId": "POL-07",
+      "description": "Active Loan with Arrears"
+    }
+  ],
+  "max_instalment": 8394.23,
+  "product_matrix": [],
+  "nca_min_expenses": 2225.380000,
+  "application_status": "decline",
+  "application_reference": "2448994"
+}
+
+
+
+{
+  "Surname": "NTULI",
+  "mds_uuid": "8f21edcd-08f1-41c2-a6a7-d39f4c93b8b8",
+  "FirstName": "MAKINGI JOSEPH",
+  "ThirdName": "",
+  "SecondName": "",
+  "rules_fired": [],
+  "max_instalment": 10858.78,
+  "product_matrix": [
+    {
+      "loan_type": "New Short-Term",
+      "instalments": 1,
+      "interest_rate": 60.000000,
+      "max_principal": 8000.00,
+      "initiation_fee": 994.75,
+      "max_instalment": 9650.67,
+      "repayment_frequency": "M"
+    }
+  ],
+  "nca_min_expenses": 1746.220000,
+  "application_status": "approve",
+  "application_reference": "2452677"
+}
+
+

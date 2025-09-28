@@ -1,9 +1,13 @@
-DROP materialized view prod."Account_BadRate_Indicators" cascade;
+DROP materialized view "Account_BadRate_Indicators" cascade;
 
-create materialized view prod."Account_BadRate_Indicators" as
-with ACC_Schedules as (
+create materialized view "Account_BadRate_Indicators" as
+with parameters as (
+	SELECT date_trunc('month'::text, CURRENT_DATE::timestamp with time zone) + '1 mon -1 days'::interval AS last_day_of_month
+),
+ACC_Schedules as (
 	select 	ac."AccountId",as1."Installment_SrNo", as1."Duedate", as1."PaidDate"
-			,		extract(year from age(now(), ac."OpenDate" )) * 12  + extract(month from age(now(), ac."OpenDate") ) "AgeInMonths"
+			--,		extract(year from age(now(), ac."OpenDate" )) * 12  + extract(month from age(now(), ac."OpenDate") ) "AgeInMonths"
+			,   age_in_months(date_trunc('month'::text, greatest(ac."OpenDate",min(as1."Duedate") over (partition by ac."AccountId")) )::date, p.last_day_of_month::date) AS "AgeInMonths"
 			,   case when ( as1."Duedate" <= date_trunc('DAY',now()) ) then 1 else 0 end "IsDue"
 			,   case when ( coalesce( date_trunc('DAY',as1."PaidDate"),date_trunc('DAY',now())) >  as1."Duedate" ) then 1 else 0 end "IsLate"
 			,   case when ( coalesce( date_trunc('DAY',as1."PaidDate"),date_trunc('DAY',now())) - INTERVAL '7 DAYS' >  as1."Duedate" ) then 1 else 0 end "IsLate7Days"
@@ -13,7 +17,7 @@ with ACC_Schedules as (
 					WHEN as1."Totalinstallment" = 0 THEN 0
 					ELSE as1."Paid_Installment"::numeric / as1."Totalinstallment" * 100
 					END) "Installment_Paid_Perc"
-	from 	prod."ACC_Account" ac, prod."ACC_Schedules" as1
+	from 	"ACC_Account" ac, "ACC_Schedules" as1 , parameters p 
 	where ac."AccountId" = as1."AccountId"),
 ACC_Schedules_Detail as (
 	select 	as2.*
@@ -77,5 +81,5 @@ from 		ACC_Schedules_Detail asd
 group by asd."AccountId" , asd."AgeInMonths"
 order by "AccountId";
 
-
-select * from prod."Account_BadRate_Indicators" ;
+CREATE UNIQUE INDEX Account_BadRate_Indicators_uq
+ON "Account_BadRate_Indicators" ("AccountId");
