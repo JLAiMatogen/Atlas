@@ -54,4 +54,14 @@ fi
 
 log_message "Account Information Tables collected at ${SECONDS} Seconds"
 # Print the total runtime
+
+#refresh the Materialzed views
+log_message "Refresh the Materialized views"
+python ../src/python/RefreshMViews.py
+ >> "$LOG_FILENAME" 2>&1
+if [ $? -ne 0 ]; then
+    echo "RefreshMViews.py failed. Exiting."
+    exit 1
+fi
+
 log_message "Total runtime: ${SECONDS} Seconds"

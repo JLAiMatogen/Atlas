@@ -27,6 +27,9 @@ set search_path to prod;
 CALL prod."Refresh_All_MViews"();
 
 
+REFRESH MATERIALIZED VIEW concurrently "Cumulative_Bad_Rates_MV";
+
+
 set search_path to dev;
 drop view dev."Account_Vintage_Indicators"
     

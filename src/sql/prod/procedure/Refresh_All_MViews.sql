@@ -14,7 +14,8 @@ DECLARE
 				'"ACC_DebitOrder_Latest"',
 				'"Account_BadRate_Indicators"',
 				'"ACC_PaymentStatusHistory_Latest"',
-				'"Account_Detail_MV"'
+				'"Account_Detail_MV"',
+				'"Cumulative_Bad_Rates_MV"'
 		];
 
 BEGIN

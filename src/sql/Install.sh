@@ -8,3 +8,6 @@
 
 ./Load_Sql.sh prod/materializedview/Cumulative_Bad_Rates_MV..sql
 
+
+./Load_Sql.sh prod/procedure/Refresh_All_MViews.sql
+
