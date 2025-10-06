@@ -113,5 +113,20 @@ order by 1
 and   "AccountId"  = '5193999';
 
 
-select * from dev."Account_Detail"
-;
+select * from dev."Account_Detail";
+
+
+
+SELECT
+    pid,
+    datname,
+    usename,
+    application_name,
+    client_addr,
+    backend_start,
+    query_start,
+    state,
+    query
+FROM 	pg_stat_activity
+where usename = 'matogen'
+order by backend_start desc;
