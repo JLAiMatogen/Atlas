@@ -55,6 +55,7 @@ targetDB = create_engine(MatogenDB)
 start_time = time.time()
 # Query and load into DataFrame
 query = text(query)
+print("Run Query to extract data [",query,"]")
 df = pd.read_sql(query, sourceDB)
 
 end_time = time.time()
@@ -74,17 +75,20 @@ except Exception as e:
 
 
 # 2. Write DataFrame to a table in the "staging" schema    
+print(f"Start writing data to staging.{tablename} in chunks of 500,000 rows.")
+
 try:
     df.to_sql(
-        name=tablename,            # Replace with actual table name
+        name=tablename,               # Replace with actual table name
         con=targetDB,
-        schema='staging',            # 🔄 Specify schema here
-        if_exists='append',          # Options: 'fail', 'replace', 'append'
-        index=False
+        schema='staging',             # 🔄 Specify schema here
+        if_exists='append',           # Options: 'fail', 'replace', 'append'
+        index=False,
+        chunksize=500_000             # ✅ Write in blocks of 500,000 rows
     )
-    print(f"Data written to staging.{tablename} successfully.")
+    print(f"✅ Data written to staging.{tablename} successfully in chunks.")
 except Exception as e:
-    print("Error writing to table:", e)
+    print("❌ Error writing to table:", e)
 
 # 3. Merge the Staging data into the prod schema table on the specified key.
 with targetDB.connect().execution_options(isolation_level="AUTOCOMMIT") as conn:

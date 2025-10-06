@@ -5,8 +5,6 @@ import subprocess
 import os
 import sys
 
-sys.stdout.reconfigure(line_buffering=True)
-
 import os
 import sys
 
@@ -42,11 +40,6 @@ table_scripts = [
     ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId']),
     ("XDSCustomerDetailsLog.sql", "XDSCustomerDetailsLog", ['ApplicationId','Type'])
   ]
-
-table_scripts = [
-    ("ACC_Account.sql" , "ACC_Account", ['AccountId']) , 
-    ("ACC_Schedules.sql" , "ACC_Schedules", ['AccountId','Installment_SrNo'])
-]
 
 print(f"Processing Deltas ...")
 # Collect all the related tables
