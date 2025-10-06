@@ -1,5 +1,0 @@
-2025-07-30 15:52:08 - Collect reference data
-Traceback (most recent call last):
-  File "/data/matogen/Atlas/bin/../src/python/Staging_ReferenceTables.py", line 1, in <module>
-    from sqlalchemy import create_engine, text
-ModuleNotFoundError: No module named 'sqlalchemy'
