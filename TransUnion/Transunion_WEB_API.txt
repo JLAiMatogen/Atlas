@@ -1,0 +1,89 @@
+--Generate Token
+
+--Request to
+https://testapi.transunion.co.za/auth/token
+
+headers:Content-Type   value application/json
+
+body:
+{
+   "SubscriberCode": "88800",
+   "SecretKey": "0de413139e77432acF36776ed&2f699d"
+}
+
+--Response 
+body:
+{
+    "access_token": "eyJhbGciOiJSUzUxMiIsImtpZCI6IlRVU0FBUEkiLCJwaS5hdG0iOiJzMjJxIn0.eyJzY29wZSI6IiIsImNsaWVudF9pZCI6Ijg4ODAwIiwiQWNjb3VudCI6IntcIlBlb3BsZVNvZnRJRFwiOlwiODg4MDBcIixcIkluZHVzdHJ5XCI6XCJQTFwifSIsIkVuYWJsZW1lbnQiOiJ7XCJDaGFubmVsXCI6XCJBUElcIixcIkVudmlyb25tZW50XCI6XCJTdGFnZVwifSIsIlN1YnNjcmliZXIiOiJ7XCJTdWJzY3JpYmVySURcIjpcIjg4ODAwXCIsXCJTdWJzY3JpYmVyTmFtZVwiOlwiQVRMQVNcIixcIlN1YnNjcmliZXJDb2RlXCI6XCJZWHlHdHFhWWt0T1k2TTNsNFVqc3JBPT1cIixcIkFjdGl2ZVwiOlwiWVwifSIsIlByb2R1Y3QiOiJ7XCJQcm9kdWN0Q29kZVwiOlwiU1RSQVRBUElcIixcIlByb2R1Y3ROYW1lXCI6XCJTdHJhdGVnaWMgQVBJXCIsXCJCaWxsaW5nQ29kZVwiOlwiMTIzNDVcIn0iLCJQcmltYXJ5Q29udGFjdCI6IntcIkNvbnRhY3QgSURcIjpcIlwiLFwiQ29udGFjdE5hbWVcIjpcIkJyZXR0IENhbWluc2t5XCIsXCJDb250YWN0IEUtbWFpbFwiOlwiYnJldHRAYXRjb3JwLmNvLnphXCJ9IiwiZXhwIjoxNzcxOTMzNTQ5fQ.SgArrtUkM7yx55YohTS4X3NHWtK974UMZBZ4N1de9hfdE-XiGOEueqIwivYLFypjghOKhgmZsBrLAwnUdPS6DqZRy0xlp8bPyqSY3kGiCkWsOkLnRoPXPcJYMLN9NFUVzl8SUWclaqm7OH6o5c4XXU3qnWY7i52T2n0VDLb6I8xjni0sMFyTyGCLCTSlx9HJKt9utDuJKTgLSR38TQUq4v4PtlzKG2slVmFS8M1RuKmtmh4hX6zHXwvXzsA8F7fCro87vzRc_WPV9t6PGDWTAP2E06CcgNddke11E9n2bgcCPpGBHAz0Bc5LubrFRnQtQ3F61kSgc0eRXp_ZCCAPZg",
+    "token_type": "Bearer",
+    "expires_in": "7199"
+}
+
+
+
+--Generate cunsumer report:
+--Request to: 
+https://testapi.transunion.co.za/consumer/consumerreport/
+
+Method: POST
+headers:Content-Type   value application/json
+
+{
+  "ClientRequestID": "",
+  "SubscriberCode": "88800",
+  "SecurityCode": "eyJhbGciOiJSUzUxMiIsImtpZCI6IlRVU0FBUEkiLCJwaS5hdG0iOiJzMjJxIn0.eyJzY29wZSI6IiIsImNsaWVudF9pZCI6Ijg4ODAwIiwiQWNjb3VudCI6IntcIlBlb3BsZVNvZnRJRFwiOlwiODg4MDBcIixcIkluZHVzdHJ5XCI6XCJQTFwifSIsIkVuYWJsZW1lbnQiOiJ7XCJDaGFubmVsXCI6XCJBUElcIixcIkVudmlyb25tZW50XCI6XCJTdGFnZVwifSIsIlN1YnNjcmliZXIiOiJ7XCJTdWJzY3JpYmVySURcIjpcIjg4ODAwXCIsXCJTdWJzY3JpYmVyTmFtZVwiOlwiQVRMQVNcIixcIlN1YnNjcmliZXJDb2RlXCI6XCJZWHlHdHFhWWt0T1k2TTNsNFVqc3JBPT1cIixcIkFjdGl2ZVwiOlwiWVwifSIsIlByb2R1Y3QiOiJ7XCJQcm9kdWN0Q29kZVwiOlwiU1RSQVRBUElcIixcIlByb2R1Y3ROYW1lXCI6XCJTdHJhdGVnaWMgQVBJXCIsXCJCaWxsaW5nQ29kZVwiOlwiMTIzNDVcIn0iLCJQcmltYXJ5Q29udGFjdCI6IntcIkNvbnRhY3QgSURcIjpcIlwiLFwiQ29udGFjdE5hbWVcIjpcIkJyZXR0IENhbWluc2t5XCIsXCJDb250YWN0IEUtbWFpbFwiOlwiYnJldHRAYXRjb3JwLmNvLnphXCJ9IiwiZXhwIjoxNzcxOTMzMDYwfQ.W3B2J0_NKfIX0f5GU4RPze50N8vvzedM_Fcaq0UmkHCpvt9Mer9X1gGpzGeXKxrym6CPd3xXbwVoz3VAv0o_aqME9W89d1U6kjM6SAQZK7_aUrFQJtwJHRbqTb_b-5HvxNjrzjmC4N4qDH5FBhpgQjyw33JXFl2HQs09Yuv3hwDFjCAcyk3lKnDvFDEjQpzX1LE3xKEtFE0XGfLokQGwTAxhsiIRaqsGzrYesGfsWxWvgcgAwCaTvJpUMZT367kdSQ5xtt3IrZZ77FAA2Dl3VulysFBeAXFfaTlRdbTQ0Oc4Gy_Q4loLCLyzR42ifFiikCucsO8wqi8L3w3ymYGCqQ",
+  "ProductSelection": [
+    "All"
+  ],
+  "ClientReference": "",
+  "BranchNumber": "",
+  "BatchNumber": "",
+  "EnquirerContactName": "Johan Laubscher",
+  "EnquirerContactPhoneNo": "0823218507",
+  "EnquiryAmount": "",
+  "EnquiryType": "32",
+  "Surname": "Laubscher",
+  "Forename1": "Johannes",
+  "Forename2": "",
+  "Forename3": "",
+  "MaidenName": "",
+  "BirthDate": "",
+  "IdentityNo1": "7006145211082",
+  "IdentityNo2": "",
+  "Sex": "",
+  "Title": "",
+  "MaritalStatus": "",
+  "NoOfDependants": "",
+  "AddressLine1": "",
+  "AddressLine2": "",
+  "Suburb": "",
+  "City": "",
+  "PostalCode": "",
+  "ProvinceCode": "",
+  "Address1Period": "",
+  "OwnerTenant": "",
+  "HomeTelCode": "",
+  "HomeTelNo": "",
+  "WorkTelCode": "",
+  "WorkTelNo": "",
+  "SpouseForename1": "",
+  "SpouseForename2": "",
+  "Address2Line1": "",
+  "Address2Line2": "",
+  "Address2Suburb": "",
+  "Address2City": "",
+  "Address2PostalCode": "",
+  "Address2ProvinceCode": "",
+  "Address2Period": "",
+  "Occupation": "",
+  "Employer": "",
+  "EmploymentPeriod": "",
+  "Salary": "",
+  "BankName": "",
+  "BankBranch": "",
+  "BankBranchCode": "",
+  "BankAccountNumber": "",
+  "OperatorIdentity": "",
+  "CellNo": "",
+  "EmailAddress": ""
+}

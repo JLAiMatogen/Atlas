@@ -1,0 +1,14 @@
+BreakDownName
+No Breakdown
+BranchName
+Consultant
+PaymentFrequency
+Loan_Term
+Debtors_Bank
+Loan_Size
+ROLLd_Loan
+Product
+ClientCategory
+ServiceProvider
+CDE_Override
+Bureau_Returned

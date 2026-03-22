@@ -1,0 +1,35 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	<soapenv:Header/>
+		<soapenv:Body>
+			<tem:ExecuteXMLString>
+				<tem:request><![CDATA[<DCRequest xmlns="http://transunion.com/dc/extsvc">
+				<Authentication type="OnDemand">
+					<UserId>Eligibility_Atlas_Finance_UAT_User</UserId>
+					<Password>PL37{Qz!8Aswed</Password>
+				</Authentication>
+				<RequestInfo>
+					<SolutionSetId>729</SolutionSetId>
+					<SolutionSetVersion>7</SolutionSetVersion>
+					<ExecutionMode>NewWithContext</ExecutionMode>
+				</RequestInfo>
+				<UserData></UserData>
+				<Fields>
+					<Field key="Applicant">
+					<![CDATA[<Applicant>
+					<Industry></Industry>Only
+					<Ruleset>PolicyFiltersAndScores</Ruleset>
+					<FirstName>Johan</FirstName>
+					<Surname>Laubscher</Surname>
+					<IdType>SAID</IdType>
+					<IdNumber>7006145211082</IdNumber>
+					<DateofBirth>700614</DateofBirth>
+					<Gender>M</Gender>
+					<Income></Income>
+					<CellNumber>0823218507</CellNumber>
+					</Applicant>]]]]><![CDATA[></Field>
+					<Field key="TrailLevel">0</Field>
+				</Fields></DCRequest>]]>
+				</tem:request>
+			</tem:ExecuteXMLString>
+		</soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,62 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <ExecuteXMLStringResponse xmlns="http://tempuri.org/">
+      <ExecuteXMLStringResult><![CDATA[<?xml version="1.0"?><DCResponse><Status>Success</Status><Authentication><Status>Success</Status><Token>4dfe2ec1-34e2-4bd5-9e94-2f6f49f9c57f</Token></Authentication><ResponseInfo><ApplicationId>6655667</ApplicationId><SolutionSetInstanceId>71133b79-4cd4-4e7d-b771-7f2b5534b173</SolutionSetInstanceId><CurrentQueue></CurrentQueue></ResponseInfo><ContextData><Field key="ApplicationOutput"><ApplicationOutput>
+<IVSRules>
+<IVSRule1>
+<Description>ID and Surname verified</Description>
+<Outcome>False</Outcome>
+</IVSRule1>
+<IVSRule2>
+<Description>Surname does not match to ID</Description>
+<Outcome>False</Outcome>
+</IVSRule2>
+<IVSRule3>
+<Description>ID never issued</Description>
+<Outcome>False</Outcome>
+</IVSRule3>
+<IVSRule4>
+<Description>ID not yet verified</Description>
+<Outcome>False</Outcome>
+</IVSRule4>
+<IVSRule5>
+<Description>ID verified as a deceased person</Description>
+<Outcome>False</Outcome>
+</IVSRule5>
+<IVSRule6>
+<Description>ID verified as an emigrated person</Description>
+<Outcome>False</Outcome>
+</IVSRule6>
+<ReasonCode/>
+</IVSRules>
+<PolicyFilters>
+<PersonalLoansNonBanking>
+</PersonalLoansNonBanking>
+</PolicyFilters>
+<Scorecards>
+<Scorecard>
+<Name>PersonalLoansNonBanking</Name>
+<Score>632</Score>
+<Outcome>Pass</Outcome>
+</Scorecard>
+</Scorecards>
+<ApplicationID>6655667</ApplicationID>
+<FirstName>PHINDILE</FirstName>
+<Surname>XOLO</Surname>
+<IDNumber>9902050802089</IDNumber>
+<Industry>PersonalLoansNonBanking</Industry>
+<IndustryOutcome>PersonalLoansNonBanking</IndustryOutcome>
+<ErrorCode>0</ErrorCode>
+<ErrorMessage></ErrorMessage>
+<Status>Success</Status>
+<ReasonCode></ReasonCode>
+<ReasonDescription></ReasonDescription>
+<OutcomeMessage></OutcomeMessage>
+<BureauErrorMessage></BureauErrorMessage>
+<Outcome>Pass</Outcome>
+<SubscriberCode>88810</SubscriberCode>
+</ApplicationOutput>
+</Field></ContextData></DCResponse>]]></ExecuteXMLStringResult>
+    </ExecuteXMLStringResponse>
+  </s:Body>
+</s:Envelope>

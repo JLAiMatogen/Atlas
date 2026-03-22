@@ -32,6 +32,7 @@ Response as materialized (
     and     xds."Type" in ( 'PreVet' , 'AtlasProductMatrix')
     and     ( xds."Response" LIKE '%max_principal%' or xds."Response" LIKE '%rule_selected_bureau%' )
 )
+select * from Response;
 select  r."CreateDate"	 			
 		  , r."ApplicationId" 	
 		  , r."IdNumber" 				

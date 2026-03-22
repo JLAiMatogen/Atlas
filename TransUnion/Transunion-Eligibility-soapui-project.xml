@@ -1,0 +1,2207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="aa4b0a3d-1252-47c3-b01b-722e37dc40a6" activeEnvironment="Default" name="Transunion Eligibility" resourceRoot="" soapui-version="5.9.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="ea7df84a-7005-4317-a6ec-00caa1e99a27" wsaVersion="NONE" name="basicHttp" type="wsdl" bindingName="{http://tempuri.org/}basicHttp" soapVersion="1_1" anonymous="optional" definition="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?Wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?Wsdl"><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?Wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ExternalSolutionExecutionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="basicHttp_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.ServiceShared.Utility"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xsd:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.BusinessEntities.DigitalVerification"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExternalSolutionExecution_AuthenticateXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_AuthenticateXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ChangePasswordXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ChangePasswordXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_DownloadDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocument"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_DownloadDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ExecuteXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ExecuteXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalTrace"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalTraceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrace_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:ExternalServiceFault" xmlns:q1="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCountXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueAppCountXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCountXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueAppCountXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCountXMLString_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q2:ExternalServiceFault" xmlns:q2="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetAppCountByField_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCountByField"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetAppCountByField_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppCountByFieldResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetAppCountByField_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q3:ExternalServiceFault" xmlns:q3="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueAppCount"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueAppCountResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetQueueAppCount_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q4:ExternalServiceFault" xmlns:q4="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetSolutionQueueNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolutionQueueNames"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetSolutionQueueNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolutionQueueNamesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetSolutionQueueNames_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q5:ExternalServiceFault" xmlns:q5="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_LockApplicationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockApplicationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_LockApplicationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockApplicationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_LogoutSessionXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutSessionXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_LogoutSessionXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutSessionXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationAllFieldsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationAllFieldsById"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationAllFieldsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationAllFieldsByIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationAllFieldsById_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q6:ExternalServiceFault" xmlns:q6="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationDataById"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationDataByIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataById_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q7:ExternalServiceFault" xmlns:q7="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationDataByIdAndQueue"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationDataByIdAndQueueResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q8:ExternalServiceFault" xmlns:q8="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationFieldsById"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationFieldsByIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsById_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q9:ExternalServiceFault" xmlns:q9="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationFieldsByIdAndQueue"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationFieldsByIdAndQueueResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q10:ExternalServiceFault" xmlns:q10="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReassignApplicationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignApplicationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReassignApplicationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignApplicationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReassignOrganizationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignOrganizationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ReassignOrganizationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignOrganizationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RemoveDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDocument"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RemoveDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ResetPasswordByUserXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordByUserXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ResetPasswordByUserXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordByUserXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveAppsByRangeXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAppsByRangeXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveAppsByRangeXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAppsByRangeXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveDocumentMetaDataXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveDocumentMetaDataXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveDocumentMetaDataXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveDocumentMetaDataXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveSecretQuestionXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSecretQuestionXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveSecretQuestionXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSecretQuestionXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveSSXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSSXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveSSXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSSXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_RetrieveXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SaveXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SaveXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SearchApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchApplication"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SearchApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchApplicationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SearchApplication_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q11:ExternalServiceFault" xmlns:q11="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SearchApplicationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchApplicationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_SearchApplicationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchApplicationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_UnlockApplicationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockApplicationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_UnlockApplicationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockApplicationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_UploadDocumentXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_UploadDocumentXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetDvCaseStatusHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDvCaseStatusHistory"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetDvCaseStatusHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDvCaseStatusHistoryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ViewApplicationHistoryXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewApplicationHistoryXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ViewApplicationHistoryXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewApplicationHistoryXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ViewApplicationXMLString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewApplicationXMLString"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_ViewApplicationXMLString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewApplicationXMLStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrailByApplicationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalTrailByApplicationId"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrailByApplicationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalTrailByApplicationIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalSolutionExecution_GetFinalTrailByApplicationId_ExternalServiceFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="q12:ExternalServiceFault" xmlns:q12="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts"/>
+  </wsdl:message>
+  <wsdl:portType name="IExternalSolutionExecution">
+    <wsdl:operation name="AuthenticateXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/AuthenticateXMLString" message="tns:IExternalSolutionExecution_AuthenticateXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/AuthenticateXMLStringResponse" message="tns:IExternalSolutionExecution_AuthenticateXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ChangePasswordXMLString" message="tns:IExternalSolutionExecution_ChangePasswordXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ChangePasswordXMLStringResponse" message="tns:IExternalSolutionExecution_ChangePasswordXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/DownloadDocument" message="tns:IExternalSolutionExecution_DownloadDocument_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/DownloadDocumentResponse" message="tns:IExternalSolutionExecution_DownloadDocument_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ExecuteXMLString" message="tns:IExternalSolutionExecution_ExecuteXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ExecuteXMLStringResponse" message="tns:IExternalSolutionExecution_ExecuteXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalTrace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrace" message="tns:IExternalSolutionExecution_GetFinalTrace_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTraceResponse" message="tns:IExternalSolutionExecution_GetFinalTrace_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTraceExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetFinalTrace_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueAppCountXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLString" message="tns:IExternalSolutionExecution_GetQueueAppCountXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLStringResponse" message="tns:IExternalSolutionExecution_GetQueueAppCountXMLString_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLStringExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetQueueAppCountXMLString_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppCountByField">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetAppCountByField" message="tns:IExternalSolutionExecution_GetAppCountByField_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetAppCountByFieldResponse" message="tns:IExternalSolutionExecution_GetAppCountByField_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetAppCountByFieldExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetAppCountByField_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueAppCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCount" message="tns:IExternalSolutionExecution_GetQueueAppCount_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountResponse" message="tns:IExternalSolutionExecution_GetQueueAppCount_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetQueueAppCount_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolutionQueueNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNames" message="tns:IExternalSolutionExecution_GetSolutionQueueNames_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNamesResponse" message="tns:IExternalSolutionExecution_GetSolutionQueueNames_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNamesExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetSolutionQueueNames_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="LockApplicationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/LockApplicationXMLString" message="tns:IExternalSolutionExecution_LockApplicationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/LockApplicationXMLStringResponse" message="tns:IExternalSolutionExecution_LockApplicationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutSessionXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/LogoutSessionXMLString" message="tns:IExternalSolutionExecution_LogoutSessionXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/LogoutSessionXMLStringResponse" message="tns:IExternalSolutionExecution_LogoutSessionXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationAllFieldsById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsById" message="tns:IExternalSolutionExecution_ReadApplicationAllFieldsById_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsByIdResponse" message="tns:IExternalSolutionExecution_ReadApplicationAllFieldsById_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsByIdExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_ReadApplicationAllFieldsById_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationDataById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataById" message="tns:IExternalSolutionExecution_ReadApplicationDataById_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdResponse" message="tns:IExternalSolutionExecution_ReadApplicationDataById_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_ReadApplicationDataById_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationDataByIdAndQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueue" message="tns:IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueueResponse" message="tns:IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueueExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_ReadApplicationDataByIdAndQueue_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationFieldsById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsById" message="tns:IExternalSolutionExecution_ReadApplicationFieldsById_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdResponse" message="tns:IExternalSolutionExecution_ReadApplicationFieldsById_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_ReadApplicationFieldsById_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationFieldsByIdAndQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueue" message="tns:IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueueResponse" message="tns:IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueueExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_ReadApplicationFieldsByIdAndQueue_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignApplicationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReassignApplicationXMLString" message="tns:IExternalSolutionExecution_ReassignApplicationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReassignApplicationXMLStringResponse" message="tns:IExternalSolutionExecution_ReassignApplicationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignOrganizationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReassignOrganizationXMLString" message="tns:IExternalSolutionExecution_ReassignOrganizationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ReassignOrganizationXMLStringResponse" message="tns:IExternalSolutionExecution_ReassignOrganizationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RemoveDocument" message="tns:IExternalSolutionExecution_RemoveDocument_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RemoveDocumentResponse" message="tns:IExternalSolutionExecution_RemoveDocument_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordByUserXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ResetPasswordByUserXMLString" message="tns:IExternalSolutionExecution_ResetPasswordByUserXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ResetPasswordByUserXMLStringResponse" message="tns:IExternalSolutionExecution_ResetPasswordByUserXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAppsByRangeXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveAppsByRangeXMLString" message="tns:IExternalSolutionExecution_RetrieveAppsByRangeXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveAppsByRangeXMLStringResponse" message="tns:IExternalSolutionExecution_RetrieveAppsByRangeXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveDocumentMetaDataXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveDocumentMetaDataXMLString" message="tns:IExternalSolutionExecution_RetrieveDocumentMetaDataXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveDocumentMetaDataXMLStringResponse" message="tns:IExternalSolutionExecution_RetrieveDocumentMetaDataXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSecretQuestionXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveSecretQuestionXMLString" message="tns:IExternalSolutionExecution_RetrieveSecretQuestionXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveSecretQuestionXMLStringResponse" message="tns:IExternalSolutionExecution_RetrieveSecretQuestionXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSSXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveSSXMLString" message="tns:IExternalSolutionExecution_RetrieveSSXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveSSXMLStringResponse" message="tns:IExternalSolutionExecution_RetrieveSSXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveXMLString" message="tns:IExternalSolutionExecution_RetrieveXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/RetrieveXMLStringResponse" message="tns:IExternalSolutionExecution_RetrieveXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SaveXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SaveXMLString" message="tns:IExternalSolutionExecution_SaveXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SaveXMLStringResponse" message="tns:IExternalSolutionExecution_SaveXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SearchApplication" message="tns:IExternalSolutionExecution_SearchApplication_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationResponse" message="tns:IExternalSolutionExecution_SearchApplication_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_SearchApplication_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchApplicationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationXMLString" message="tns:IExternalSolutionExecution_SearchApplicationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationXMLStringResponse" message="tns:IExternalSolutionExecution_SearchApplicationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockApplicationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/UnlockApplicationXMLString" message="tns:IExternalSolutionExecution_UnlockApplicationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/UnlockApplicationXMLStringResponse" message="tns:IExternalSolutionExecution_UnlockApplicationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/UploadDocumentXMLString" message="tns:IExternalSolutionExecution_UploadDocumentXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/UploadDocumentXMLStringResponse" message="tns:IExternalSolutionExecution_UploadDocumentXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDvCaseStatusHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetDvCaseStatusHistory" message="tns:IExternalSolutionExecution_GetDvCaseStatusHistory_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetDvCaseStatusHistoryResponse" message="tns:IExternalSolutionExecution_GetDvCaseStatusHistory_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ViewApplicationHistoryXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationHistoryXMLString" message="tns:IExternalSolutionExecution_ViewApplicationHistoryXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationHistoryXMLStringResponse" message="tns:IExternalSolutionExecution_ViewApplicationHistoryXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ViewApplicationXMLString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationXMLString" message="tns:IExternalSolutionExecution_ViewApplicationXMLString_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationXMLStringResponse" message="tns:IExternalSolutionExecution_ViewApplicationXMLString_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalTrailByApplicationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationId" message="tns:IExternalSolutionExecution_GetFinalTrailByApplicationId_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationIdResponse" message="tns:IExternalSolutionExecution_GetFinalTrailByApplicationId_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationIdExternalServiceFaultFault" name="ExternalServiceFaultFault" message="tns:IExternalSolutionExecution_GetFinalTrailByApplicationId_ExternalServiceFaultFault_FaultMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicHttp" type="tns:IExternalSolutionExecution">
+    <wsp:PolicyReference URI="#basicHttp_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AuthenticateXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/AuthenticateXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ChangePasswordXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/DownloadDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ExecuteXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalTrace">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetFinalTrace" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueAppCountXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppCountByField">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetAppCountByField" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueAppCount">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCount" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolutionQueueNames">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNames" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LockApplicationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/LockApplicationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutSessionXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/LogoutSessionXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationAllFieldsById">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsById" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationDataById">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataById" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationDataByIdAndQueue">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueue" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationFieldsById">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsById" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationFieldsByIdAndQueue">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueue" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignApplicationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReassignApplicationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignOrganizationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ReassignOrganizationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocument">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RemoveDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordByUserXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ResetPasswordByUserXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAppsByRangeXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RetrieveAppsByRangeXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveDocumentMetaDataXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RetrieveDocumentMetaDataXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSecretQuestionXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RetrieveSecretQuestionXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSSXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RetrieveSSXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/RetrieveXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/SaveXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchApplication">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/SearchApplication" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchApplicationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/SearchApplicationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockApplicationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/UnlockApplicationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/UploadDocumentXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDvCaseStatusHistory">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetDvCaseStatusHistory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewApplicationHistoryXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ViewApplicationHistoryXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewApplicationXMLString">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/ViewApplicationXMLString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalTrailByApplicationId">
+      <soap:operation soapAction="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationId" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ExternalServiceFaultFault">
+        <soap:fault name="ExternalServiceFaultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExternalSolutionExecutionService">
+    <wsdl:port name="basicHttp" binding="tns:basicHttp">
+      <soap:address location="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/"/>
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.BusinessEntities.DigitalVerification"/>
+  <xs:element name="AuthenticateXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuthenticateXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangePasswordXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadDocumentResult" nillable="true" type="q1:DownloadDocumentResponseContract" xmlns:q1="http://schemas.datacontract.org/2004/07/"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExecuteXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinalTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q2:SecureRequest" xmlns:q2="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinalTraceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFinalTraceResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueAppCountXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueAppCountXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueueAppCountXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppCountByField">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppCountByFieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAppCountByFieldResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueAppCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q3:SecureRequest" xmlns:q3="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q4:GetQueueAppCountRequestContract" xmlns:q4="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueAppCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueueAppCountResult" nillable="true" type="q5:ResponseStatusContract" xmlns:q5="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="result" nillable="true" type="q6:ArrayOfGetQueueAppCountResultContract" xmlns:q6="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSolutionQueueNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q7:SecureRequest" xmlns:q7="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="solutionSetId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSolutionQueueNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSolutionQueueNamesResult" nillable="true" type="q8:ResponseStatusContract" xmlns:q8="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="queueNames" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LockApplicationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LockApplicationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LockApplicationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutSessionXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutSessionXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoutSessionXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationAllFieldsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q10:SecureRequest" xmlns:q10="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+        <xs:element minOccurs="0" name="includeNonTrackableFields" type="xs:boolean"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationAllFieldsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadApplicationAllFieldsByIdResult" nillable="true" type="q11:ResponseStatusContract" xmlns:q11="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="response" nillable="true" type="q12:ApplicationDataContract" xmlns:q12="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationDataById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q13:SecureRequest" xmlns:q13="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationDataByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadApplicationDataByIdResult" nillable="true" type="q14:ResponseStatusContract" xmlns:q14="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="response" nillable="true" type="q15:ApplicationDataContract" xmlns:q15="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationDataByIdAndQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q16:SecureRequest" xmlns:q16="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+        <xs:element minOccurs="0" name="queueName" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationDataByIdAndQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadApplicationDataByIdAndQueueResult" nillable="true" type="q17:ResponseStatusContract" xmlns:q17="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="response" nillable="true" type="q18:ApplicationDataContract" xmlns:q18="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationFieldsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q19:SecureRequest" xmlns:q19="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+        <xs:element minOccurs="0" name="appContextFields" nillable="true" type="q20:ArrayOfstring" xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <xs:element minOccurs="0" name="includeAllRuntimeExtendedFields" type="xs:boolean"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationFieldsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadApplicationFieldsByIdResult" nillable="true" type="q21:ResponseStatusContract" xmlns:q21="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="response" nillable="true" type="q22:ApplicationDataContract" xmlns:q22="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationFieldsByIdAndQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q23:SecureRequest" xmlns:q23="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+        <xs:element minOccurs="0" name="queueName" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="appContextFields" nillable="true" type="q24:ArrayOfstring" xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <xs:element minOccurs="0" name="includeAllRuntimeExtendedFields" type="xs:boolean"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationFieldsByIdAndQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadApplicationFieldsByIdAndQueueResult" nillable="true" type="q25:ResponseStatusContract" xmlns:q25="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="response" nillable="true" type="q26:ApplicationDataContract" xmlns:q26="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignApplicationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignApplicationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReassignApplicationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignOrganizationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignOrganizationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReassignOrganizationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveDocumentResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordByUserXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordByUserXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResetPasswordByUserXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveAppsByRangeXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveAppsByRangeXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RetrieveAppsByRangeXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveDocumentMetaDataXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveDocumentMetaDataXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RetrieveDocumentMetaDataXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSecretQuestionXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSecretQuestionXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RetrieveSecretQuestionXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSSXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSSXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RetrieveSSXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RetrieveXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q27:SecureRequest" xmlns:q27="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q28:SearchApplicationRequestContract" xmlns:q28="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchApplicationResult" nillable="true" type="q29:ResponseStatusContract" xmlns:q29="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="result" nillable="true" type="q30:SearchApplicationResultContract" xmlns:q30="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchApplicationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockApplicationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockApplicationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnlockApplicationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileBuffer" nillable="true" type="xs:base64Binary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadDocumentXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDvCaseStatusHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="secureRequest" nillable="true" type="q31:SecureRequest" xmlns:q31="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="appId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDvCaseStatusHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDvCaseStatusHistoryResult" nillable="true" type="q32:GetCaseStatusHistoryResponse" xmlns:q32="http://schemas.datacontract.org/2004/07/TU.IDS.BusinessEntities.DigitalVerification"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewApplicationHistoryXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewApplicationHistoryXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ViewApplicationHistoryXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewApplicationXMLString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewApplicationXMLStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ViewApplicationXMLStringResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinalTrailByApplicationId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestAuthToken" nillable="true" type="q33:SecureRequest" xmlns:q33="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="applicationId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinalTrailByApplicationIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFinalTrailByApplicationIdResult" nillable="true" type="q34:ResponseStatusContract" xmlns:q34="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices"/>
+        <xs:element minOccurs="0" name="result" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd2</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/">
+  <xs:complexType name="DownloadDocumentResponseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileContent" nillable="true" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="Response" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadDocumentResponseContract" nillable="true" type="tns:DownloadDocumentResponseContract"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd3</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:complexType name="SecureRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SessionToken" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecureRequest" nillable="true" type="tns:SecureRequest"/>
+  <xs:complexType name="ResponseStatusContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SessionToken" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Status" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="StatusText" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseStatusContract" nillable="true" type="tns:ResponseStatusContract"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd7</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
+  <xs:complexType name="ArrayOfKeyValueOfstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringstring">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string"/>
+            <xs:element name="Value" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringstring" nillable="true" type="tns:ArrayOfKeyValueOfstringstring"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd6</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution">
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:complexType name="GetQueueAppCountRequestContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicantFirstName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicantLastName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:long"/>
+      <xs:element minOccurs="0" name="CompleteDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CompleteDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CompleteDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentQueue" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentStatus" type="xs:int"/>
+      <xs:element minOccurs="0" name="CurrentUser" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust01" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust02" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust03" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust04" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust05" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust06" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust07" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust08" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="InquirySource" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="IsLocked" type="xs:int"/>
+      <xs:element minOccurs="0" name="OtherCriteria" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Query" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="QueueList" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SolutionSetId" type="xs:int"/>
+      <xs:element minOccurs="0" name="SortOrder" nillable="true" type="xs:anyType"/>
+      <xs:element minOccurs="0" name="UTCOffSet" type="xs:int"/>
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UpdatedDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UpdatedDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetQueueAppCountRequestContract" nillable="true" type="tns:GetQueueAppCountRequestContract"/>
+  <xs:complexType name="ArrayOfGetQueueAppCountResultContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetQueueAppCountResultContract" nillable="true" type="tns:GetQueueAppCountResultContract"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetQueueAppCountResultContract" nillable="true" type="tns:ArrayOfGetQueueAppCountResultContract"/>
+  <xs:complexType name="GetQueueAppCountResultContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCount" type="xs:long"/>
+      <xs:element minOccurs="0" name="QueueName" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetQueueAppCountResultContract" nillable="true" type="tns:GetQueueAppCountResultContract"/>
+  <xs:complexType name="ApplicationDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationDataContract" nillable="true" type="tns:ApplicationDataContract"/>
+  <xs:complexType name="SearchApplicationRequestContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicantFirstName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicantLastName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:long"/>
+      <xs:element minOccurs="0" name="CompleteDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CompleteDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CompleteDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentQueue" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentStatus" type="xs:int"/>
+      <xs:element minOccurs="0" name="CurrentUser" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust01" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust02" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust03" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust04" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust05" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust06" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust07" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust08" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ExternalApplicationId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="InquirySource" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="IsLocked" type="xs:int"/>
+      <xs:element minOccurs="0" name="MaxNoOfRecords" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="OtherCriteria" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PageDetailsRequired" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PageNo" type="xs:int"/>
+      <xs:element minOccurs="0" name="PageSize" type="xs:int"/>
+      <xs:element minOccurs="0" name="Query" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="QueueList" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SolutionSetId" type="xs:int"/>
+      <xs:element minOccurs="0" name="SortField" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SortOrder" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int"/>
+      <xs:element minOccurs="0" name="UTCOffSet" type="xs:int"/>
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UpdatedDate_From" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UpdatedDate_To" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchApplicationRequestContract" nillable="true" type="tns:SearchApplicationRequestContract"/>
+  <xs:complexType name="SearchApplicationResultContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageRangeEnds" type="xs:int"/>
+      <xs:element minOccurs="0" name="PageRangeStarts" type="xs:int"/>
+      <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfSearchApplicationResultDetailContract"/>
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchApplicationResultContract" nillable="true" type="tns:SearchApplicationResultContract"/>
+  <xs:complexType name="ArrayOfSearchApplicationResultDetailContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchApplicationResultDetailContract" nillable="true" type="tns:SearchApplicationResultDetailContract"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchApplicationResultDetailContract" nillable="true" type="tns:ArrayOfSearchApplicationResultDetailContract"/>
+  <xs:complexType name="SearchApplicationResultDetailContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicantFirstName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicantLastName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:long"/>
+      <xs:element minOccurs="0" name="BusinessUnitId" type="xs:long"/>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CompletedDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="CompletedUser" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentQueue" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CurrentStatus" type="xs:int"/>
+      <xs:element minOccurs="0" name="Cust01" nillable="true" type="xs:long"/>
+      <xs:element minOccurs="0" name="Cust02" nillable="true" type="xs:long"/>
+      <xs:element minOccurs="0" name="Cust03" nillable="true" type="xs:long"/>
+      <xs:element minOccurs="0" name="Cust04" nillable="true" type="xs:long"/>
+      <xs:element minOccurs="0" name="Cust05" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust06" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust07" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Cust08" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Decision" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="DocumentAttachments" type="xs:int"/>
+      <xs:element minOccurs="0" name="EnvironmentId" type="xs:int"/>
+      <xs:element minOccurs="0" name="EventOrder" type="xs:int"/>
+      <xs:element minOccurs="0" name="ExternalApplicationId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="InquirySource" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="IsLocked" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="SiteId" type="xs:int"/>
+      <xs:element minOccurs="0" name="SolutionSetId" type="xs:long"/>
+      <xs:element minOccurs="0" name="SolutionSetName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SolutionSetVersion" type="xs:int"/>
+      <xs:element minOccurs="0" name="Source" type="xs:int"/>
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="UpdatedUser" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="WorkflowInstanceId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchApplicationResultDetailContract" nillable="true" type="tns:SearchApplicationResultDetailContract"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd8</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TU.IDS.BusinessEntities.DigitalVerification" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TU.IDS.BusinessEntities.DigitalVerification">
+  <xs:complexType name="GetCaseStatusHistoryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DvCaseHistory" nillable="true" type="tns:ArrayOfDvCaseStatusHistory"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCaseStatusHistoryResponse" nillable="true" type="tns:GetCaseStatusHistoryResponse"/>
+  <xs:complexType name="ArrayOfDvCaseStatusHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DvCaseStatusHistory" nillable="true" type="tns:DvCaseStatusHistory"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDvCaseStatusHistory" nillable="true" type="tns:ArrayOfDvCaseStatusHistory"/>
+  <xs:complexType name="DvCaseStatusHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DvCaseStatusHistory" nillable="true" type="tns:DvCaseStatusHistory"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd4</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TU.IDS.FaultContracts">
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TU.IDS.ServiceShared.Utility"/>
+  <xs:complexType name="ExternalServiceFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorType" type="q1:ErrorType" xmlns:q1="http://schemas.datacontract.org/2004/07/TU.IDS.ServiceShared.Utility"/>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExternalServiceFault" nillable="true" type="tns:ExternalServiceFault"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd5</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TU.IDS.ServiceShared.Utility" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TU.IDS.ServiceShared.Utility">
+  <xs:import schemaLocation="https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+  <xs:simpleType name="ErrorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ApplicationError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BusinessValidationError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ErrorType" nillable="true" type="tns:ErrorType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint></con:endpoints><con:operation id="cec734ba-cda6-4311-bbdb-8ebbbfe78a91" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/AuthenticateXMLString" name="AuthenticateXMLString" bindingOperationName="AuthenticateXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="121f5de6-2848-4669-8edc-9d491561f74b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AuthenticateXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:AuthenticateXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/AuthenticateXMLString"/></con:call></con:operation><con:operation id="f67b2209-7435-4ca2-9687-5c4715d2c663" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ChangePasswordXMLString" name="ChangePasswordXMLString" bindingOperationName="ChangePasswordXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2568daa-79b3-41ce-adc2-875fe982ac1d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ChangePasswordXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ChangePasswordXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ChangePasswordXMLString"/></con:call></con:operation><con:operation id="50bee352-192c-42dc-8413-f83b93965b98" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/DownloadDocument" name="DownloadDocument" bindingOperationName="DownloadDocument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5354c70d-28c5-4e92-ac5c-87e71e91f986" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DownloadDocument>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:DownloadDocument>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/DownloadDocument"/></con:call></con:operation><con:operation id="12b5209a-8a3f-4247-97cc-60e685c8c281" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ExecuteXMLString" name="ExecuteXMLString" bindingOperationName="ExecuteXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c04cb85-90de-4116-bf95-bbf15396b1de" name="Test Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	<soapenv:Header/>
+		<soapenv:Body>
+			<tem:ExecuteXMLString>
+				<tem:request><![CDATA[<DCRequest xmlns="http://transunion.com/dc/extsvc">
+				<Authentication type="OnDemand">
+					<UserId>Eligibility_Atlas_Finance_UAT_User1</UserId>
+					<Password>AQa!4.pEZ@asj</Password>
+				</Authentication>
+				<RequestInfo>
+					<SolutionSetId>729</SolutionSetId>
+					<SolutionSetVersion>7</SolutionSetVersion>
+					<ExecutionMode>NewWithContext</ExecutionMode>
+				</RequestInfo>
+				<UserData></UserData>
+				<Fields>
+					<Field key="Applicant">
+					<![CDATA[<Applicant>
+					<Industry></Industry>Only
+					<Ruleset>PolicyFiltersAndScores</Ruleset>
+					<FirstName>PHINDILE</FirstName>
+					<Surname>XOLO</Surname>
+					<IdType>SAID</IdType>
+					<IdNumber>9902050802089</IdNumber>
+					<DateofBirth></DateofBirth>
+					<Gender></Gender>
+					<Income></Income>
+					<CellNumber></CellNumber>
+					</Applicant>]]]]]]>><![CDATA[<![CDATA[></Field>
+					<Field key="TrailLevel">0</Field>
+				</Fields></DCRequest>]]]]>><![CDATA[
+				</tem:request>
+			</tem:ExecuteXMLString>
+		</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ExecuteXMLString"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d6342ca4-d575-4ff9-bd8c-467ab38aa0f6" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetAppCountByField" name="GetAppCountByField" bindingOperationName="GetAppCountByField" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="05056d8b-b078-424b-b131-bed48b3719e7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetAppCountByField>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:GetAppCountByField>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetAppCountByField"/></con:call></con:operation><con:operation id="b92ea53f-7242-4842-ac8c-23aa3a6222db" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetDvCaseStatusHistory" name="GetDvCaseStatusHistory" bindingOperationName="GetDvCaseStatusHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6ed7a061-9e40-481e-a802-e91448c1dd3b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetDvCaseStatusHistory>
+         <!--Optional:-->
+         <tem:secureRequest>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:secureRequest>
+         <!--Optional:-->
+         <tem:appId>?</tem:appId>
+      </tem:GetDvCaseStatusHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetDvCaseStatusHistory"/></con:call></con:operation><con:operation id="51495d5e-d1c3-4f0e-a449-468800959789" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrace" name="GetFinalTrace" bindingOperationName="GetFinalTrace" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2aa2b12-0c49-4e8e-b182-4835733cab7e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetFinalTrace>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+      </tem:GetFinalTrace>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrace"/></con:call></con:operation><con:operation id="1b329c33-b246-4be8-8ef8-bb87f9700191" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationId" name="GetFinalTrailByApplicationId" bindingOperationName="GetFinalTrailByApplicationId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="123fdaf3-66f7-40ab-9f2e-f129ae5b8de3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetFinalTrailByApplicationId>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+      </tem:GetFinalTrailByApplicationId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetFinalTrailByApplicationId"/></con:call></con:operation><con:operation id="01c03d33-99cd-49ee-8bb4-3ec176e5330f" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCount" name="GetQueueAppCount" bindingOperationName="GetQueueAppCount" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="11cece1c-efae-4484-8082-053b6c8e4bca" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices" xmlns:tu1="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetQueueAppCount>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <tu1:ApplicantFirstName>?</tu1:ApplicantFirstName>
+            <!--Optional:-->
+            <tu1:ApplicantLastName>?</tu1:ApplicantLastName>
+            <!--Optional:-->
+            <tu1:ApplicationId>?</tu1:ApplicationId>
+            <!--Optional:-->
+            <tu1:CompleteDate>?</tu1:CompleteDate>
+            <!--Optional:-->
+            <tu1:CompleteDate_From>?</tu1:CompleteDate_From>
+            <!--Optional:-->
+            <tu1:CompleteDate_To>?</tu1:CompleteDate_To>
+            <!--Optional:-->
+            <tu1:CreateDate>?</tu1:CreateDate>
+            <!--Optional:-->
+            <tu1:CreateDate_From>?</tu1:CreateDate_From>
+            <!--Optional:-->
+            <tu1:CreateDate_To>?</tu1:CreateDate_To>
+            <!--Optional:-->
+            <tu1:CurrentQueue>?</tu1:CurrentQueue>
+            <!--Optional:-->
+            <tu1:CurrentStatus>?</tu1:CurrentStatus>
+            <!--Optional:-->
+            <tu1:CurrentUser>?</tu1:CurrentUser>
+            <!--Optional:-->
+            <tu1:Cust01>?</tu1:Cust01>
+            <!--Optional:-->
+            <tu1:Cust02>?</tu1:Cust02>
+            <!--Optional:-->
+            <tu1:Cust03>?</tu1:Cust03>
+            <!--Optional:-->
+            <tu1:Cust04>?</tu1:Cust04>
+            <!--Optional:-->
+            <tu1:Cust05>?</tu1:Cust05>
+            <!--Optional:-->
+            <tu1:Cust06>?</tu1:Cust06>
+            <!--Optional:-->
+            <tu1:Cust07>?</tu1:Cust07>
+            <!--Optional:-->
+            <tu1:Cust08>?</tu1:Cust08>
+            <!--Optional:-->
+            <tu1:InquirySource>?</tu1:InquirySource>
+            <!--Optional:-->
+            <tu1:IsLocked>?</tu1:IsLocked>
+            <!--Optional:-->
+            <tu1:OtherCriteria>?</tu1:OtherCriteria>
+            <!--Optional:-->
+            <tu1:Query>?</tu1:Query>
+            <!--Optional:-->
+            <tu1:QueueList>?</tu1:QueueList>
+            <!--Optional:-->
+            <tu1:SolutionSetId>?</tu1:SolutionSetId>
+            <!--Optional:-->
+            <tu1:SortOrder>?</tu1:SortOrder>
+            <!--Optional:-->
+            <tu1:UTCOffSet>?</tu1:UTCOffSet>
+            <!--Optional:-->
+            <tu1:UpdatedDate>?</tu1:UpdatedDate>
+            <!--Optional:-->
+            <tu1:UpdatedDate_From>?</tu1:UpdatedDate_From>
+            <!--Optional:-->
+            <tu1:UpdatedDate_To>?</tu1:UpdatedDate_To>
+            <!--Optional:-->
+            <tu1:UserId>?</tu1:UserId>
+         </tem:request>
+      </tem:GetQueueAppCount>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCount"/></con:call></con:operation><con:operation id="86d97c50-a410-4a42-81d2-1dd2da449fb2" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLString" name="GetQueueAppCountXMLString" bindingOperationName="GetQueueAppCountXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="972e9cbf-ab30-4d09-9df1-85527f1365e6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetQueueAppCountXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:GetQueueAppCountXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetQueueAppCountXMLString"/></con:call></con:operation><con:operation id="717ce16c-db17-446b-9e50-7a7987f4efe4" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNames" name="GetSolutionQueueNames" bindingOperationName="GetSolutionQueueNames" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1cbefedf-41ef-4980-b251-f1a671138f25" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetSolutionQueueNames>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:solutionSetId>?</tem:solutionSetId>
+      </tem:GetSolutionQueueNames>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/GetSolutionQueueNames"/></con:call></con:operation><con:operation id="5f3b5272-d8ec-4154-8b2d-8150886f8034" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/LockApplicationXMLString" name="LockApplicationXMLString" bindingOperationName="LockApplicationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a57dc4dd-ae1e-447e-8c34-2036b6189035" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LockApplicationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:LockApplicationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/LockApplicationXMLString"/></con:call></con:operation><con:operation id="0d4e92c4-eafc-497d-b6a5-a67a5a12e3e0" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/LogoutSessionXMLString" name="LogoutSessionXMLString" bindingOperationName="LogoutSessionXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="95411d17-1e5b-46cb-b5da-e36ca2e92ad5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LogoutSessionXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:LogoutSessionXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/LogoutSessionXMLString"/></con:call></con:operation><con:operation id="bb7f2cee-24f0-44a4-9be0-6a6b30c77ef8" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsById" name="ReadApplicationAllFieldsById" bindingOperationName="ReadApplicationAllFieldsById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dddc6386-cdff-4f33-b1e6-2fd58b54fb79" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReadApplicationAllFieldsById>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+         <!--Optional:-->
+         <tem:includeNonTrackableFields>?</tem:includeNonTrackableFields>
+      </tem:ReadApplicationAllFieldsById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationAllFieldsById"/></con:call></con:operation><con:operation id="a5027f8a-282d-49b9-b6e7-b10725a124d9" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataById" name="ReadApplicationDataById" bindingOperationName="ReadApplicationDataById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dbe0c819-1920-4d25-be26-3c480e2ee675" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReadApplicationDataById>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+      </tem:ReadApplicationDataById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataById"/></con:call></con:operation><con:operation id="46140c19-7502-4968-b1cd-f427c7ce4977" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueue" name="ReadApplicationDataByIdAndQueue" bindingOperationName="ReadApplicationDataByIdAndQueue" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4e9becc7-328d-47cc-bdea-1c1f93d1dbf9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReadApplicationDataByIdAndQueue>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+         <!--Optional:-->
+         <tem:queueName>?</tem:queueName>
+      </tem:ReadApplicationDataByIdAndQueue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationDataByIdAndQueue"/></con:call></con:operation><con:operation id="f3facb3e-4241-4afe-a1ef-eaee63ecf276" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsById" name="ReadApplicationFieldsById" bindingOperationName="ReadApplicationFieldsById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cde7b3e3-8ca8-4a79-bab4-a944270f7a44" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReadApplicationFieldsById>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+         <!--Optional:-->
+         <tem:appContextFields>
+            <!--Zero or more repetitions:-->
+            <arr:string>?</arr:string>
+         </tem:appContextFields>
+         <!--Optional:-->
+         <tem:includeAllRuntimeExtendedFields>?</tem:includeAllRuntimeExtendedFields>
+      </tem:ReadApplicationFieldsById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsById"/></con:call></con:operation><con:operation id="100c2332-656e-4dd3-af52-704124ba3d00" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueue" name="ReadApplicationFieldsByIdAndQueue" bindingOperationName="ReadApplicationFieldsByIdAndQueue" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dfcb4451-353b-4ea8-bb75-a39da51b0609" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReadApplicationFieldsByIdAndQueue>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:applicationId>?</tem:applicationId>
+         <!--Optional:-->
+         <tem:queueName>?</tem:queueName>
+         <!--Optional:-->
+         <tem:appContextFields>
+            <!--Zero or more repetitions:-->
+            <arr:string>?</arr:string>
+         </tem:appContextFields>
+         <!--Optional:-->
+         <tem:includeAllRuntimeExtendedFields>?</tem:includeAllRuntimeExtendedFields>
+      </tem:ReadApplicationFieldsByIdAndQueue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReadApplicationFieldsByIdAndQueue"/></con:call></con:operation><con:operation id="9a0ca81a-6b2c-4f39-88e3-0510fd7acfa6" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReassignApplicationXMLString" name="ReassignApplicationXMLString" bindingOperationName="ReassignApplicationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a7211d58-673d-4385-b7e7-72c302538737" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReassignApplicationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ReassignApplicationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReassignApplicationXMLString"/></con:call></con:operation><con:operation id="21663792-fa02-49b0-bbd9-2cec5be0cce3" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ReassignOrganizationXMLString" name="ReassignOrganizationXMLString" bindingOperationName="ReassignOrganizationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="699a224a-81c7-4dda-aa29-be4dd6e55be6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ReassignOrganizationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ReassignOrganizationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ReassignOrganizationXMLString"/></con:call></con:operation><con:operation id="005259a5-1528-4f94-9d5e-925fb8cbe9eb" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RemoveDocument" name="RemoveDocument" bindingOperationName="RemoveDocument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8eb40882-d56d-4f74-9aee-ceaaa1e1680d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RemoveDocument>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RemoveDocument>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RemoveDocument"/></con:call></con:operation><con:operation id="5e3d2b68-0a2d-4bab-8250-5867b2cd8530" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ResetPasswordByUserXMLString" name="ResetPasswordByUserXMLString" bindingOperationName="ResetPasswordByUserXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d2faae74-dfd7-47c8-ba3d-77a391591578" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ResetPasswordByUserXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ResetPasswordByUserXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ResetPasswordByUserXMLString"/></con:call></con:operation><con:operation id="13af0d76-ed8f-4883-9e6a-4f6f0848def3" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RetrieveAppsByRangeXMLString" name="RetrieveAppsByRangeXMLString" bindingOperationName="RetrieveAppsByRangeXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c7d191d-97cc-4444-85db-09cf9487bcd5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RetrieveAppsByRangeXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RetrieveAppsByRangeXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RetrieveAppsByRangeXMLString"/></con:call></con:operation><con:operation id="f96a8afb-b8f0-4226-be38-d214c5fdf995" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RetrieveDocumentMetaDataXMLString" name="RetrieveDocumentMetaDataXMLString" bindingOperationName="RetrieveDocumentMetaDataXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edb6d41e-db0b-4da4-b063-b8c7c6956808" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RetrieveDocumentMetaDataXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RetrieveDocumentMetaDataXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RetrieveDocumentMetaDataXMLString"/></con:call></con:operation><con:operation id="321ca2b4-9373-425e-833a-c499f06ec972" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RetrieveSecretQuestionXMLString" name="RetrieveSecretQuestionXMLString" bindingOperationName="RetrieveSecretQuestionXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5ced45e5-5846-4260-98a8-48bb78f4208b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RetrieveSecretQuestionXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RetrieveSecretQuestionXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RetrieveSecretQuestionXMLString"/></con:call></con:operation><con:operation id="aa4b865e-8c28-42e8-8167-c2aa1f033849" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RetrieveSSXMLString" name="RetrieveSSXMLString" bindingOperationName="RetrieveSSXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a99646d-2531-4fdf-b866-e39ed3320d8c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RetrieveSSXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RetrieveSSXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RetrieveSSXMLString"/></con:call></con:operation><con:operation id="f13a4f1a-6eda-442d-9df6-6a1377b86c8d" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/RetrieveXMLString" name="RetrieveXMLString" bindingOperationName="RetrieveXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1282d189-0e29-4dcc-830b-e58f9bd811c9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RetrieveXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:RetrieveXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/RetrieveXMLString"/></con:call></con:operation><con:operation id="7d678b74-09d8-4172-8f68-d77da6eeeba9" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/SaveXMLString" name="SaveXMLString" bindingOperationName="SaveXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d5afb6a2-6ad6-435e-bb0a-4d0933da9ba9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SaveXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:SaveXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/SaveXMLString"/></con:call></con:operation><con:operation id="80b0b2fa-ab43-4848-8e5a-625ef5029011" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/SearchApplication" name="SearchApplication" bindingOperationName="SearchApplication" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a8ccc43a-00f9-4636-834d-9c36f8848b93" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:tu="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices" xmlns:tu1="http://schemas.datacontract.org/2004/07/TU.IDS.DataContracts.ExternalServices.SolutionExecution">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchApplication>
+         <!--Optional:-->
+         <tem:requestAuthToken>
+            <!--Optional:-->
+            <tu:Culture>?</tu:Culture>
+            <!--Optional:-->
+            <tu:SessionToken>?</tu:SessionToken>
+            <!--Optional:-->
+            <tu:UserId>?</tu:UserId>
+            <!--Optional:-->
+            <tu:UserPassword>?</tu:UserPassword>
+         </tem:requestAuthToken>
+         <!--Optional:-->
+         <tem:request>
+            <!--Optional:-->
+            <tu1:ApplicantFirstName>?</tu1:ApplicantFirstName>
+            <!--Optional:-->
+            <tu1:ApplicantLastName>?</tu1:ApplicantLastName>
+            <!--Optional:-->
+            <tu1:ApplicationId>?</tu1:ApplicationId>
+            <!--Optional:-->
+            <tu1:CompleteDate>?</tu1:CompleteDate>
+            <!--Optional:-->
+            <tu1:CompleteDate_From>?</tu1:CompleteDate_From>
+            <!--Optional:-->
+            <tu1:CompleteDate_To>?</tu1:CompleteDate_To>
+            <!--Optional:-->
+            <tu1:CreateDate>?</tu1:CreateDate>
+            <!--Optional:-->
+            <tu1:CreateDate_From>?</tu1:CreateDate_From>
+            <!--Optional:-->
+            <tu1:CreateDate_To>?</tu1:CreateDate_To>
+            <!--Optional:-->
+            <tu1:CurrentQueue>?</tu1:CurrentQueue>
+            <!--Optional:-->
+            <tu1:CurrentStatus>?</tu1:CurrentStatus>
+            <!--Optional:-->
+            <tu1:CurrentUser>?</tu1:CurrentUser>
+            <!--Optional:-->
+            <tu1:Cust01>?</tu1:Cust01>
+            <!--Optional:-->
+            <tu1:Cust02>?</tu1:Cust02>
+            <!--Optional:-->
+            <tu1:Cust03>?</tu1:Cust03>
+            <!--Optional:-->
+            <tu1:Cust04>?</tu1:Cust04>
+            <!--Optional:-->
+            <tu1:Cust05>?</tu1:Cust05>
+            <!--Optional:-->
+            <tu1:Cust06>?</tu1:Cust06>
+            <!--Optional:-->
+            <tu1:Cust07>?</tu1:Cust07>
+            <!--Optional:-->
+            <tu1:Cust08>?</tu1:Cust08>
+            <!--Optional:-->
+            <tu1:ExternalApplicationId>?</tu1:ExternalApplicationId>
+            <!--Optional:-->
+            <tu1:InquirySource>?</tu1:InquirySource>
+            <!--Optional:-->
+            <tu1:IsLocked>?</tu1:IsLocked>
+            <!--Optional:-->
+            <tu1:MaxNoOfRecords>?</tu1:MaxNoOfRecords>
+            <!--Optional:-->
+            <tu1:OtherCriteria>?</tu1:OtherCriteria>
+            <!--Optional:-->
+            <tu1:PageDetailsRequired>?</tu1:PageDetailsRequired>
+            <!--Optional:-->
+            <tu1:PageNo>?</tu1:PageNo>
+            <!--Optional:-->
+            <tu1:PageSize>?</tu1:PageSize>
+            <!--Optional:-->
+            <tu1:Query>?</tu1:Query>
+            <!--Optional:-->
+            <tu1:QueueList>?</tu1:QueueList>
+            <!--Optional:-->
+            <tu1:SolutionSetId>?</tu1:SolutionSetId>
+            <!--Optional:-->
+            <tu1:SortField>?</tu1:SortField>
+            <!--Optional:-->
+            <tu1:SortOrder>?</tu1:SortOrder>
+            <!--Optional:-->
+            <tu1:TotalCount>?</tu1:TotalCount>
+            <!--Optional:-->
+            <tu1:UTCOffSet>?</tu1:UTCOffSet>
+            <!--Optional:-->
+            <tu1:UpdatedDate>?</tu1:UpdatedDate>
+            <!--Optional:-->
+            <tu1:UpdatedDate_From>?</tu1:UpdatedDate_From>
+            <!--Optional:-->
+            <tu1:UpdatedDate_To>?</tu1:UpdatedDate_To>
+            <!--Optional:-->
+            <tu1:UserId>?</tu1:UserId>
+         </tem:request>
+      </tem:SearchApplication>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/SearchApplication"/></con:call></con:operation><con:operation id="0644dd36-3e7f-4663-a29f-b2fe49d522da" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationXMLString" name="SearchApplicationXMLString" bindingOperationName="SearchApplicationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="15b7ba39-6fd5-4773-9a2c-31dd10a8b7b1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SearchApplicationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:SearchApplicationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/SearchApplicationXMLString"/></con:call></con:operation><con:operation id="2e6f2411-2885-4235-9131-fb233615a580" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/UnlockApplicationXMLString" name="UnlockApplicationXMLString" bindingOperationName="UnlockApplicationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a8fd64c9-491e-4f83-93a5-c27b29e211d0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UnlockApplicationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:UnlockApplicationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/UnlockApplicationXMLString"/></con:call></con:operation><con:operation id="abfed009-9ea9-48a9-b7ff-f1d560391845" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/UploadDocumentXMLString" name="UploadDocumentXMLString" bindingOperationName="UploadDocumentXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="be9c02c5-43d3-451f-bd7b-456444c8c7dd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadDocumentXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+         <!--Optional:-->
+         <tem:fileBuffer>cid:1436192675540</tem:fileBuffer>
+      </tem:UploadDocumentXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/UploadDocumentXMLString"/></con:call></con:operation><con:operation id="9c307d82-2f56-467a-ae47-95dd51c742e9" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationHistoryXMLString" name="ViewApplicationHistoryXMLString" bindingOperationName="ViewApplicationHistoryXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bf176fbd-7879-4107-b15d-bc0bc8c529f0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ViewApplicationHistoryXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ViewApplicationHistoryXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationHistoryXMLString"/></con:call></con:operation><con:operation id="577f7f4e-b9a7-457c-bb8e-d2881fcd2c30" isOneWay="false" action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationXMLString" name="ViewApplicationXMLString" bindingOperationName="ViewApplicationXMLString" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18136fd6-30d7-4bc9-a275-d3dc02e6d3c6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://deservices-uat.transunion.co.za/DE/ExternalServices/SolutionExecution/ExternalSolutionExecution.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ViewApplicationXMLString>
+         <!--Optional:-->
+         <tem:request>?</tem:request>
+      </tem:ViewApplicationXMLString>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IExternalSolutionExecution/ViewApplicationXMLString"/></con:call></con:operation></con:interface><con:testSuite id="3908b80c-b862-4c03-9ea4-1c532f5b4fde" name="TransUnion Test"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="39b022d6-4737-41a1-807d-108ccb03d902" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Read Test Cases" id="adcf57b1-edea-4f57-bdbc-5f57d50288b9"><con:settings/><con:config><script>def csvFile = new File("/Users/johan/Workspace/Matogen/Atlas/TransUnion/TransUnion_Credit_Check_TestCases.csv")
+def lines = csvFile.readLines()
+
+lines.drop(1).each { line ->
+    def clean = line.trim()
+    def data = clean.split(',')
+
+    //log.info "ID No: ${data[1].trim()}"
+}
+
+
+    def csvFile = new File("/Users/johan/Workspace/Matogen/Atlas/TransUnion/TransUnion_Credit_Check_TestCases.csv")
+    def lines = csvFile.readLines()
+
+    // Assuming the first line is a header and you want to skip it
+    lines.drop(1).each { line ->
+        def data = line.split(',') // Split by comma
+
+        println data[1]
+
+        // Access individual data points, e.g., data[0], data[1]
+        // You can store these in Test Case properties for later use
+        //testRunner.testCase.setPropertyValue("param1", data[0])
+        //testRunner.testCase.setPropertyValue("param2", data[1])
+
+        // Trigger the SOAP Request step (explained next)
+        //testRunner.runTestStepByName("SOAP Request Step Name")
+    }
+</script></con:config></con:testStep><con:properties><con:property><con:name>param1</con:name><con:value>53467318</con:value></con:property><con:property><con:name>param2</con:name><con:value>9805085440082</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

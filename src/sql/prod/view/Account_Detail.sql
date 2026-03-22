@@ -18,31 +18,31 @@ select
 	,	TO_CHAR(aa."OpenDate", 'YYYYMM')::int "OpenMonth"
 	, apf."Description" as "PaymentFrequency"
 	, case 
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 0   and 30  then '1'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 31  and 60  then '2'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 61  and 90  then '3'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 91  and 120 then '4'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 121 and 150 then '5'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 151 and 180 then '6'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 181 and 210 then '7'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 211 and 240 then '8'
-		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 241 and 270 then '9'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 0   and 30  then ' 1'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 31  and 60  then ' 2'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 61  and 90  then ' 3'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 91  and 120 then ' 4'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 121 and 150 then ' 5'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 151 and 180 then ' 6'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 181 and 210 then ' 7'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 211 and 240 then ' 8'
+		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 241 and 270 then ' 9'
 		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 271 and 300 then '10'
 		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 301 and 330 then '11'
 		when ( aa."NumOfInstalments" * apf."DaysInOneTerm") between 331 and 360 then '12'
 		else	'12+' 
 		end  "Loan_Term"
 	, case 
-		when ( aa."LoanAmount"  between 0    and 1000  ) then '   0 - 1000'
-		when ( aa."LoanAmount"  between 1001 and 2000  ) then '1001 - 2000'
-		when ( aa."LoanAmount"  between 2001 and 3000  ) then '2001 - 3000'
-		when ( aa."LoanAmount"  between 3001 and 4000  ) then '3001 - 4000'
-		when ( aa."LoanAmount"  between 4001 and 5000  ) then '4001 - 5000'
-		when ( aa."LoanAmount"  between 5001 and 6000  ) then '5001 - 6000'
-		when ( aa."LoanAmount"  between 6001 and 7000  ) then '6001 - 7000'
-		when ( aa."LoanAmount"  between 7001 and 8000  ) then '7001 - 8000'
-		when ( aa."LoanAmount"  between 8001 and 9000  ) then '8001 - 9000'
-		when ( aa."LoanAmount"  between 9001 and 10000 ) then '9001 - 10000'
+		when ( aa."LoanAmount"  between 0    and 1000  ) 	then '0     - 1000'
+		when ( aa."LoanAmount"  between 1001 and 2000  ) 	then '01001 - 2000'
+		when ( aa."LoanAmount"  between 2001 and 3000  ) 	then '02001 - 3000'
+		when ( aa."LoanAmount"  between 3001 and 4000  ) 	then '03001 - 4000'
+		when ( aa."LoanAmount"  between 4001 and 5000  ) 	then '04001 - 5000'
+		when ( aa."LoanAmount"  between 5001 and 6000  ) 	then '05001 - 6000'
+		when ( aa."LoanAmount"  between 6001 and 7000  ) 	then '06001 - 7000'
+		when ( aa."LoanAmount"  between 7001 and 8000  ) 	then '07001 - 8000'
+		when ( aa."LoanAmount"  between 8001 and 9000  ) 	then '08001 - 9000'
+		when ( aa."LoanAmount"  between 9001 and 10000 ) 	then '09001 - 10000'
 		when ( aa."LoanAmount"  between 10001 and 11000 ) then '10001 - 11000'
 		when ( aa."LoanAmount"  between 11001 and 12000 ) then '11001 - 12000'
 		when ( aa."LoanAmount"  between 12001 and 13000 ) then '12001 - 13000'
@@ -80,14 +80,22 @@ select
 	, coalesce(xds."Bureau_Returned",'Experian') "Bureau_Returned"
 	, xds."Bureau_Score"
 	,	case 
-		when a."NLRScore" <= 579 then '  0 - 580'
-		when a."NLRScore" >= 621 then '621 +'
-		else (TRUNC(a."NLRScore" / 5) * 5 + 1)::text ||' - '||(TRUNC(a."NLRScore" / 5) * 5 + 5)::text 
+		when a."NLRScore" is null or a."NLRScore" = 0 	then '  0'
+		when a."NLRScore" between 1 and 4 							then '  1 - 4 (Thin File)'
+		when a."NLRScore" between 5 and 580 						then '  5 - 580'
+		when a."NLRScore" > 	620 											then '621  +'
+		else 
+		      lpad(((trunc((a."NLRScore" - 581) / 5) * 5) + 581)::text, 3, ' ') 
+		      || ' - ' ||
+		      lpad((((trunc((a."NLRScore" - 581) / 5) * 5) + 585))::text, 3, ' ')
 		end  "BureauScoreBand"
   , case 
-		when cs."ApplicationScore" < 560 then '  0 - 560'
-		when cs."ApplicationScore" >= 750 then '750 +'
-		else ((cs."ApplicationScore" / 5) * 5 + 1)::text||' - '||((cs."ApplicationScore" / 5) * 5 + 5)::text
+		when cs."ApplicationScore" <= 560 then '  0 - 560'
+		when cs."ApplicationScore" >  750 then '751 +'
+		else 
+		      lpad(((trunc((cs."ApplicationScore" - 561) / 5) * 5) + 561)::text, 3, ' ') 
+		      || ' - ' ||
+		      lpad((((trunc((cs."ApplicationScore" - 561) / 5) * 5) + 565))::text, 3, ' ')
 		end  "ApplicationScoreBand"
 	, case 
 		when ( psh."PaymentStatusDescription" is not null ) then  psh."PaymentStatusDescription"
