@@ -92,6 +92,8 @@ try:
         ("Quotation.sql" , "Quotation", ['QuotationId']),
         ("ACC_PaymentStatusHistory.sql" , "ACC_PaymentStatusHistory", ['PaymentStatusHistoryId'])
       ]  
+    
+    table_scripts = [("CreditScore.sql" , "CreditScore", ['CreditScoreId'])]
 
     # Collect all the related tables
     for script_file, table_name, key_columns in table_scripts:

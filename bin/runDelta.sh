@@ -62,5 +62,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+#Remove log files older than 7 days
+log_message "Remove log files older than 7 days in $(LOG_DIR)"
+find "$LOG_DIR"  -type f -name "*.log" -mtime +7 -print -delete >> "$LOG_FILENAME" 2>&1
+if [ $? -ne 0 ]; then
+    echo "Removing log files failed." >> "$LOG_FILENAME" 2>&1
+    exit 1
+fi
+
 # Print the total runtime
 log_message "Total runtime: ${SECONDS} Seconds"
